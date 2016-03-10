@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://yoursite.com/2016/03/10/%E5%88%A9%E7%94%A8UIImagePickerControllerReferenceURL%E8%B7%AF%E5%BE%84%E4%B8%8A%E4%BC%A0%E8%A7%86%E9%A2%91/</loc>
+    <lastmod>2016-03-10T15:39:56.000Z</lastmod>
+    <data>
+        <display>
+        <title>利用UIImagePickerControllerReferenceURL路径上传视频</title>
+        <pubTime>2016-03-10T08:02:34.000Z</pubTime>
+        
+        <tag>授人以鱼</tag>
+         
+         
+           
+             
+              <breadCrumb title="Objective-C" url="http://yoursite.com/categories/Objective-C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2016/02/23/postName/</loc>
     <lastmod>2016-03-10T08:52:58.000Z</lastmod>
     <data>
@@ -11,23 +31,6 @@
         <title>个人站点落成</title>
         <pubTime>2016-02-23T07:55:16.000Z</pubTime>
         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/03/10/%E5%88%A9%E7%94%A8UIImagePickerControllerReferenceURL%E8%B7%AF%E5%BE%84%E4%B8%8A%E4%BC%A0%E8%A7%86%E9%A2%91/</loc>
-    <lastmod>2016-03-10T08:23:07.000Z</lastmod>
-    <data>
-        <display>
-        <title>利用UIImagePickerControllerReferenceURL路径上传视频</title>
-        <pubTime>2016-03-10T08:02:34.000Z</pubTime>
-        
-        <tag>授人以鱼、iOS</tag>
-         
          
            
         </display>
