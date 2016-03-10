@@ -201,15 +201,112 @@
 
     
     
+
+    
       
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/03/10/利用UIImagePickerControllerReferenceURL路径上传视频/" itemprop="url">
+                  利用UIImagePickerControllerReferenceURL路径上传视频
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-03-10T16:02:34+08:00" content="2016-03-10">
+              2016-03-10
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/10/利用UIImagePickerControllerReferenceURL路径上传视频/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/10/利用UIImagePickerControllerReferenceURL路径上传视频/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+          
+              
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
-        
-        
-        
       
 
       
-    
+        
+          
+            <h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><p>&emsp;&emsp;在选取手机相册的视频时，我们调用系统的UIImagePickerController时会拿到info 字典。打印发现有三个键值对。分别是</p>
+<p> NSString *const UIImagePickerControllerMediaType; </p>
+<p> NSString *const UIImagePickerControllerMediaURL;</p>
+<p> NSString *const UIImagePickerControllerReferenceURL;</p>
+<p> 如下图所示<br><img src="http://7xrm0o.com1.z0.glb.clouddn.com/imagepickerReferenceURL.jpg" alt="info内容"><br>&emsp;&emsp;正常我们上传视频拿到MediaURL转换为NSData即可。但最近有个需求，从服务端下载的视频在手机进行分享时，需要上传我们分享的视频，当调用UIImagePickerController选定视频时发现拿不到MediaURL, 只能获取到ReferenceURL。我们通过ReferenceURL进行视频上传发现不起作用。        </p>
+<h1 id="如何拿到视频的绝对地址呢？"><a href="#如何拿到视频的绝对地址呢？" class="headerlink" title="如何拿到视频的绝对地址呢？"></a>如何拿到视频的绝对地址呢？</h1><blockquote>
+<p> 从前有座山，名曰百度山，村里老人说山的那边有水，我爬啊爬，爬到外婆桥。终于翻过百度山，衣服也被路上的荆棘撕破了，水坑都没见一个。幸好有个猎户指点我往前有个谷歌峰，那边水资源丰富。</p>
+</blockquote>
+<p>&emsp;&emsp;搭桥爬墙发现水源如下：</p>
+<p> NSURL <em>videoURL = [info objectForKey:UIImagePickerControllerReferenceURL];<br> NSString </em> filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];<br>        NSString <em> photoFile= [filePath stringByAppendingPathComponent:@”test.mov”];<br>        ALAssetsLibrary </em>assetLibrary=[[ALAssetsLibrary alloc] init];<br>        [assetLibrary assetForURL:videoURL resultBlock:^(ALAsset <em>asset)<br>         {<br>             ALAssetRepresentation </em>rep = [asset defaultRepresentation];<br>             Byte <em>buffer = (Byte</em>)malloc(rep.size);<br>             NSUInteger buffered = [rep getBytes:buffer fromOffset:0.0 length:rep.size error:nil];<br>             NSData <em>data = [NSData dataWithBytesNoCopy:buffer length:buffered freeWhenDone:YES];//this is NSData may be what you want<br>             [data writeToFile:photoFile atomically:YES]; //you can remove this if only nsdata needed<br>             NSLog(@”%@”,photoFile);<br>         }<br>                                        failureBlock:^(NSError </em>err) {<br>                                            NSLog(@”Error: %@”,[err localizedDescription]);<br>                                        }];</p>
+<p>如此将以上方法应用于</p>
+<ul>
+<li>(void) imagePickerController: (UIImagePickerController <em>) picker<br>didFinishPickingMediaWithInfo: (NSDictionary </em>) info<br>完美解决。</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -306,107 +403,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/02/23/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2016-02-23T14:47:18+08:00" content="2016-02-23">
-              2016-02-23
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/02/23/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/23/hello-world/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-          
-              
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -456,6 +452,13 @@
           
           
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
           
 
         </nav>
