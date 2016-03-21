@@ -43,7 +43,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="授人以鱼," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -59,20 +59,16 @@
 
 
 
-<meta name="description" content="遇到的问题&amp;emsp;&amp;emsp;在选取手机相册的视频时，我们调用系统的UIImagePickerController时会拿到info 字典。打印发现有三个键值对。分别是
-1NSString *const UIImagePickerControllerMediaType; &amp;#10;NSString *const UIImagePickerControllerMediaURL;&amp;#10;NSStr">
+<meta name="description" content="&amp;emsp;&amp;emsp;接到了一个需求，启动页加入广告。点击广告页面可以跳转我们推广的页面或者外联的WebView页面。虽然Apple不推荐这么做，但现在网易新闻、知乎日报都这么干。能挣钱这事还是从了。&amp;emsp;&amp;emsp;在实践中参考了网上的实现方案，真心说在百度搜这个很蛋疼。在CocoaChina中有个思路：一种替换根视图控制器先展示广告页，再替换为原先的主页视图控制器为RootViewCo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用UIImagePickerControllerReferenceURL路径上传视频">
-<meta property="og:url" content="http://yoursite.com/2016/03/10/利用UIImagePickerControllerReferenceURL路径上传视频/index.html">
+<meta property="og:title" content="iOS启动加载广告">
+<meta property="og:url" content="http://yoursite.com/2016/03/02/iOS启动加载广告/index.html">
 <meta property="og:site_name" content="看可能">
-<meta property="og:description" content="遇到的问题&amp;emsp;&amp;emsp;在选取手机相册的视频时，我们调用系统的UIImagePickerController时会拿到info 字典。打印发现有三个键值对。分别是
-1NSString *const UIImagePickerControllerMediaType; &amp;#10;NSString *const UIImagePickerControllerMediaURL;&amp;#10;NSStr">
-<meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/imagepickerReferenceURL.jpg">
-<meta property="og:updated_time" content="2016-03-11T08:52:31.000Z">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;接到了一个需求，启动页加入广告。点击广告页面可以跳转我们推广的页面或者外联的WebView页面。虽然Apple不推荐这么做，但现在网易新闻、知乎日报都这么干。能挣钱这事还是从了。&amp;emsp;&amp;emsp;在实践中参考了网上的实现方案，真心说在百度搜这个很蛋疼。在CocoaChina中有个思路：一种替换根视图控制器先展示广告页，再替换为原先的主页视图控制器为RootViewCo">
+<meta property="og:updated_time" content="2016-03-16T07:17:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用UIImagePickerControllerReferenceURL路径上传视频">
-<meta name="twitter:description" content="遇到的问题&amp;emsp;&amp;emsp;在选取手机相册的视频时，我们调用系统的UIImagePickerController时会拿到info 字典。打印发现有三个键值对。分别是
-1NSString *const UIImagePickerControllerMediaType; &amp;#10;NSString *const UIImagePickerControllerMediaURL;&amp;#10;NSStr">
+<meta name="twitter:title" content="iOS启动加载广告">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;接到了一个需求，启动页加入广告。点击广告页面可以跳转我们推广的页面或者外联的WebView页面。虽然Apple不推荐这么做，但现在网易新闻、知乎日报都这么干。能挣钱这事还是从了。&amp;emsp;&amp;emsp;在实践中参考了网上的实现方案，真心说在百度搜这个很蛋疼。在CocoaChina中有个思路：一种替换根视图控制器先展示广告页，再替换为原先的主页视图控制器为RootViewCo">
 
 
 
@@ -90,7 +86,7 @@
   };
 </script>
 
-  <title> 利用UIImagePickerControllerReferenceURL路径上传视频 | 看可能 </title>
+  <title> iOS启动加载广告 | 看可能 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -210,7 +206,7 @@
             
             
               
-                利用UIImagePickerControllerReferenceURL路径上传视频
+                iOS启动加载广告
               
             
           </h1>
@@ -222,8 +218,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-10T16:02:34+08:00" content="2016-03-10">
-              2016-03-10
+            <time itemprop="dateCreated" datetime="2016-03-02T13:51:51+08:00" content="2016-03-02">
+              2016-03-02
             </time>
           </span>
 
@@ -252,8 +248,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/10/利用UIImagePickerControllerReferenceURL路径上传视频/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/10/利用UIImagePickerControllerReferenceURL路径上传视频/" itemprop="commentsCount"></span>
+                <a href="/2016/03/02/iOS启动加载广告/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/02/iOS启动加载广告/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -280,44 +276,38 @@
       
 
       
-        <h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><p>&emsp;&emsp;在选取手机相册的视频时，我们调用系统的UIImagePickerController时会拿到info 字典。打印发现有三个键值对。分别是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSString *const UIImagePickerControllerMediaType; &#10;NSString *const UIImagePickerControllerMediaURL;&#10;NSString *const UIImagePickerControllerReferenceURL;</span><br></pre></td></tr></table></figure>
-<p> 如下图所示<br><img src="http://7xrm0o.com1.z0.glb.clouddn.com/imagepickerReferenceURL.jpg" alt="info内容"><br>&emsp;&emsp;正常我们上传视频拿到MediaURL转换为NSData即可。但最近有个需求，从服务端下载的视频在手机进行分享时，需要上传我们分享的视频，当调用UIImagePickerController选定视频时发现拿不到MediaURL, 只能获取到ReferenceURL。我们通过ReferenceURL进行视频上传发现不起作用。        </p>
-<h1 id="如何拿到视频的绝对地址呢？"><a href="#如何拿到视频的绝对地址呢？" class="headerlink" title="如何拿到视频的绝对地址呢？"></a>如何拿到视频的绝对地址呢？</h1><blockquote>
-<p> 从前有座山，名曰百度山，村里老人说山的那边有水，我爬啊爬，爬到外婆桥。终于翻过百度山，衣服也被路上的荆棘撕破了，水坑都没见一个。幸好有个猎户指点我往前有个谷歌峰，那边水资源丰富。</p>
-</blockquote>
-<p>&emsp;&emsp;搭桥爬墙发现水源如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSURL *videoURL = [info objectForKey:UIImagePickerControllerReferenceURL];   &#10;NSString * filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];  &#10;NSString * photoFile= [filePath stringByAppendingPathComponent:@&#34;test.mov&#34;];&#10;      ALAssetsLibrary *assetLibrary=[[ALAssetsLibrary alloc] init];&#10;      [assetLibrary assetForURL:videoURL resultBlock:^(ALAsset *asset) &#10;       &#123;&#10;           ALAssetRepresentation *rep = [asset defaultRepresentation];&#10;           Byte *buffer = (Byte*)malloc(rep.size);&#10;           NSUInteger buffered = [rep getBytes:buffer fromOffset:0.0 length:rep.size error:nil];&#10;           NSData *data = [NSData dataWithBytesNoCopy:buffer length:buffered freeWhenDone:YES];//this is NSData may be what you want&#10;           [data writeToFile:photoFile atomically:YES]; //you can remove this if only nsdata needed&#10;           NSLog(@&#34;%@&#34;,photoFile);&#10;       &#125;&#10;                                      failureBlock:^(NSError *err) &#123;&#10;                                          NSLog(@&#34;Error: %@&#34;,[err localizedDescription]);&#10;                                      &#125;];</span><br></pre></td></tr></table></figure>
-<p>如此将以上方法应用于</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void) imagePickerController: (UIImagePickerController *) picker&#10; didFinishPickingMediaWithInfo: (NSDictionary *) info</span><br></pre></td></tr></table></figure>
-<p>完美解决。</p>
+        <p>&emsp;&emsp;接到了一个需求，启动页加入广告。点击广告页面可以跳转我们推广的页面或者外联的WebView页面。虽然Apple不推荐这么做，但现在网易新闻、知乎日报都这么干。能挣钱这事还是从了。<br>&emsp;&emsp;在实践中参考了网上的实现方案，真心说在百度搜这个很蛋疼。在CocoaChina中有个思路：一种替换根视图控制器先展示广告页，再替换为原先的主页视图控制器为RootViewController。在公司项目实现替换根视图控制器时出现问题了，项目本身与cordova有交互，在变更rootViewController时首页无法刷新展示出页面。这样一来对广告页进行根视图的变更就有困难。 改用展示启动轮播页的方案，也就是再加一层Window来显示广告展示页。具体如下。 </p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ol>
+<li>启动页加载后广告页面实时加载，不能等待首页已经出现了再显示广告页面。  </li>
+<li>广告页面展示图片的下载是同步获取还是异步获取  </li>
+<li>如何判断广告页面已经改变   </li>
+<li>广告点击如何传值  </li>
+</ol>
+<h2 id="见招拆招"><a href="#见招拆招" class="headerlink" title="见招拆招"></a>见招拆招</h2><ol>
+<li>保证广告页实时展现，在启动时就需要保证广告页数据的获取是同步的。同步获取数据我们说会堵塞主线程以此达到启动后就展示广告的效果。我们利用AFNetworking自带的</li>
+<li>展</li>
+</ol>
 
       
     </div>
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/授人以鱼/" rel="tag">#授人以鱼</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/02/iOS启动加载广告/" rel="next" title="iOS启动加载广告">
-                <i class="fa fa-chevron-left"></i> iOS启动加载广告
+              <a href="/2016/02/23/postName/" rel="next" title="个人站点落成">
+                <i class="fa fa-chevron-left"></i> 个人站点落成
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/21/如何获得Apple-Genius-Bar服务/" rel="prev" title="如何获得Apple Genius Bar服务">
-                如何获得Apple Genius Bar服务 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/03/10/利用UIImagePickerControllerReferenceURL路径上传视频/" rel="prev" title="利用UIImagePickerControllerReferenceURL路径上传视频">
+                利用UIImagePickerControllerReferenceURL路径上传视频 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -344,8 +334,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/10/利用UIImagePickerControllerReferenceURL路径上传视频/"
-           data-title="利用UIImagePickerControllerReferenceURL路径上传视频" data-url="http://yoursite.com/2016/03/10/利用UIImagePickerControllerReferenceURL路径上传视频/">
+      <div class="ds-thread" data-thread-key="2016/03/02/iOS启动加载广告/"
+           data-title="iOS启动加载广告" data-url="http://yoursite.com/2016/03/02/iOS启动加载广告/">
       </div>
     
   </div>
@@ -440,7 +430,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#遇到的问题"><span class="nav-number">1.</span> <span class="nav-text">遇到的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何拿到视频的绝对地址呢？"><span class="nav-number">2.</span> <span class="nav-text">如何拿到视频的绝对地址呢？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题"><span class="nav-number">1.</span> <span class="nav-text">遇到的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#见招拆招"><span class="nav-number">2.</span> <span class="nav-text">见招拆招</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
