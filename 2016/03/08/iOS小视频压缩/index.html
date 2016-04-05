@@ -60,34 +60,34 @@
 
 
 <meta name="description" content="所见所分享。记录眼前的美好事物并通过我们的App进行展示。作为开发者，满足用户多长时间的拍摄时间为宜，15秒还是像微博取消了140字限制一样给个1分钟的拍摄时间。理论上可以长久录制视频，但克制才是真爱，如何为1分钟的视频压缩优化？
-###项目应用AVFoundation捕获视频主要为AVCaptureSession：  
+项目应用AVFoundation捕获视频主要为AVCaptureSession：  
 
 objc-在iOS上捕获视频
 模仿快手应用的视频录制
 
-基本的视频录制通过">
+基本的视频录制通过以上博">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS小视频压缩">
 <meta property="og:url" content="http://yoursite.com/2016/03/08/iOS小视频压缩/index.html">
 <meta property="og:site_name" content="看可能">
 <meta property="og:description" content="所见所分享。记录眼前的美好事物并通过我们的App进行展示。作为开发者，满足用户多长时间的拍摄时间为宜，15秒还是像微博取消了140字限制一样给个1分钟的拍摄时间。理论上可以长久录制视频，但克制才是真爱，如何为1分钟的视频压缩优化？
-###项目应用AVFoundation捕获视频主要为AVCaptureSession：  
+项目应用AVFoundation捕获视频主要为AVCaptureSession：  
 
 objc-在iOS上捕获视频
 模仿快手应用的视频录制
 
-基本的视频录制通过">
+基本的视频录制通过以上博">
 <meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/111.png">
-<meta property="og:updated_time" content="2016-04-05T14:59:29.000Z">
+<meta property="og:updated_time" content="2016-04-05T15:08:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS小视频压缩">
 <meta name="twitter:description" content="所见所分享。记录眼前的美好事物并通过我们的App进行展示。作为开发者，满足用户多长时间的拍摄时间为宜，15秒还是像微博取消了140字限制一样给个1分钟的拍摄时间。理论上可以长久录制视频，但克制才是真爱，如何为1分钟的视频压缩优化？
-###项目应用AVFoundation捕获视频主要为AVCaptureSession：  
+项目应用AVFoundation捕获视频主要为AVCaptureSession：  
 
 objc-在iOS上捕获视频
 模仿快手应用的视频录制
 
-基本的视频录制通过">
+基本的视频录制通过以上博">
 
 
 
@@ -296,7 +296,7 @@ objc-在iOS上捕获视频
 
       
         <p>所见所分享。记录眼前的美好事物并通过我们的App进行展示。作为开发者，满足用户多长时间的拍摄时间为宜，15秒还是像微博取消了140字限制一样给个1分钟的拍摄时间。理论上可以长久录制视频，但克制才是真爱，如何为1分钟的视频压缩优化？</p>
-<p>###项目应用AVFoundation<br>捕获视频主要为AVCaptureSession：  </p>
+<h3 id="项目应用AVFoundation"><a href="#项目应用AVFoundation" class="headerlink" title="项目应用AVFoundation"></a>项目应用AVFoundation</h3><p>捕获视频主要为AVCaptureSession：  </p>
 <ul>
 <li><a href="http://objccn.io/issue-23-1/" target="_blank" rel="external">objc-在iOS上捕获视频</a></li>
 <li><a href="https://github.com/AndyFightting/VideoRecord" target="_blank" rel="external">模仿快手应用的视频录制</a></li>
@@ -338,7 +338,7 @@ if ([_captureSession canSetSessionPreset:AVCaptureSessionPreset640x480]) {//设�
 <li><a href="https://github.com/piemonte/PBJVision" target="_blank" rel="external">PBJVision</a></li>
 <li><a href="https://github.com/piemonte/PBJVision" target="_blank" rel="external">PBJVision介绍</a>   </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)setUpPBJVision&#10;&#123;&#10;&#10;    // preview and AV layer&#10;    _preview.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH);;&#10;    _previewLayer = [[PBJVision sharedInstance] previewLayer];&#10;    _previewLayer.frame = _preview.bounds;&#10;    _previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;&#10;    [_preview.layer addSublayer:_previewLayer];&#10;    &#10;    &#10;    &#10;    PBJVision *vision = [PBJVision sharedInstance];&#10;    vision.delegate = self;&#10;    if ([vision isCameraDeviceAvailable:PBJCameraDeviceBack]) &#123;&#10;        vision.cameraDevice = PBJCameraDeviceBack;&#10;    &#125; else &#123;&#10;        vision.cameraDevice = PBJCameraDeviceFront;&#10;    &#125;&#10;&#10;    vision.cameraMode = PBJCameraModeVideo;&#10;    vision.cameraOrientation = PBJCameraOrientationPortrait;&#10;    vision.focusMode = PBJFocusModeContinuousAutoFocus;&#10;    vision.outputFormat = PBJOutputFormatSquare;&#10;    vision.additionalCompressionProperties = @&#123;AVVideoProfileLevelKey : AVVideoProfileLevelH264Baseline30&#125;;&#10;    &#10;    [vision startPreview];&#10;&#10;&#10;&#125;&#10;&#10;``` &#10;&#33258;&#23450;&#20041;&#35270;&#39057;&#30340;&#27604;&#29305;&#29575;&#22312;PBJVision.m&#20013;&#36827;&#34892;&#65292;&#26681;&#25454;demo&#24456;&#23481;&#26131;&#23436;&#25104;&#25105;&#20204;&#30456;&#26426;&#30340;&#37197;&#32622;&#12290;&#22312;&#36825;&#37324;&#26377;&#20010;&#23567;&#22353;&#38656;&#35201;&#27880;&#24847;&#65292;&#22312;&#23436;&#25104;&#24405;&#21046;&#21518;&#30340;&#20195;&#29702;&#22238;&#35843;&#26041;&#26696;&#20013;&#22914;&#20309;&#33719;&#21462;&#25105;&#20204;&#30340;&#35270;&#39057;&#36335;&#24452;&#65311;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)setUpPBJVision&#10;&#123;&#10;&#10;    // preview and AV layer&#10;    _preview.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH);;&#10;    _previewLayer = [[PBJVision sharedInstance] previewLayer];&#10;    _previewLayer.frame = _preview.bounds;&#10;    _previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;&#10;    [_preview.layer addSublayer:_previewLayer];&#10;    &#10;    &#10;    &#10;    PBJVision *vision = [PBJVision sharedInstance];&#10;    vision.delegate = self;&#10;    if ([vision isCameraDeviceAvailable:PBJCameraDeviceBack]) &#123;&#10;        vision.cameraDevice = PBJCameraDeviceBack;&#10;    &#125; else &#123;&#10;        vision.cameraDevice = PBJCameraDeviceFront;&#10;    &#125;&#10;&#10;    vision.cameraMode = PBJCameraModeVideo;&#10;    vision.cameraOrientation = PBJCameraOrientationPortrait;&#10;    vision.focusMode = PBJFocusModeContinuousAutoFocus;&#10;    vision.outputFormat = PBJOutputFormatSquare;&#10;    vision.additionalCompressionProperties = @&#123;AVVideoProfileLevelKey : AVVideoProfileLevelH264Baseline30&#125;;&#10;    &#10;    [vision startPreview];&#10;&#10;&#10;&#125;&#10;&#10;``` &#10;    &#10;       &#10;&#33258;&#23450;&#20041;&#35270;&#39057;&#30340;&#27604;&#29305;&#29575;&#22312;PBJVision.m&#20013;&#36827;&#34892;&#65292;&#26681;&#25454;demo&#24456;&#23481;&#26131;&#23436;&#25104;&#25105;&#20204;&#30456;&#26426;&#30340;&#37197;&#32622;&#12290;&#22312;&#36825;&#37324;&#26377;&#20010;&#23567;&#22353;&#38656;&#35201;&#27880;&#24847;&#65292;&#22312;&#23436;&#25104;&#24405;&#21046;&#21518;&#30340;&#20195;&#29702;&#22238;&#35843;&#26041;&#26696;&#20013;&#22914;&#20309;&#33719;&#21462;&#25105;&#20204;&#30340;&#35270;&#39057;&#36335;&#24452;&#65311;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>(void)vision:(PBJVision <em>)vision capturedVideo:(NSDictionary </em>)videoDict error:(NSError *)error<br>{<br>  if (error &amp;&amp; [error.domain isEqual:PBJVisionErrorDomain] &amp;&amp; error.code == PBJVisionErrorCancelled) {</p>
 <pre><code>NSLog(@&quot;退出录制&quot;);
@@ -355,7 +355,8 @@ return;
 </code></pre><p>  }<br>}</p>
 </li>
 </ul>
-<p>```<br>此处的获取要以fileURLWithPath来获取我们的视频，默认为Tmp文件夹。我们也可以在此处将视频写入相册，具体同demo.<br>最终配置结果基本达到我们1分钟2~3M的压缩要求，视频清晰度也足够。  </p>
+<p>```    </p>
+<p>此处的获取要以fileURLWithPath来获取我们的视频，默认为Tmp文件夹。我们也可以在此处将视频写入相册，具体同demo.<br>最终配置结果基本达到我们1分钟2~3M的压缩要求，视频清晰度也足够。  </p>
 
       
     </div>
@@ -499,7 +500,7 @@ return;
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#视频输出"><span class="nav-number">1.</span> <span class="nav-text">视频输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩方案一"><span class="nav-number">2.</span> <span class="nav-text">压缩方案一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩方案二"><span class="nav-number">3.</span> <span class="nav-text">压缩方案二</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目应用AVFoundation"><span class="nav-number">1.</span> <span class="nav-text">项目应用AVFoundation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视频输出"><span class="nav-number">2.</span> <span class="nav-text">视频输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩方案一"><span class="nav-number">3.</span> <span class="nav-text">压缩方案一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩方案二"><span class="nav-number">4.</span> <span class="nav-text">压缩方案二</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
