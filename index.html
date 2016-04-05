@@ -191,6 +191,15 @@
 
     
     
+      
+      
+        
+        
+        
+      
+
+      
+    
 
     
       
@@ -286,164 +295,6 @@
           
             <p>&emsp;&emsp;开篇名义：自费维修、国行设备退散。（港行）保期内维修向下看。<br>&emsp;&emsp;需要苹果的Genius Bar服务肯定是自己的苹果设备硬件或软件使用过程中遇到问题了，需要专业的人员来解决了。网上搜索了一圈，发现需要在官网上进行Genius Bar预约，按提示操作吧少年。楼主才不会告诉你曾经凭着一股楞劲直接跑Apple Store要求维修被婉拒的经历。<br>&emsp;&emsp;<strong> 其实如果是手机的问题你发现获取验证码来拿到预约就是扯淡 </strong><br>  <img src="http://7xrm0o.com1.z0.glb.clouddn.com/4B2D9B0CAC59528B6338C42839343383.png" alt="😢"><br>  不过确实苹果官网会每天开放genius bar的名额预约，而不是网页显示的一周都预约完毕。具体时间请自行谷歌，貌似是8点半。曾尝试过一次，以失败告终。</p>
 <p>##没有预约，时间有限，怎么快速维修手机？##<br>&emsp;&emsp;阅读能发现金矿，真的。网上预约不到，淘宝的黄牛党又卖的太贵，我等普通用户怎么在有限的时间内获得苹果的服务？<br>&emsp;&emsp;<strong>第二天早晨直接去Apple Store排队</strong><br><img src="" alt=""><br>&emsp;&emsp;现在少年明白了为什么苹果专卖店设备是足量供应，每天早晨还有像大爷超市门口排队等买鸡蛋的场景在这复现了吧，都是被逼得！早点过去排个好位置等着开店。10:00 AM 迈着愉快的步伐在店员的热情欢迎中直奔二楼（上海香港广场店）而来，报故障排队等检测。<br>&emsp;&emsp;至此规避了时间不足，黄牛炒票等debuff, 快的当天拿新设备，慢的第二天拿设备。祝好运。</p>
-
-          
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/12/iOS视频录制压缩/" itemprop="url">
-                  iOS视频录制压缩
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-12T23:29:20+08:00" content="2016-03-12">
-              2016-03-12
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/12/iOS视频录制压缩/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/12/iOS视频录制压缩/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-          
-              
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>所见所分享。记录眼前的美好事物并通过我们的App进行展示。作为开发者，满足用户多长时间的拍摄时间为宜，15秒还是像微博取消了140字限制一样给个1分钟的拍摄时间。理论上可以长久录制视频，但克制才是真爱，如何为1分钟的视频压缩优化？</p>
-<h3 id="项目应用AVFoundation"><a href="#项目应用AVFoundation" class="headerlink" title="项目应用AVFoundation"></a>项目应用AVFoundation</h3><p>捕获视频主要为AVCaptureSession：  </p>
-<ul>
-<li><a href="http://objccn.io/issue-23-1/" target="_blank" rel="external">objc-在iOS上捕获视频</a></li>
-<li><a href="https://github.com/AndyFightting/VideoRecord" target="_blank" rel="external">模仿快手应用的视频录制</a></li>
-</ul>
-<p>基本的视频录制通过以上博文和Demo即可做出，其中：</p>
-<pre><code>_captureSession=[[AVCaptureSession alloc]init];
-if ([_captureSession canSetSessionPreset:AVCaptureSessionPreset640x480]) {//设置分辨率
-    _captureSession.sessionPreset=AVCaptureSessionPreset640x480;
-}
-</code></pre><p>AVCaptureSessionPreset可以设置不同的采样分辨率，此处基于清晰度选择640*480。为什么不选择High?</p>
-<p>  动辄上百兆的空间占用，还给你报个Memory received warning！ 选640*480清晰度达到要求，视频采集数据只有不到30M的占用，世界清静了。</p>
-<h3 id="视频输出"><a href="#视频输出" class="headerlink" title="视频输出"></a>视频输出</h3><p>输入配置完了，现在把我们的注意力转向 capture session 的输出。</p>
-<ul>
-<li>AVCaptureMovieFileOutput</li>
-</ul>
-<h3 id="压缩方案一"><a href="#压缩方案一" class="headerlink" title="压缩方案一"></a>压缩方案一</h3><p>一般通过AVAssetExportSession进行视频压缩。当presetName选择为MediumQuality时基本1分钟的视频压缩下来为5M左右，我们在面向google编程的过程中发现网上大量的使用的   </p>
-<ul>
-<li>presetName:AVAssetExportPresetLowQuality   </li>
-</ul>
-<p>在presetName为LowQuality时视频是做到了极致的压缩，1分钟的视频不到1M的容量，但是压缩出来的视频充满了不规则的马赛克，给我们的观感造成极大的冲击，真爱生命远离打码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AVAssetExportSession *exporter = [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:AVAssetExportPresetMediumQuality];&#10;exporter.videoComposition = mainCompositionInst;&#10;exporter.outputURL = mergeFileURL;&#10;exporter.outputFileType = AVFileTypeMPEG4;&#10;exporter.shouldOptimizeForNetworkUse = YES;&#10;[exporter exportAsynchronouslyWithCompletionHandler:^&#123;&#10;    dispatch_async(dispatch_get_main_queue(), ^&#123;&#10;        &#10;        PlayVideoViewController* view = [[PlayVideoViewController alloc]init];&#10;        view.videoURL =mergeFileURL;&#10;        [self.navigationController pushViewController:view animated:YES];&#10;        &#10;    &#125;);&#10;&#125;];</span><br></pre></td></tr></table></figure>
-<p>基本的要求在这就满足，可以通过mergrFileURL来压缩上传我们拍摄的视频了。  </p>
-<p>不到的5M的上传容量，剩下的只有网速了。期待你来一句：我已准备好网速，你告诉我你是3G。还能不能愉快的玩耍了。现在5M不可取，那么只能重新编码了，做到2~3M的样子，保证视频清晰度的同时做到上传容量袖珍。  </p>
-<h3 id="压缩方案二"><a href="#压缩方案二" class="headerlink" title="压缩方案二"></a>压缩方案二</h3><p>面向Stackoverflow的过程中参考了如下的博文及分享：  </p>
-<ul>
-<li><a href="http://objccn.io/issue-23-1/" target="_blank" rel="external">objc-在iOS上捕获视频</a>  </li>
-<li><a href="http://www.jianshu.com/p/01eb06654326" target="_blank" rel="external">使用 AVAssetWriter 录制小视频</a></li>
-<li><a href="http://stackoverflow.com/questions/4944083/can-use-avcapturevideodataoutput-and-avcapturemoviefileoutput-at-the-same-time" target="_blank" rel="external">using AVCaptureVideoDataOutput</a></li>
-<li><a href="http://74lee.com/2014/09/27/iOS%20%E4%BD%BF%E7%94%A8AVAssetWriter%E5%92%8CAVCaptureSession%20%E5%BD%95%E5%88%B6%E8%A7%86%E9%A2%91/" target="_blank" rel="external">使用AVAssetWriter和AVCaptureSession 录制视频</a></li>
-<li><a href="http://stackoverflow.com/questions/4252279/how-do-make-a-reduced-size-video-using-avassetwriter" target="_blank" rel="external">How do make a reduced size video using AVAssetWriter?</a></li>
-</ul>
-<p>以上种种都是在AVCaptureDataOutput 和 AVAssetWriter帮助下完成对视频音频的自定义。如果你想要对影音输出有更多的操作，你可以使用 AVCaptureVideoDataOutput 和 AVCaptureAudioDataOutput 而不是我们方案一中展示的AVCaptureMovieFileOutput。</p>
-<p>这些输出将会各自捕获视频和音频的样本缓存，接着发送到它们的代理。代理要么对采样缓冲进行处理 (比如给视频加滤镜)，要么保持原样传送。使用 AVAssetWriter 对象可以将样本缓存写入文件：</p>
-<p><img src="http://7xrm0o.com1.z0.glb.clouddn.com/111.png" alt=""></p>
-<p>其中压缩参数可以参考下面   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSDictionary *codecSettings = [NSDictionary dictionaryWithObjectsAndKeys:&#10;                                  [NSNumber numberWithInt:1024*1000], AVVideoAverageBitRateKey,&#10;                                  [NSNumber numberWithInt:30],AVVideoMaxKeyFrameIntervalKey,&#10;                                  AVVideoProfileLevelH264Main30, AVVideoProfileLevelKey,&#10;                                  nil];&#10;   NSDictionary *videoSettings = [NSDictionary dictionaryWithObjectsAndKeys:&#10;                                  AVVideoCodecH264, AVVideoCodecKey,&#10;                                  codecSettings,AVVideoCompressionPropertiesKey,&#10;                                  [NSNumber numberWithInt:480], AVVideoWidthKey,&#10;                                  [NSNumber numberWithInt:480], AVVideoHeightKey,&#10;                                  nil];&#10;   // Compress to 128kbps AAC with the asset writer&#10;   AudioChannelLayout acl;&#10;   bzero( &#38;acl, sizeof(acl));&#10;   acl.mChannelLayoutTag = kAudioChannelLayoutTag_Stereo;//kAudioChannelLayoutTag_Mono&#10;   &#10;   NSDictionary* audioOutputSettings = nil;&#10;   &#10;   audioOutputSettings = [NSDictionary dictionaryWithObjectsAndKeys:&#10;                          [ NSNumber numberWithInt: kAudioFormatMPEG4AAC ], AVFormatIDKey,&#10;                          [ NSNumber numberWithInt: 2 ], AVNumberOfChannelsKey,&#10;                          [ NSNumber numberWithFloat: 44100.0 ], AVSampleRateKey,&#10;                          [ NSNumber numberWithInt: 64000 ], AVEncoderBitRateKey,&#10;                          [ NSData dataWithBytes: &#38;acl length: sizeof( acl ) ], AVChannelLayoutKey,&#10;                          nil];</span><br></pre></td></tr></table></figure>
-<p>如果已然思绪飘飞，我们可以使用一个轻量的类库PBJVision代替以上操作,使用姿势如下：  </p>
-<ul>
-<li><a href="https://github.com/piemonte/PBJVision" target="_blank" rel="external">PBJVision</a></li>
-<li><a href="https://github.com/piemonte/PBJVision" target="_blank" rel="external">PBJVision介绍</a>   </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)setUpPBJVision&#10;&#123;&#10;    // preview and AV layer&#10;    _preview.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH);;&#10;    _previewLayer = [[PBJVision sharedInstance] previewLayer];&#10;    _previewLayer.frame = _preview.bounds;&#10;    _previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;&#10;    [_preview.layer addSublayer:_previewLayer];&#10;    PBJVision *vision = [PBJVision sharedInstance];&#10;    vision.delegate = self;&#10;    if ([vision isCameraDeviceAvailable:PBJCameraDeviceBack]) &#123;&#10;        vision.cameraDevice = PBJCameraDeviceBack;&#10;    &#125; else &#123;&#10;        vision.cameraDevice = PBJCameraDeviceFront;&#10;    &#125;&#10;    vision.cameraMode = PBJCameraModeVideo;&#10;    vision.cameraOrientation = PBJCameraOrientationPortrait;&#10;    vision.focusMode = PBJFocusModeContinuousAutoFocus;&#10;    vision.outputFormat = PBJOutputFormatSquare;&#10;    vision.additionalCompressionProperties = @&#123;AVVideoProfileLevelKey : AVVideoProfileLevelH264Baseline30&#125;;&#10;    [vision startPreview];&#10;&#125;</span><br></pre></td></tr></table></figure>
-<p>自定义视频的比特率在PBJVision.m中进行，根据demo很容易完成我们相机的配置。在这里有个小坑需要注意，在完成录制后的代理回调方案中如何获取我们的视频路径?</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)vision:(PBJVision *)vision capturedVideo:(NSDictionary *)videoDict error:(NSError *)error&#10;&#123;&#10;    if (error &#38;&#38; [error.domain isEqual:PBJVisionErrorDomain] &#38;&#38; error.code == PBJVisionErrorCancelled) &#123;&#10;        NSLog(@&#34;&#36864;&#20986;&#24405;&#21046;&#34;);&#10;        return;&#10;    &#125; else if (error) &#123;&#10;        NSLog(@&#34;&#35270;&#39057;&#24405;&#21046;&#26102;&#21457;&#29983;&#38169;&#35823; (%@)&#34;, error);&#10;        return;&#10;    &#125;&#10;    NSString *videoPath = [videoDict  objectForKey:PBJVisionVideoPathKey];&#10;    NSURL *videoPathURL = [NSURL fileURLWithPath:videoPath];&#10;    //pay attention not the [NSURL urlWithString:videoPath];&#10;    _finishURL = videoPathURL;&#10;    if (_float_currentDur &#62; 5.0) &#123;&#10;        // do whatever you want  &#10;    &#125;else&#123;&#10;       // delete the cache video&#10;    &#125;&#10;&#125;</span><br></pre></td></tr></table></figure>
-<p>此处的获取要以fileURLWithPath来获取我们的视频，默认为Tmp文件夹。我们也可以在此处将视频写入相册，具体同demo.<br>最终配置结果基本达到我们1分钟2~3M的压缩要求，视频清晰度也足够。  </p>
 
           
         
