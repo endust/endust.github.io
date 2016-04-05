@@ -67,10 +67,10 @@
 <meta property="og:site_name" content="看可能">
 <meta property="og:description" content="iOS开发者都知道，推出新页面有两种方式，一种是导航Push，另一种是视图本身Present另一个视图。一般的应用程序都是UITabBarController+4个UINavigationController，然后每个导航Push或者Pop就解决了问题。
 这次引发我思考的是佳缘经纪人项目中要添加银行卡的一个功能：这个功能有两个入口，第一个入口是从导航栈中的某个视图Push出的（非根视图），第二个入">
-<meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/wechat_change_phone.png">
 <meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/present-01.png">
+<meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/wechat_change_phone.png">
 <meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/present-03.png">
-<meta property="og:updated_time" content="2016-04-05T12:57:48.000Z">
+<meta property="og:updated_time" content="2016-04-05T13:19:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="为什么我们需要Present这种模态推出视图的方式？">
 <meta name="twitter:description" content="iOS开发者都知道，推出新页面有两种方式，一种是导航Push，另一种是视图本身Present另一个视图。一般的应用程序都是UITabBarController+4个UINavigationController，然后每个导航Push或者Pop就解决了问题。
@@ -288,10 +288,10 @@
 <li>如果是根视图：PopToRootViewController</li>
 <li>如果不是根视图：先找到导航栈中的那个控制器，然后PopToViewController：<br>从流程上讲：它应该是这个样子</li>
 </ul>
-<p><img src="http://7xrm0o.com1.z0.glb.clouddn.com/wechat_change_phone.png" alt=""></p>
+<p><img src="http://7xrm0o.com1.z0.glb.clouddn.com/present-01.png" alt=""></p>
 <p>那么问题来了，如果哪天这个功能还要有一个入口，在Pop回去的地方就又要多加判断，意味着这个流程里面就有了很多垃圾代码去判断是从哪个页面来的。这个时候我开始考虑，这样的设计可能是存在问题的。</p>
 <h3 id="微信"><a href="#微信" class="headerlink" title="微信"></a>微信</h3><p>意识到这个问题的时候，我在想，有类似流程设计的肯定不止一家，其实是可以参考其他软件是怎么设计的。于是花费了时间，看了看微信在类似的场景的设计。下图是微信的更换绑定手机号的流程截图，其实“更换手机号”这个页面是“绑定手机号”这个页面Present出的。</p>
-<p><img src="http://7xrm0o.com1.z0.glb.clouddn.com/present-01.png" alt=""></p>
+<p><img src="http://7xrm0o.com1.z0.glb.clouddn.com/wechat_change_phone.png" alt=""></p>
 <h3 id="苹果在iOS框架中的设计"><a href="#苹果在iOS框架中的设计" class="headerlink" title="苹果在iOS框架中的设计"></a>苹果在iOS框架中的设计</h3><p>其实苹果自己设计的UIImagePickerController就是一个值得参考的例子。<br>它的流程是这样的</p>
 <p><img src="http://7xrm0o.com1.z0.glb.clouddn.com/present-03.png" alt=""><br>“Photos”这个页面是被Present出的，并且在Xcode中可以看到UIImagePickerController是继承自UINavigationController的。</p>
 <h3 id="因此"><a href="#因此" class="headerlink" title="因此"></a>因此</h3><p>可以看出，iOS框架和微信App中，在做这样的操作的时候（这个操作一般可以表述为：需要用户去输入，去选择，去编辑。这个操作一般还涉及好几个步骤，好几个页面），一般用Present的方式模态出一个导航栈出来。而这样做的具体优点为：</p>
@@ -406,7 +406,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
