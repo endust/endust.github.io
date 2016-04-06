@@ -191,15 +191,6 @@
 
     
     
-      
-      
-        
-        
-        
-      
-
-      
-    
 
     
       
@@ -292,11 +283,12 @@
 
       
         
-          
-            <p>&emsp;&emsp;开篇名义：自费维修、国行设备退散。（港行）保期内维修向下看。<br>&emsp;&emsp;需要苹果的Genius Bar服务肯定是自己的苹果设备硬件或软件使用过程中遇到问题了，需要专业的人员来解决了。网上搜索了一圈，发现需要在官网上进行Genius Bar预约，按提示操作吧少年。楼主才不会告诉你曾经凭着一股楞劲直接跑Apple Store要求维修被婉拒的经历。<br>&emsp;&emsp;<strong> 其实如果是手机的问题你发现获取验证码来拿到预约就是扯淡 </strong><br>  <img src="http://7xrm0o.com1.z0.glb.clouddn.com/4B2D9B0CAC59528B6338C42839343383.png" alt="😢"><br>  不过确实苹果官网会每天开放genius bar的名额预约，而不是网页显示的一周都预约完毕。具体时间请自行谷歌，貌似是8点半。曾尝试过一次，以失败告终。</p>
-<p>##没有预约，时间有限，怎么快速维修手机？##<br>&emsp;&emsp;阅读能发现金矿，真的。网上预约不到，淘宝的黄牛党又卖的太贵，我等普通用户怎么在有限的时间内获得苹果的服务？<br>&emsp;&emsp;<strong>第二天早晨直接去Apple Store排队</strong><br><img src="" alt=""><br>&emsp;&emsp;现在少年明白了为什么苹果专卖店设备是足量供应，每天早晨还有像大爷超市门口排队等买鸡蛋的场景在这复现了吧，都是被逼得！早点过去排个好位置等着开店。10:00 AM 迈着愉快的步伐在店员的热情欢迎中直奔二楼（上海香港广场店）而来，报故障排队等检测。<br>&emsp;&emsp;至此规避了时间不足，黄牛炒票等debuff, 快的当天拿新设备，慢的第二天拿设备。祝好运。</p>
-
-          
+          <p>&emsp;&emsp;开篇名义：自费维修、国行设备退散。（港行）保期内维修向下看。<br>&emsp;&emsp;需要苹果的Genius Bar服务肯定是自己的苹果设备硬件或软件使用过程中遇到问题了，需要专业的人员来解决了。网上搜索了一圈，发现需要在官网上进行Genius Bar预约，按提示操作吧少年。楼主才不会告诉你曾经凭着一股楞劲直接跑Apple Store要求维修被婉拒的经历。<br>&emsp;&emsp;<strong> 其实如果是手机的问题你发现获取验证码来拿到预约就是扯淡 </strong><br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/21/如何获得Apple-Genius-Bar服务/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -405,12 +397,11 @@
 
       
         
-          
-            <p>所见所分享。记录眼前的美好事物并通过我们的App进行展示。作为开发者，满足用户多长时间的拍摄时间为宜，15秒还是像微博取消了140字限制一样给个1分钟的拍摄时间。理论上可以长久录制视频，但克制才是真爱，如何为1分钟的视频压缩优化？</p>
+          <p>所见所分享。记录眼前的美好事物并通过我们的App进行展示。作为开发者，满足用户多长时间的拍摄时间为宜，15秒还是像微博取消了140字限制一样给个1分钟的拍摄时间。理论上可以长久录制视频，但克制才是真爱，如何为1分钟的视频压缩优化？</p>
 <h3 id="项目应用AVFoundation"><a href="#项目应用AVFoundation" class="headerlink" title="项目应用AVFoundation"></a>项目应用AVFoundation</h3><p>捕获视频主要为AVCaptureSession：  </p>
 <ul>
-<li><a href="http://objccn.io/issue-23-1/" target="_blank" rel="external">objc-在iOS上捕获视频</a></li>
-<li><a href="https://github.com/AndyFightting/VideoRecord" target="_blank" rel="external">模仿快手应用的视频录制</a></li>
+<li><a href="http://objccn.io/issue-23-1/">objc-在iOS上捕获视频</a></li>
+<li><a href="https://github.com/AndyFightting/VideoRecord">模仿快手应用的视频录制</a></li>
 </ul>
 <p>基本的视频录制通过以上博文和Demo即可做出，其中：</p>
 <pre><code>_captureSession=[[AVCaptureSession alloc]init];
@@ -418,61 +409,12 @@ if ([_captureSession canSetSessionPreset:AVCaptureSessionPreset640x480]) {//设�
     _captureSession.sessionPreset=AVCaptureSessionPreset640x480;
 }
 </code></pre><p>AVCaptureSessionPreset可以设置不同的采样分辨率，此处基于清晰度选择640*480。为什么不选择High?</p>
-<p>  动辄上百兆的空间占用，还给你报个Memory received warning！ 选640*480清晰度达到要求，视频采集数据只有不到30M的占用，世界清静了。</p>
-<h3 id="视频输出"><a href="#视频输出" class="headerlink" title="视频输出"></a>视频输出</h3><p>输入配置完了，现在把我们的注意力转向 capture session 的输出。</p>
-<ul>
-<li>AVCaptureMovieFileOutput</li>
-</ul>
-<h3 id="压缩方案一"><a href="#压缩方案一" class="headerlink" title="压缩方案一"></a>压缩方案一</h3><p>一般通过AVAssetExportSession进行视频压缩。当presetName选择为MediumQuality时基本1分钟的视频压缩下来为5M左右，我们在面向google编程的过程中发现网上大量的使用的   </p>
-<ul>
-<li>presetName:AVAssetExportPresetLowQuality   </li>
-</ul>
-<p>在presetName为LowQuality时视频是做到了极致的压缩，1分钟的视频不到1M的容量，但是压缩出来的视频充满了不规则的马赛克，给我们的观感造成极大的冲击，真爱生命远离打码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AVAssetExportSession *exporter = [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:AVAssetExportPresetMediumQuality];&#10;exporter.videoComposition = mainCompositionInst;&#10;exporter.outputURL = mergeFileURL;&#10;exporter.outputFileType = AVFileTypeMPEG4;&#10;exporter.shouldOptimizeForNetworkUse = YES;&#10;[exporter exportAsynchronouslyWithCompletionHandler:^&#123;&#10;    dispatch_async(dispatch_get_main_queue(), ^&#123;&#10;        &#10;        PlayVideoViewController* view = [[PlayVideoViewController alloc]init];&#10;        view.videoURL =mergeFileURL;&#10;        [self.navigationController pushViewController:view animated:YES];&#10;        &#10;    &#125;);&#10;&#125;];</span><br></pre></td></tr></table></figure>
-<p>基本的要求在这就满足，可以通过mergrFileURL来压缩上传我们拍摄的视频了。  </p>
-<p>不到的5M的上传容量，剩下的只有网速了。期待你来一句：我已准备好网速，你告诉我你是3G。还能不能愉快的玩耍了。现在5M不可取，那么只能重新编码了，做到2~3M的样子，保证视频清晰度的同时做到上传容量袖珍。  </p>
-<h3 id="压缩方案二"><a href="#压缩方案二" class="headerlink" title="压缩方案二"></a>压缩方案二</h3><p>面向Stackoverflow的过程中参考了如下的博文及分享：  </p>
-<ul>
-<li><a href="http://objccn.io/issue-23-1/" target="_blank" rel="external">objc-在iOS上捕获视频</a>  </li>
-<li><a href="http://www.jianshu.com/p/01eb06654326" target="_blank" rel="external">使用 AVAssetWriter 录制小视频</a></li>
-<li><a href="http://stackoverflow.com/questions/4944083/can-use-avcapturevideodataoutput-and-avcapturemoviefileoutput-at-the-same-time" target="_blank" rel="external">using AVCaptureVideoDataOutput</a></li>
-<li><a href="http://74lee.com/2014/09/27/iOS%20%E4%BD%BF%E7%94%A8AVAssetWriter%E5%92%8CAVCaptureSession%20%E5%BD%95%E5%88%B6%E8%A7%86%E9%A2%91/" target="_blank" rel="external">使用AVAssetWriter和AVCaptureSession 录制视频</a></li>
-<li><a href="http://stackoverflow.com/questions/4252279/how-do-make-a-reduced-size-video-using-avassetwriter" target="_blank" rel="external">How do make a reduced size video using AVAssetWriter?</a></li>
-</ul>
-<p>以上种种都是在AVCaptureDataOutput 和 AVAssetWriter帮助下完成对视频音频的自定义。如果你想要对影音输出有更多的操作，你可以使用 AVCaptureVideoDataOutput 和 AVCaptureAudioDataOutput 而不是我们方案一中展示的AVCaptureMovieFileOutput。</p>
-<p>这些输出将会各自捕获视频和音频的样本缓存，接着发送到它们的代理。代理要么对采样缓冲进行处理 (比如给视频加滤镜)，要么保持原样传送。使用 AVAssetWriter 对象可以将样本缓存写入文件：</p>
-<p><img src="http://7xrm0o.com1.z0.glb.clouddn.com/111.png" alt=""></p>
-<p>其中压缩参数可以参考下面   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSDictionary *codecSettings = [NSDictionary dictionaryWithObjectsAndKeys:&#10;                                  [NSNumber numberWithInt:1024*1000], AVVideoAverageBitRateKey,&#10;                                  [NSNumber numberWithInt:30],AVVideoMaxKeyFrameIntervalKey,&#10;                                  AVVideoProfileLevelH264Main30, AVVideoProfileLevelKey,&#10;                                  nil];&#10;   NSDictionary *videoSettings = [NSDictionary dictionaryWithObjectsAndKeys:&#10;                                  AVVideoCodecH264, AVVideoCodecKey,&#10;                                  codecSettings,AVVideoCompressionPropertiesKey,&#10;                                  [NSNumber numberWithInt:480], AVVideoWidthKey,&#10;                                  [NSNumber numberWithInt:480], AVVideoHeightKey,&#10;                                  nil];&#10;                                  &#10;   // Compress to 128kbps AAC with the asset writer&#10;   AudioChannelLayout acl;&#10;   bzero( &#38;acl, sizeof(acl));&#10;   acl.mChannelLayoutTag = kAudioChannelLayoutTag_Stereo;//kAudioChannelLayoutTag_Mono&#10;   &#10;   NSDictionary* audioOutputSettings = nil;&#10;   audioOutputSettings = [NSDictionary dictionaryWithObjectsAndKeys:&#10;                          [ NSNumber numberWithInt: kAudioFormatMPEG4AAC ], AVFormatIDKey,&#10;                          [ NSNumber numberWithInt: 2 ], AVNumberOfChannelsKey,&#10;                          [ NSNumber numberWithFloat: 44100.0 ], AVSampleRateKey,&#10;                          [ NSNumber numberWithInt: 64000 ], AVEncoderBitRateKey,&#10;                          [ NSData dataWithBytes: &#38;acl length: sizeof( acl ) ], AVChannelLayoutKey,&#10;                          nil];</span><br></pre></td></tr></table></figure>
-<p>如果已然思绪飘飞，我们可以使用一个轻量的类库PBJVision代替以上操作,使用姿势如下：  </p>
-<ul>
-<li><a href="https://github.com/piemonte/PBJVision" target="_blank" rel="external">PBJVision</a></li>
-<li><a href="https://github.com/piemonte/PBJVision" target="_blank" rel="external">PBJVision介绍</a>   </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)setUpPBJVision&#10;&#123;&#10;    // preview and AV layer&#10;    _preview.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH);;&#10;    _previewLayer = [[PBJVision sharedInstance] previewLayer];&#10;    _previewLayer.frame = _preview.bounds;&#10;    _previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;&#10;    [_preview.layer addSublayer:_previewLayer];&#10;    &#10;    PBJVision *vision = [PBJVision sharedInstance];&#10;    vision.delegate = self;&#10;    if ([vision isCameraDeviceAvailable:PBJCameraDeviceBack]) &#123;&#10;        vision.cameraDevice = PBJCameraDeviceBack;&#10;    &#125; else &#123;&#10;        vision.cameraDevice = PBJCameraDeviceFront;&#10;    &#125;&#10;    vision.cameraMode = PBJCameraModeVideo;&#10;    vision.cameraOrientation = PBJCameraOrientationPortrait;&#10;    vision.focusMode = PBJFocusModeContinuousAutoFocus;&#10;    vision.outputFormat = PBJOutputFormatSquare;&#10;    vision.additionalCompressionProperties = @&#123;AVVideoProfileLevelKey : AVVideoProfileLevelH264Baseline30&#125;;&#10;    [vision startPreview];&#10;&#125;</span><br></pre></td></tr></table></figure>
-<p>自定义视频的比特率在PBJVision.m中进行，根据demo很容易完成我们相机的配置。在这里有个小坑需要注意，在完成录制后的代理回调方案中如何获取我们的视频路径?</p>
-<pre><code>- (void)vision:(PBJVision *)vision capturedVideo:(NSDictionary *)videoDict error:(NSError *)error
-{
-    if (error &amp;&amp; [error.domain isEqual:PBJVisionErrorDomain] &amp;&amp; error.code == PBJVisionErrorCancelled) {
-        NSLog(@&quot;退出录制&quot;);
-        return;
-    } else if (error) {
-        NSLog(@&quot;视频录制时发生错误 (%@)&quot;, error);
-        return;
-    }
-    NSString *videoPath = [videoDict  objectForKey:PBJVisionVideoPathKey];
-    NSURL *videoPathURL = [NSURL fileURLWithPath:videoPath];
-    //pay attention not the [NSURL urlWithString:videoPath];
-    _finishURL = videoPathURL;
-    if (_float_currentDur &gt; 5.0) {
-        // do whatever you want  
-    }else{
-       // delete the cache video
-    }
-}
-</code></pre><p>此处的获取要以fileURLWithPath来获取我们的视频，默认为Tmp文件夹。我们也可以在此处将视频写入相册，具体同demo.<br>最终配置结果基本达到我们1分钟2~3M的压缩要求，视频清晰度也足够。  </p>
-
-          
+<p>  动辄上百兆的空间占用，还给你报个Memory received warning！ 选640*480清晰度达到要求，视频采集数据只有不到30M的占用，世界清静了。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/12/iOS视频录制压缩/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -581,20 +523,16 @@ if ([_captureSession canSetSessionPreset:AVCaptureSessionPreset640x480]) {//设�
 
       
         
-          
-            <h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><p>&emsp;&emsp;在选取手机相册的视频时，我们调用系统的UIImagePickerController时会拿到info 字典。打印发现有三个键值对。分别是</p>
+          <h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><p>&emsp;&emsp;在选取手机相册的视频时，我们调用系统的UIImagePickerController时会拿到info 字典。打印发现有三个键值对。分别是</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSString *const UIImagePickerControllerMediaType; &#10;NSString *const UIImagePickerControllerMediaURL;&#10;NSString *const UIImagePickerControllerReferenceURL;</span><br></pre></td></tr></table></figure>
 <p> 如下图所示<br><img src="http://7xrm0o.com1.z0.glb.clouddn.com/imagepickerReferenceURL.jpg" alt="info内容"><br>&emsp;&emsp;正常我们上传视频拿到MediaURL转换为NSData即可。但最近有个需求，从服务端下载的视频在手机进行分享时，需要上传我们分享的视频，当调用UIImagePickerController选定视频时发现拿不到MediaURL, 只能获取到ReferenceURL。我们通过ReferenceURL进行视频上传发现不起作用。        </p>
 <h1 id="如何拿到视频的绝对地址呢？"><a href="#如何拿到视频的绝对地址呢？" class="headerlink" title="如何拿到视频的绝对地址呢？"></a>如何拿到视频的绝对地址呢？</h1><blockquote>
-<p> 从前有座山，名曰百度山，村里老人说山的那边有水，我爬啊爬，爬到外婆桥。终于翻过百度山，衣服也被路上的荆棘撕破了，水坑都没见一个。幸好有个猎户指点我往前有个谷歌峰，那边水资源丰富。</p>
-</blockquote>
-<p>&emsp;&emsp;搭桥爬墙发现水源如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSURL *videoURL = [info objectForKey:UIImagePickerControllerReferenceURL];   &#10;NSString * filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];  &#10;NSString * photoFile= [filePath stringByAppendingPathComponent:@&#34;test.mov&#34;];&#10;      ALAssetsLibrary *assetLibrary=[[ALAssetsLibrary alloc] init];&#10;      [assetLibrary assetForURL:videoURL resultBlock:^(ALAsset *asset) &#10;       &#123;&#10;           ALAssetRepresentation *rep = [asset defaultRepresentation];&#10;           Byte *buffer = (Byte*)malloc(rep.size);&#10;           NSUInteger buffered = [rep getBytes:buffer fromOffset:0.0 length:rep.size error:nil];&#10;           NSData *data = [NSData dataWithBytesNoCopy:buffer length:buffered freeWhenDone:YES];//this is NSData may be what you want&#10;           [data writeToFile:photoFile atomically:YES]; //you can remove this if only nsdata needed&#10;           NSLog(@&#34;%@&#34;,photoFile);&#10;       &#125;&#10;                                      failureBlock:^(NSError *err) &#123;&#10;                                          NSLog(@&#34;Error: %@&#34;,[err localizedDescription]);&#10;                                      &#125;];</span><br></pre></td></tr></table></figure>
-<p>如此将以上方法应用于</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void) imagePickerController: (UIImagePickerController *) picker&#10; didFinishPickingMediaWithInfo: (NSDictionary *) info</span><br></pre></td></tr></table></figure>
-<p>完美解决。</p>
-
-          
+<p> 从前有座山，名曰百度山，村里老人说山的那边有水，我爬啊爬，爬到外婆桥。终于翻过百度山，衣服也被路上的荆棘撕破了，水坑都没见一个。幸好有个猎户指点我往前有个谷歌峰，那边水资源丰富。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/10/利用UIImagePickerControllerReferenceURL路径上传视频/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -703,21 +641,17 @@ if ([_captureSession canSetSessionPreset:AVCaptureSessionPreset640x480]) {//设�
 
       
         
-          
-            <p>&emsp;&emsp;接到了一个需求，启动页加入广告。点击广告页面可以跳转我们推广的页面或者外联的WebView页面。虽然Apple不推荐这么做，但现在网易新闻、知乎日报都这么干。能挣钱这事还是从了。<br>&emsp;&emsp;在实践中参考了网上的实现方案，真心说在百度搜这个很蛋疼。在CocoaChina中有个思路：一种替换根视图控制器先展示广告页，再替换为原先的主页视图控制器为RootViewController。在公司项目实现替换根视图控制器时出现问题了，项目本身与cordova有交互，在变更rootViewController时首页无法刷新展示出页面。这样一来对广告页进行根视图的变更就有困难。 改用展示启动轮播页的方案，也就是再加一层Window来显示广告展示页。具体如下。 </p>
+          <p>&emsp;&emsp;接到了一个需求，启动页加入广告。点击广告页面可以跳转我们推广的页面或者外联的WebView页面。虽然Apple不推荐这么做，但现在网易新闻、知乎日报都这么干。能挣钱这事还是从了。<br>&emsp;&emsp;在实践中参考了网上的实现方案，真心说在百度搜这个很蛋疼。在CocoaChina中有个思路：一种替换根视图控制器先展示广告页，再替换为原先的主页视图控制器为RootViewController。在公司项目实现替换根视图控制器时出现问题了，项目本身与cordova有交互，在变更rootViewController时首页无法刷新展示出页面。这样一来对广告页进行根视图的变更就有困难。 改用展示启动轮播页的方案，也就是再加一层Window来显示广告展示页。具体如下。 </p>
 <h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ol>
 <li>启动页加载后广告页面实时加载，不能等待首页已经出现了再显示广告页面。  </li>
 <li>广告页面展示图片的下载是同步获取还是异步获取  </li>
 <li>如何判断广告页面已经改变   </li>
-<li>广告点击如何传值  </li>
-</ol>
-<h2 id="见招拆招"><a href="#见招拆招" class="headerlink" title="见招拆招"></a>见招拆招</h2><ol>
-<li><p>保证广告页实时展现，在启动时就需要保证广告页数据的获取是同步的。同步获取数据我们说会堵塞主线程以此达到启动后就展示广告的效果。我们利用AFNetworking自带的</p>
-<p>待续</p>
-</li>
-</ol>
-
-          
+<li><p>广告点击如何传值  </p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/02/iOS启动加载广告/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -826,40 +760,17 @@ if ([_captureSession canSetSessionPreset:AVCaptureSessionPreset640x480]) {//设�
 
       
         
-          
-            <p>iOS开发者都知道，推出新页面有两种方式，一种是导航Push，另一种是视图本身Present另一个视图。一般的应用程序都是UITabBarController+4个UINavigationController，然后每个导航Push或者Pop就解决了问题。</p>
-<p>这次引发我思考的是佳缘经纪人项目中要添加银行卡的一个功能：这个功能有两个入口，第一个入口是从导航栈中的某个视图Push出的（非根视图），第二个入口是从导航的根视图Push出的。这个功能本身又需要分2个步骤，验证手机收到的验证码以及输入银行卡号，是两个页面。这样在成功添加银行卡号后要跳转到发起该请求的页面的时候可以这样：</p>
+          <p>iOS开发者都知道，推出新页面有两种方式，一种是导航Push，另一种是视图本身Present另一个视图。一般的应用程序都是UITabBarController+4个UINavigationController，然后每个导航Push或者Pop就解决了问题。</p>
+<p>这次引发我思考的是佳缘经纪人项目中要添加银行卡的一个功能：这个功能有两个入口，第一个入口是从导航栈中的某个视图Push出的（非根视图），第二个入口是从导航的根视图Push出的。这个功能本身又需要分2个步骤，验证手机收到的验证码以及输入银行卡号，是两个页面。这样在成功添加银行卡号后要跳转到发起该请求的页面的时候可以这样：  </p>
 <ul>
 <li>如果是根视图：PopToRootViewController</li>
-<li>如果不是根视图：先找到导航栈中的那个控制器，然后PopToViewController：<br>从流程上讲：它应该是这个样子</li>
+<li>如果不是根视图：先找到导航栈中的那个控制器，然后PopToViewController  </li>
 </ul>
-<p><img src="http://7xrm0o.com1.z0.glb.clouddn.com/present-01.png" alt=""></p>
-<p>那么问题来了，如果哪天这个功能还要有一个入口，在Pop回去的地方就又要多加判断，意味着这个流程里面就有了很多垃圾代码去判断是从哪个页面来的。这个时候我开始考虑，这样的设计可能是存在问题的。</p>
-<h3 id="微信"><a href="#微信" class="headerlink" title="微信"></a>微信</h3><p>意识到这个问题的时候，我在想，有类似流程设计的肯定不止一家，其实是可以参考其他软件是怎么设计的。于是花费了时间，看了看微信在类似的场景的设计。下图是微信的更换绑定手机号的流程截图，其实“更换手机号”这个页面是“绑定手机号”这个页面Present出的。</p>
-<p><img src="http://7xrm0o.com1.z0.glb.clouddn.com/wechat_change_phone.png" alt=""></p>
-<h3 id="苹果在iOS框架中的设计"><a href="#苹果在iOS框架中的设计" class="headerlink" title="苹果在iOS框架中的设计"></a>苹果在iOS框架中的设计</h3><p>其实苹果自己设计的UIImagePickerController就是一个值得参考的例子。<br>它的流程是这样的</p>
-<p><img src="http://7xrm0o.com1.z0.glb.clouddn.com/present-03.png" alt=""><br>“Photos”这个页面是被Present出的，并且在Xcode中可以看到UIImagePickerController是继承自UINavigationController的。</p>
-<h3 id="因此"><a href="#因此" class="headerlink" title="因此"></a>因此</h3><p>可以看出，iOS框架和微信App中，在做这样的操作的时候（这个操作一般可以表述为：需要用户去输入，去选择，去编辑。这个操作一般还涉及好几个步骤，好几个页面），一般用Present的方式模态出一个导航栈出来。而这样做的具体优点为：</p>
-<ul>
-<li>流程中，用户想放弃编辑，通过导航中的“取消”，可以随时Dismiss这个导航栈，然后回到发起这个功能的页面。而相比直接用导航Push这一系列流程的时候，用户想放弃编辑，只能通过导航中的“返回”一步一步返回了。</li>
-<li>用户完成操作的自动跳转，可以通过Dismiss直接回到页面发起的地方。而相比直接用导航Push这一系列流程的方式，要写一堆代码判断到底应该Pop回哪个页面。</li>
-</ul>
-<p>所以参照这些，我把红娘经纪人中添加银行卡的步骤设计成类似的流程。同样的，我们添加银行卡的这个流程也有这样一个协议，用来表明是添加银行卡成功了还是取消了这次添加。</p>
-<pre><code>@protocol UIImagePickerControllerDelegate&lt;NSObject&gt;
-@optional
-// The picker does not dismiss itself; the client dismisses it in these callbacks.
-// The delegate will receive one or the other, but not both, depending whether the user
-// confirms or cancels.
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary&lt;NSString *,id&gt; *)info;
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker;
-@end
-</code></pre><p>现在回头看微信更换绑定手机的设计，其实也是有点瑕疵的：在“填写验证码”这个环节，缺少“取消”的按钮，如果用户想放弃这次更换手机号的操作，只能先返回到上级界面再点击“取消”了。</p>
-<h3 id="最后说一点"><a href="#最后说一点" class="headerlink" title="最后说一点"></a>最后说一点</h3><p>最近读郝培强（tiny4voice）微信公众号中的一篇文章很有感悟，文章最后说：</p>
-<pre><code>我大家的自主努力，不是坚持，不是在泥潭里坚持，
-而是积累，积累改进，积累思考，要跳出泥潭，掌控工作，掌控生活，掌控自己
-</code></pre><p>所以我想我们在开发中不要总是一味去照搬以前的方式去蛮干，而要思考，有没有更好的方式。经常的，还要回过头来看看自己写的代码，到底设计得是不是够好，够规范，够易维护。这样才能有所积累。</p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/02/24/为什么我们需要Present这种模态推出视图的方式？/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
