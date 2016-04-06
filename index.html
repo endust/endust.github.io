@@ -463,8 +463,127 @@ if ([_captureSession canSetSessionPreset:AVCaptureSessionPreset640x480]) {//设�
             
               
                 
+                <a class="post-title-link" href="/2016/03/10/利用UIImagePickerControllerReferenceURL路径上传视频/" itemprop="url">
+                  利用UIImagePickerControllerReferenceURL路径上传视频
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-10T16:02:34+08:00" content="2016-03-10">
+              2016-03-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/10/利用UIImagePickerControllerReferenceURL路径上传视频/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/10/利用UIImagePickerControllerReferenceURL路径上传视频/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+          
+              
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><p>&emsp;&emsp;在选取手机相册的视频时，我们调用系统的UIImagePickerController时会拿到info 字典。打印发现有三个键值对。分别是</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">NSString *const UIImagePickerControllerMediaType; &#10;NSString *const UIImagePickerControllerMediaURL;&#10;NSString *const UIImagePickerControllerReferenceURL;</span><br></pre></td></tr></table></figure>
+<p> 如下图所示<br><img src="http://7xrm0o.com1.z0.glb.clouddn.com/imagepickerReferenceURL.jpg" alt="info内容"><br>&emsp;&emsp;正常我们上传视频拿到MediaURL转换为NSData即可。但最近有个需求，从服务端下载的视频在手机进行分享时，需要上传我们分享的视频，当调用UIImagePickerController选定视频时发现拿不到MediaURL, 只能获取到ReferenceURL。我们通过ReferenceURL进行视频上传发现不起作用。        </p>
+<h1 id="如何拿到视频的绝对地址呢？"><a href="#如何拿到视频的绝对地址呢？" class="headerlink" title="如何拿到视频的绝对地址呢？"></a>如何拿到视频的绝对地址呢？</h1><blockquote>
+<p> 从前有座山，名曰百度山，村里老人说山的那边有水，我爬啊爬，爬到外婆桥。终于翻过百度山，衣服也被路上的荆棘撕破了，水坑都没见一个。幸好有个猎户指点我往前有个谷歌峰，那边水资源丰富。</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/10/利用UIImagePickerControllerReferenceURL路径上传视频/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/03/02/iOS启动加载广告/" itemprop="url">
-                  iOS启动加载广告
+                  iOS启动页加载广告
                 </a>
               
             
@@ -532,10 +651,14 @@ if ([_captureSession canSetSessionPreset:AVCaptureSessionPreset640x480]) {//设�
 
       
         
-          <p>&emsp;&emsp;接到了一个需求，启动页加入广告。点击广告页面可以跳转我们推广的页面或者外联的WebView页面。虽然Apple不推荐这么做，但现在网易新闻、知乎日报都这么干。能挣钱这事还是从了。<br>&emsp;&emsp;在实践中参考了网上的实现方案，真心说在百度搜这个很蛋疼。在CocoaChina中有个思路：一种替换根视图控制器先展示广告页，再替换为原先的主页视图控制器为RootViewController。在公司项目实现替换根视图控制器时出现问题了，项目本身与cordova有交互，在变更rootViewController时首页无法刷新展示出页面。这样一来对广告页进行根视图的变更就有困难。 改用展示启动轮播页的方案，也就是再加一层Window来显示广告展示页。具体如下。 </p>
+          <p>&emsp;&emsp;接到了一个需求，启动页加入广告。点击广告页面可以跳转我们推广的页面或者外联的WebView页面。虽然Apple不推荐这么做，但现在网易新闻、知乎日报都这么干。能挣钱这事还是从了。<br>&emsp;&emsp;在实践中参考了网上的实现方案，有两个方案：</p>
+<ul>
+<li>替换根视图控制器先展示广告页，再替换为原先的主页视图控制器为RootViewController。</li>
+<li>首页加一层Window/View来显示广告展示页。 </li>
+</ul>
 <h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ol>
 <li>启动页加载后广告页面实时加载，不能等待首页已经出现了再显示广告页面。  </li>
-<li>广告页面展示图片的下载是同步获取还是异步获取  </li>
+<li>广告页面展示图片的下载获取方式  </li>
 <li>如何判断广告页面已经改变   </li>
 <li>广告点击如何传值  </li>
 </ol>
