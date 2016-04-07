@@ -71,7 +71,7 @@
 
 替换根视图控制器先展示广告页，再替换为原先的主页视图控制器为RootViewController。
 首页加一层Window/Vi">
-<meta property="og:updated_time" content="2016-04-06T12:01:27.000Z">
+<meta property="og:updated_time" content="2016-04-07T14:33:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS启动页加载广告">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;接到了一个需求，启动页加入广告。点击广告页面可以跳转我们推广的页面或者外联的WebView页面。虽然Apple不推荐这么做，但现在网易新闻、知乎日报都这么干。能挣钱这事还是从了。&amp;emsp;&amp;emsp;在实践中参考了网上的实现方案，有两个方案：
@@ -290,14 +290,14 @@
 <li>替换根视图控制器先展示广告页，再替换为原先的主页视图控制器为RootViewController。</li>
 <li>首页加一层Window/View来显示广告展示页。 </li>
 </ul>
-<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ol>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><ol>
 <li>启动页加载后广告页面实时加载，不能等待首页已经出现了再显示广告页面。  </li>
 <li>广告页面展示图片的下载获取方式  </li>
 <li>如何判断广告页面已经改变   </li>
 <li>广告点击如何传值  </li>
 </ol>
 <a id="more"></a>     
-<h2 id="见招拆招"><a href="#见招拆招" class="headerlink" title="见招拆招"></a>见招拆招</h2><ul>
+<h3 id="见招拆招"><a href="#见招拆招" class="headerlink" title="见招拆招"></a>见招拆招</h3><ul>
 <li>广告页实时展现，在启动时就需要保证广告页展示数据的获取是同步的。同步获取数据我们说会堵塞主线程以此达到启动后就展示广告的效果。我们利用AFNetworking自带的AFHTTPRequestOperation进行同步数据请求。</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">+ (void)adInfoUrl:(NSString *)urlString params:(NSDictionary *)params success:(void (^)(NSDictionary *))success&#10;&#123;&#10;    NSMutableDictionary *newParams = [NSMutableDictionary dictionaryWithDictionary:params];&#10;    &#10;    AFJSONRequestSerializer *requestSerializer = [AFJSONRequestSerializer serializer];&#10;    NSMutableURLRequest *request = [requestSerializer requestWithMethod:@&#34;GET&#34; URLString:API_SCHEME parameters:newParams error:nil];&#10;    &#10;    /* &#26368;&#32456;&#32487;&#25215;&#33258; NSOperation&#65292;&#20063;&#23601;&#26159;&#21033;&#29992; NSOperation &#26469;&#20570;&#30340;&#21516;&#27493;&#35831;&#27714; */&#10;    AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];&#10;    AFHTTPResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializer];&#10;    &#10;    [requestOperation setResponseSerializer:responseSerializer];&#10;    &#10;    [requestOperation start];&#10;    &#10;    [requestOperation waitUntilFinished];&#10;    &#10;    /* &#35831;&#27714;&#32467;&#26524; */&#10;    NSDictionary *result = (NSDictionary *)[requestOperation responseObject];&#10;    &#10;    if (result != nil) &#123;&#10;        &#10;        success(result);&#10;    &#125;  &#10;&#125;</span><br></pre></td></tr></table></figure>
@@ -463,7 +463,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题"><span class="nav-number">1.</span> <span class="nav-text">遇到的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#见招拆招"><span class="nav-number">2.</span> <span class="nav-text">见招拆招</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#遇到的问题"><span class="nav-number">1.</span> <span class="nav-text">遇到的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#见招拆招"><span class="nav-number">2.</span> <span class="nav-text">见招拆招</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

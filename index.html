@@ -299,7 +299,7 @@
 <li>iPhone 6(@2x) : 750 x 1334</li>
 <li>iPhone 6 plus (@3x) : 1242 x 2208</li>
 </ul>
-<p>&emsp;&emsp;我们开发拿到的图片素材基本是基于iPhone6屏幕尺寸或者1920*1080像素这样的尺寸。如何在有限的一张素材图的情况下配齐我们的四种机型启动图呢？</p>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>&emsp;&emsp;我们开发拿到的图片素材基本是基于iPhone6屏幕尺寸或者1920x1080像素这样的尺寸。如何在有限的一张素材图的情况下配齐我们的四种机型启动图呢？</p>
 <p>&emsp;&emsp;简单就是极致，Mac自带的图片编辑工具就可以搞定这一切。   </p>
 <ol>
 <li>首先选中我们要处理的图片，按空格进入展示框。  </li>
@@ -661,10 +661,10 @@ if ([_captureSession canSetSessionPreset:AVCaptureSessionPreset640x480]) {//设�
 
       
         
-          <h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><p>&emsp;&emsp;在选取手机相册的视频时，我们调用系统的UIImagePickerController时会拿到info 字典。打印发现有三个键值对。分别是</p>
+          <h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p>&emsp;&emsp;在选取手机相册的视频时，我们调用系统的UIImagePickerController时会拿到info 字典。打印发现有三个键值对。分别是</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">NSString *const UIImagePickerControllerMediaType; &#10;NSString *const UIImagePickerControllerMediaURL;&#10;NSString *const UIImagePickerControllerReferenceURL;</span><br></pre></td></tr></table></figure>
 <p> 如下图所示<br><img src="http://7xrm0o.com1.z0.glb.clouddn.com/imagepickerReferenceURL.jpg" alt="info内容"><br>&emsp;&emsp;正常我们上传视频拿到MediaURL转换为NSData即可。但最近有个需求，从服务端下载的视频在手机进行分享时，需要上传我们分享的视频，当调用UIImagePickerController选定视频时发现拿不到MediaURL, 只能获取到ReferenceURL。我们通过ReferenceURL进行视频上传发现不起作用。        </p>
-<h1 id="如何拿到视频的绝对地址呢？"><a href="#如何拿到视频的绝对地址呢？" class="headerlink" title="如何拿到视频的绝对地址呢？"></a>如何拿到视频的绝对地址呢？</h1><blockquote>
+<h3 id="如何拿到视频的绝对地址呢？"><a href="#如何拿到视频的绝对地址呢？" class="headerlink" title="如何拿到视频的绝对地址呢？"></a>如何拿到视频的绝对地址呢？</h3><blockquote>
 <p> 从前有座山，名曰百度山，村里老人说山的那边有水，我爬啊爬，爬到外婆桥。终于翻过百度山，衣服也被路上的荆棘撕破了，水坑都没见一个。幸好有个猎户指点我往前有个谷歌峰，那边水资源丰富。</p>
 </blockquote>
           <div class="post-more-link text-center">
@@ -785,7 +785,7 @@ if ([_captureSession canSetSessionPreset:AVCaptureSessionPreset640x480]) {//设�
 <li>替换根视图控制器先展示广告页，再替换为原先的主页视图控制器为RootViewController。</li>
 <li>首页加一层Window/View来显示广告展示页。 </li>
 </ul>
-<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ol>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><ol>
 <li>启动页加载后广告页面实时加载，不能等待首页已经出现了再显示广告页面。  </li>
 <li>广告页面展示图片的下载获取方式  </li>
 <li>如何判断广告页面已经改变   </li>
