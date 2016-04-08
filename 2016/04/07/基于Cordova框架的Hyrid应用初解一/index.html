@@ -43,7 +43,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="授人以鱼," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -59,20 +59,16 @@
 
 
 
-<meta name="description" content="遇到的问题&amp;emsp;&amp;emsp;在选取手机相册的视频时，我们调用系统的UIImagePickerController时会拿到info 字典。打印发现有三个键值对。分别是
-NSString *const UIImagePickerControllerMediaType; &amp;#10;NSString *const UIImagePickerControllerMediaURL;&amp;#10;NSStri">
+<meta name="description" content="概述通过Cordova框架来做H5和Native的混合应用。各方案优劣相信都有比较过。首先最主要的优势就是从App Store的审核周期中脱离出来了，我们可以打特定的补丁而不用加急审核了，在应用中可以实时展示页面，甚至访问本地数据、设备传感器等，同时也做到了一处编译跨平台运行的梦想。安装包精简这种附带的好处都是附赠的了。看完前面后面也得瞅瞅。既然是H5的网络就是一个障碍，与Native的界面相比流">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用UIImagePickerControllerReferenceURL路径上传视频">
-<meta property="og:url" content="http://yoursite.com/2016/03/10/利用UIImagePickerControllerReferenceURL路径上传视频/index.html">
+<meta property="og:title" content="基于Cordova框架的Hyrid应用初解一">
+<meta property="og:url" content="http://yoursite.com/2016/04/07/基于Cordova框架的Hyrid应用初解一/index.html">
 <meta property="og:site_name" content="看可能">
-<meta property="og:description" content="遇到的问题&amp;emsp;&amp;emsp;在选取手机相册的视频时，我们调用系统的UIImagePickerController时会拿到info 字典。打印发现有三个键值对。分别是
-NSString *const UIImagePickerControllerMediaType; &amp;#10;NSString *const UIImagePickerControllerMediaURL;&amp;#10;NSStri">
-<meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/imagepickerReferenceURL.jpg">
-<meta property="og:updated_time" content="2016-04-07T14:33:14.000Z">
+<meta property="og:description" content="概述通过Cordova框架来做H5和Native的混合应用。各方案优劣相信都有比较过。首先最主要的优势就是从App Store的审核周期中脱离出来了，我们可以打特定的补丁而不用加急审核了，在应用中可以实时展示页面，甚至访问本地数据、设备传感器等，同时也做到了一处编译跨平台运行的梦想。安装包精简这种附带的好处都是附赠的了。看完前面后面也得瞅瞅。既然是H5的网络就是一个障碍，与Native的界面相比流">
+<meta property="og:updated_time" content="2016-04-08T08:57:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用UIImagePickerControllerReferenceURL路径上传视频">
-<meta name="twitter:description" content="遇到的问题&amp;emsp;&amp;emsp;在选取手机相册的视频时，我们调用系统的UIImagePickerController时会拿到info 字典。打印发现有三个键值对。分别是
-NSString *const UIImagePickerControllerMediaType; &amp;#10;NSString *const UIImagePickerControllerMediaURL;&amp;#10;NSStri">
+<meta name="twitter:title" content="基于Cordova框架的Hyrid应用初解一">
+<meta name="twitter:description" content="概述通过Cordova框架来做H5和Native的混合应用。各方案优劣相信都有比较过。首先最主要的优势就是从App Store的审核周期中脱离出来了，我们可以打特定的补丁而不用加急审核了，在应用中可以实时展示页面，甚至访问本地数据、设备传感器等，同时也做到了一处编译跨平台运行的梦想。安装包精简这种附带的好处都是附赠的了。看完前面后面也得瞅瞅。既然是H5的网络就是一个障碍，与Native的界面相比流">
 
 
 
@@ -90,7 +86,7 @@ NSString *const UIImagePickerControllerMediaType; &amp;#10;NSString *const UIIma
   };
 </script>
 
-  <title> 利用UIImagePickerControllerReferenceURL路径上传视频 | 看可能 </title>
+  <title> 基于Cordova框架的Hyrid应用初解一 | 看可能 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -210,7 +206,7 @@ NSString *const UIImagePickerControllerMediaType; &amp;#10;NSString *const UIIma
             
             
               
-                利用UIImagePickerControllerReferenceURL路径上传视频
+                基于Cordova框架的Hyrid应用初解一
               
             
           </h1>
@@ -222,8 +218,8 @@ NSString *const UIImagePickerControllerMediaType; &amp;#10;NSString *const UIIma
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-10T16:02:34+08:00" content="2016-03-10">
-              2016-03-10
+            <time itemprop="dateCreated" datetime="2016-04-07T22:58:02+08:00" content="2016-04-07">
+              2016-04-07
             </time>
           </span>
 
@@ -252,8 +248,8 @@ NSString *const UIImagePickerControllerMediaType; &amp;#10;NSString *const UIIma
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/10/利用UIImagePickerControllerReferenceURL路径上传视频/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/10/利用UIImagePickerControllerReferenceURL路径上传视频/" itemprop="commentsCount"></span>
+                <a href="/2016/04/07/基于Cordova框架的Hyrid应用初解一/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/基于Cordova框架的Hyrid应用初解一/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -280,46 +276,43 @@ NSString *const UIImagePickerControllerMediaType; &amp;#10;NSString *const UIIma
       
 
       
-        <h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p>&emsp;&emsp;在选取手机相册的视频时，我们调用系统的UIImagePickerController时会拿到info 字典。打印发现有三个键值对。分别是</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">NSString *const UIImagePickerControllerMediaType; &#10;NSString *const UIImagePickerControllerMediaURL;&#10;NSString *const UIImagePickerControllerReferenceURL;</span><br></pre></td></tr></table></figure>
-<p> 如下图所示<br><img src="http://7xrm0o.com1.z0.glb.clouddn.com/imagepickerReferenceURL.jpg" alt="info内容"><br>&emsp;&emsp;正常我们上传视频拿到MediaURL转换为NSData即可。但最近有个需求，从服务端下载的视频在手机进行分享时，需要上传我们分享的视频，当调用UIImagePickerController选定视频时发现拿不到MediaURL, 只能获取到ReferenceURL。我们通过ReferenceURL进行视频上传发现不起作用。        </p>
-<h3 id="如何拿到视频的绝对地址呢？"><a href="#如何拿到视频的绝对地址呢？" class="headerlink" title="如何拿到视频的绝对地址呢？"></a>如何拿到视频的绝对地址呢？</h3><blockquote>
-<p> 从前有座山，名曰百度山，村里老人说山的那边有水，我爬啊爬，爬到外婆桥。终于翻过百度山，衣服也被路上的荆棘撕破了，水坑都没见一个。幸好有个猎户指点我往前有个谷歌峰，那边水资源丰富。</p>
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>通过Cordova框架来做H5和Native的混合应用。各方案优劣相信都有比较过。首先最主要的优势就是从App Store的审核周期中脱离出来了，我们可以打特定的补丁而不用加急审核了，在应用中可以实时展示页面，甚至访问本地数据、设备传感器等，同时也做到了一处编译跨平台运行的梦想。安装包精简这种附带的好处都是附赠的了。看完前面后面也得瞅瞅。既然是H5的网络就是一个障碍，与Native的界面相比流畅度有一定不足。<br><a id="more"></a></p>
+<h3 id="config-xml"><a href="#config-xml" class="headerlink" title="config.xml"></a>config.xml</h3><blockquote>
+<p>Apache 科爾多瓦的應用程式都依賴于一個共同的 config.xml 檔，提供有關應用程式的資訊，並指定參數影響它如何工作，如它是否回應方向轉移。 此檔遵循 W3C 的打包 Web 應用程式或構件，規範。 </p>
+<p>應用程式本身作為 web 頁上，預設情況下名為index.html，引用任何 CSS、 JavaScript、 圖像、 媒體檔案或其他資源的本地檔是必要的它的運行來實現。 這款應用程式作為web 視圖的本機應用程式中包裝，您分發給應用程式商店內執行。</p>
 </blockquote>
- <a id="more"></a> 
-<p>&emsp;&emsp;搭桥爬墙发现水源如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">NSURL *videoURL = [info objectForKey:UIImagePickerControllerReferenceURL];   &#10;NSString * filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];  &#10;NSString * photoFile= [filePath stringByAppendingPathComponent:@&#34;test.mov&#34;];&#10;      ALAssetsLibrary *assetLibrary=[[ALAssetsLibrary alloc] init];&#10;      [assetLibrary assetForURL:videoURL resultBlock:^(ALAsset *asset) &#10;       &#123;&#10;           ALAssetRepresentation *rep = [asset defaultRepresentation];&#10;           Byte *buffer = (Byte*)malloc(rep.size);&#10;           NSUInteger buffered = [rep getBytes:buffer fromOffset:0.0 length:rep.size error:nil];&#10;           NSData *data = [NSData dataWithBytesNoCopy:buffer length:buffered freeWhenDone:YES];//this is NSData may be what you want&#10;           [data writeToFile:photoFile atomically:YES]; //you can remove this if only nsdata needed&#10;           NSLog(@&#34;%@&#34;,photoFile);&#10;       &#125;&#10;                                      failureBlock:^(NSError *err) &#123;&#10;                                          NSLog(@&#34;Error: %@&#34;,[err localizedDescription]);&#10;                                      &#125;];</span><br></pre></td></tr></table></figure>
-<p>如此将以上方法应用于</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- (void) imagePickerController: (UIImagePickerController *) picker&#10; didFinishPickingMediaWithInfo: (NSDictionary *) info</span><br></pre></td></tr></table></figure>
-<p>完美解决。</p>
+<p>在config.xml文件中我们要进行一定的本地配置:  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//start &#10;&#60;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39;?&#62;&#10;&#10;//--widget&#65306;id&#22635;&#20889;app&#25152;&#26377;&#20154;&#30340;&#22495;&#21517;&#65292;version&#22635;&#20889;app&#30340;&#29256;&#26412;&#21495;--//&#10;&#60;widget id=&#34;com.carl.study&#34; version=&#34;1.1.0&#34;&#62;&#10;    &#10;    &#60;!--name:app&#21517;&#31216;--&#62;&#10;    &#60;name&#62;&#32764;&#36215;&#23398;&#60;/name&#62;&#10;    &#10;    &#60;!--description&#65306;app&#25551;&#36848;&#65292;&#20250;&#22312;app stroe&#37324;&#26174;&#31034;--&#62;&#10;    &#60;description&#62;&#10;        A sample Apache Cordova application that responds to the deviceready event.&#10;    &#60;/description&#62;&#10;    &#10;    &#60;!--author&#65306;app&#20316;&#32773;&#30456;&#20851;&#20449;&#24687;&#65292;&#20250;&#22312;app stroe&#37324;&#26174;&#31034;--&#62;&#10;    &#60;author email=&#34;dev@cordova.apache.org&#34; href=&#34;http://cordova.io&#34;&#62;&#10;        Apache Cordova Team&#10;    &#60;/author&#62;&#10;    &#10;    &#60;!--content&#65306;&#25351;&#23450;app&#24320;&#22987;&#25351;&#21521;&#39029;&#38754;--&#62;&#10;&#9;//--content src=&#34;app/index.html/#/index&#34; --//&#10;    &#60;content src=&#34;index.html&#34; /&#62;&#10;    &#10;    &#60;plugin name=&#34;cordova-plugin-whitelist&#34; version=&#34;1&#34; /&#62;&#10;    &#10;    &#60;!--access&#65306;&#25351;&#23450;app&#21487;&#36827;&#34892;&#36890;&#20449;&#30340;&#22495;&#21517;&#65292;*&#20026;&#25152;&#26377;--&#62;&#10;    &#60;access origin=&#34;*&#34; /&#62;&#10;    &#10;    &#10;    &#60;!--Pooh iOS&#35774;&#32622;--&#62;&#10;    &#60;!-- Preferences for iOS --&#62;&#10;    &#60;preference name=&#34;AllowInlineMediaPlayback&#34; value=&#34;false&#34; /&#62;&#10;    &#60;preference name=&#34;AutoHideSplashScreen&#34; value=&#34;true&#34; /&#62;&#10;    &#60;preference name=&#34;BackupWebStorage&#34; value=&#34;local&#34; /&#62;&#10;    &#60;preference name=&#34;DisallowOverscroll&#34; value=&#34;false&#34; /&#62;&#10;    &#60;preference name=&#34;EnableLocation&#34; value=&#34;false&#34; /&#62;&#10;    &#60;preference name=&#34;EnableViewportScale&#34; value=&#34;false&#34; /&#62;&#10;    &#60;preference name=&#34;FadeSplashScreen&#34; value=&#34;true&#34; /&#62;&#10;    &#60;preference name=&#34;FadeSplashScreenDuration&#34; value=&#34;.25&#34; /&#62;&#10;    &#60;preference name=&#34;HideKeyboardFormAccessoryBar&#34; value=&#34;false&#34; /&#62;&#10;    &#60;preference name=&#34;KeyboardDisplayRequiresUserAction&#34; value=&#34;true&#34; /&#62;&#10;    &#60;preference name=&#34;KeyboardShrinksView&#34; value=&#34;false&#34; /&#62;&#10;    &#60;preference name=&#34;MediaPlaybackRequiresUserAction&#34; value=&#34;false&#34; /&#62;&#10;    &#60;preference name=&#34;ShowSplashScreenSpinner&#34; value=&#34;true&#34; /&#62;&#10;    &#60;preference name=&#34;SuppressesIncrementalRendering&#34; value=&#34;false&#34; /&#62;&#10;    &#60;preference name=&#34;TopActivityIndicator&#34; value=&#34;gray&#34; /&#62;&#10;&#10;    &#10;    &#60;feature name=&#34;Device&#34;&#62;&#10;        &#60;param name=&#34;ios-package&#34; value=&#34;CDVDevice&#34;/&#62;&#10;    &#60;/feature&#62;&#10;    &#10;    &#60;feature name=&#34;Console&#34;&#62;&#10;        &#60;param name=&#34;ios-package&#34; value=&#34;CDVLogger&#34;/&#62;&#10;    &#60;/feature&#62;&#10;    // &#25554;&#20214;&#24456;&#37325;&#35201;&#10;    &#60;!--cordova &#25554;&#20214;--&#62;&#10;    &#60;feature name=&#34;CallActivityPlugin&#34;&#62;&#10;        &#60;param name=&#34;ios-package&#34; value=&#34;CallActivityPlugin&#34;/&#62;&#10;    &#60;/feature&#62;&#10;    &#10;    &#60;!--&#23448;&#26041;demo iOS&#35774;&#32622;--&#62;&#10;    &#60;allow-intent href=&#34;http://*/*&#34; /&#62;&#10;    &#60;allow-intent href=&#34;https://*/*&#34; /&#62;&#10;    &#60;allow-intent href=&#34;tel:*&#34; /&#62;&#10;    &#60;allow-intent href=&#34;sms:*&#34; /&#62;&#10;    &#60;allow-intent href=&#34;mailto:*&#34; /&#62;&#10;    &#60;allow-intent href=&#34;geo:*&#34; /&#62;&#10;    &#60;platform name=&#34;android&#34;&#62;&#10;        &#60;allow-intent href=&#34;market:*&#34; /&#62;&#10;    &#60;/platform&#62;&#10;    &#60;platform name=&#34;ios&#34;&#62;&#10;        &#60;allow-intent href=&#34;itms:*&#34; /&#62;&#10;        &#60;allow-intent href=&#34;itms-apps:*&#34; /&#62;&#10;    &#60;/platform&#62;&#10;&#60;/widget&#62;&#10;&#10;&#10;//--preference&#65306;&#20559;&#22909;&#35774;&#32622;&#65292;&#21487;&#38024;&#23545;&#19981;&#21516;&#24179;&#21488;&#36827;&#34892;&#20010;&#24615;&#21270;&#35774;&#32622;--//&#10;&#10;```  &#10;&#10;cordova &#25554;&#20214;&#23601;&#26159;&#25105;&#20204;&#39033;&#30446;&#30340;&#20013;&#36716;&#31449;&#20102;&#65292;&#22312;&#36825;&#37324;&#25105;&#35774;&#32622;&#20102;CallActivityPlugin&#31867;&#30340;&#25554;&#20214;&#12290;&#25554;&#20214;&#30340;&#20855;&#20307;&#26500;&#25104;&#19979;&#38754;&#23567;&#33410;&#23558;&#20250;&#20171;&#32461;&#12290;&#10;&#10;### &#35835;&#21462;&#36335;&#24452;&#30340;&#23433;&#20840;&#24615;  &#10;&#19968;&#33324;&#25105;&#20204;&#30340;www&#30446;&#24405;&#20301;&#20110;&#25105;&#20204;&#30340;&#36164;&#28304;&#21253;&#20013;&#26159;&#35843;&#29992;Cordova&#30340;&#39029;&#38754;&#30452;&#25509;&#35843;&#29992;&#22914;&#19979;&#36825;&#26679;</span><br></pre></td></tr></table></figure>
+<p>@interface MainViewController : CDVViewController<br>@end<br>@implementation MainViewController  </p>
+<ul>
+<li><p>(void)viewDidLoad {<br>  self.wwwFolderName = @”www/Pooh”;<br>  self.startPage = @”index.html#index”;<br>  [super viewDidLoad];<br>}<br>@end  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#36825;&#31181;&#26041;&#24335;&#25105;&#20204;&#30340;www&#30446;&#24405;&#22522;&#26412;&#19978;&#31867;&#20284;&#20110;&#36825;&#26679;  &#10; ![www&#30446;&#24405;&#32467;&#26500;](http://7xrm0o.com1.z0.glb.clouddn.com/cordova01-www.png)   &#10; &#36825;&#26679;&#25105;&#20204;&#30340;www&#25991;&#20214;&#35201;&#27714;&#39033;&#30446;&#29992;&#30340;&#24517;&#22791;&#30340;H5&#36164;&#28304;&#21253;&#20869;&#23481;&#37117;&#35201;&#25918;&#21040;&#39033;&#30446;&#30340;&#36164;&#28304;&#25991;&#20214;&#21253;&#20869;&#65292;&#23384;&#22312;&#19968;&#20010;&#38544;&#24739;&#23601;&#26159;&#25105;&#20204;&#30340;&#20195;&#30721;&#22312;&#25343;&#21040;ipa&#23433;&#35013;&#21253;&#26174;&#31034;&#21253;&#20869;&#23481;&#24456;&#23481;&#26131;&#30475;&#21040;&#25972;&#20307;&#30340;&#32467;&#26500;&#65292;&#23433;&#20840;&#20445;&#25252;&#19981;&#36275;&#12290;&#26356;&#36827;&#19968;&#27493;&#65292;&#26159;&#21542;&#33021;&#23558;www&#36164;&#28304;&#25918;&#21040;&#27801;&#30418;&#20869;&#65311;  &#10; **&#20570;&#21040;H5&#36164;&#28304;&#30340;&#20849;&#29992;&#65292;Android&#31471;&#21644;iOS&#31471;&#26377;&#19968;&#20010;&#25991;&#20214;&#26159;&#19981;&#21516;&#30340;&#65292;&#21363;cordova.js**  &#10; &#36825;&#20010;&#25991;&#20214;&#21487;&#20197;&#25353;&#21407;&#20808;&#30340;&#26041;&#26696;&#65292;&#22312;App&#25171;&#21253;&#26102;&#21482;&#25171;&#21253;www&#25991;&#20214;&#19979;&#30340;cordova.js&#65292;&#20854;&#20182;&#20174;&#23433;&#35013;&#21518;&#20174;&#32593;&#32476;&#31471;&#33719;&#21462;&#12290;&#21076;&#38500;H5&#25991;&#20214;&#21518;&#30340;&#30446;&#24405;&#32467;&#26500;&#20687;&#19979;&#38754;&#36825;&#26679;&#65306;  &#10; ![&#26032;www&#30446;&#24405;](http://7xrm0o.com1.z0.glb.clouddn.com/cordova01-www2.png)&#10;&#26032;&#30340;&#30446;&#24405;&#32467;&#26500;&#26159;&#20301;&#20110;&#27801;&#30418;&#30446;&#24405;&#19979;&#30340;Documents&#25991;&#20214;&#19979;&#30340;www&#30446;&#24405;&#19979;&#12290;&#38656;&#35201;&#20004;&#20010;&#27493;&#39588;&#65306;  &#10;1. &#22797;&#21046;&#36164;&#28304;&#21253;&#20869;&#30340;cordova.js&#21040;Documents/www/ &#25991;&#20214;&#22841;&#19979; &#10;2. &#19979;&#36733;H5&#36164;&#28304;&#21253;  &#10;&#10;&#25105;&#20204;&#26368;&#32456;&#30340;cordova&#39029;&#38754;&#35835;&#21462;&#36335;&#24452;&#21464;&#20026;:</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>(void)viewDidLoad {<br>  self.wwwFolderName = [NSString stringWithFormat:@”file://%@/www/Pooh”,[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]];<br>  //self.wwwFolderName = @”www/Pooh”;<br>  self.startPage = @”index.html#index”;<br>  [super viewDidLoad];<br>}<br>```  </p>
+<h3 id="预告"><a href="#预告" class="headerlink" title="预告"></a>预告</h3><p>在下一篇我们将介绍CallActivityPlugin插件的具体实现。  </p>
+<h3 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h3></li>
+<li><a href="http://www.zhoujingen.cn/blog/?s=cordova&amp;submit=%E6%90%9C%E7%B4%A2" target="_blank" rel="external">Cordova讲义</a></li>
+<li><a href="http://cordova.apache.org/docs/zh-cn/6.x/guide/overview/index.html" target="_blank" rel="external">iOS平台指南</a></li>
+<li><a href="http://zhenby.com/blog/2013/05/16/cordova-for-ios/" target="_blank" rel="external">浅析Cordoa for iOS</a></li>
+</ul>
 
       
     </div>
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/授人以鱼/" rel="tag">#授人以鱼</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/02/iOS启动加载广告/" rel="next" title="iOS启动页加载广告">
-                <i class="fa fa-chevron-left"></i> iOS启动页加载广告
+              <a href="/2016/04/07/DIYiOS启动图片/" rel="next" title="DIY你的iOS应用启动图片">
+                <i class="fa fa-chevron-left"></i> DIY你的iOS应用启动图片
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/12/iOS视频录制压缩/" rel="prev" title="iOS视频录制压缩">
-                iOS视频录制压缩 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -345,8 +338,8 @@ NSString *const UIImagePickerControllerMediaType; &amp;#10;NSString *const UIIma
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/10/利用UIImagePickerControllerReferenceURL路径上传视频/"
-           data-title="利用UIImagePickerControllerReferenceURL路径上传视频" data-url="http://yoursite.com/2016/03/10/利用UIImagePickerControllerReferenceURL路径上传视频/">
+      <div class="ds-thread" data-thread-key="2016/04/07/基于Cordova框架的Hyrid应用初解一/"
+           data-title="基于Cordova框架的Hyrid应用初解一" data-url="http://yoursite.com/2016/04/07/基于Cordova框架的Hyrid应用初解一/">
       </div>
     
   </div>
@@ -441,7 +434,7 @@ NSString *const UIImagePickerControllerMediaType; &amp;#10;NSString *const UIIma
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#遇到的问题"><span class="nav-number">1.</span> <span class="nav-text">遇到的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何拿到视频的绝对地址呢？"><span class="nav-number">2.</span> <span class="nav-text">如何拿到视频的绝对地址呢？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#config-xml"><span class="nav-number">2.</span> <span class="nav-text">config.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预告"><span class="nav-number">3.</span> <span class="nav-text">预告</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展阅读"><span class="nav-number">4.</span> <span class="nav-text">扩展阅读</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
