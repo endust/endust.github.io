@@ -73,7 +73,7 @@
 &amp;emsp;&amp;emsp;当你基于这样一个兴趣或者需求，想要来一个像手Q一样的侧滑菜单界面，最快的莫过于采用第三方类库了。找星星最多的，RESideMenu映入了我们的眼睑。那还等什么，开工。&amp;emsp;&amp;emsp;我们来看QQ的交互效果是怎么样的。首页点击“头像”菜单弹出左侧导航页面， 我们以“我的文件”为例。 点击我的文件进入我的文件viewC">
 <meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/residemenu-02.jpg">
 <meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/qqgift.gif">
-<meta property="og:updated_time" content="2016-05-05T09:35:40.000Z">
+<meta property="og:updated_time" content="2016-05-05T09:39:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于RESideMenu快速实现类手机QQ侧划交互">
 <meta name="twitter:description" content="框架选择
@@ -298,8 +298,9 @@
 <li>左侧导航栏点击子页面展示</li>
 <li>左侧视图展示时，当前视图不缩放</li>
 </ul>
-<p><strong><em>Answer1</em></strong>  </p>
-<p>一般来说，contentViewController是展示当前页面的设置，我要显示一个页面，直接设置它为要展示的viewController即可。话是这么个话，你也能这样做。但是，这样做等于重置了NavigationController，对于基于WebView的页面甚至带来了“强刷新”的效果。好好的，都没干啥，你告我骚扰！这里我们就要回到手机QQ的交互了，上文已说明，不再赘述。既然怀疑是直接从主页push了左侧导航栏的视图，那么，两个界面之间必然有沟通。<br>二般来说，contentViewController的导航栈不变，点击左侧子栏目时，传信号给当前视图，根据传值不同确定跳转页面。传值有代理、Block和通知。两个界面本身解耦的，最终选择通知传值。在主页注册通知，观察左侧导航栏传值。<br><strong><em>Answer2</em></strong><br>关于左(右)侧界面 与当前主页的布局关系，在RESideMenu.m中有一下两个接口来管理</p>
+<p><strong><em>Answer1</em></strong></p>
+<p>一般来说，contentViewController是展示当前页面的设置，我要显示一个页面，直接设置它为要展示的viewController即可。话是这么个话，你也能这样做。但是，这样做等于重置了NavigationController，对于基于WebView的页面甚至带来了“强刷新”的效果。好好的，都没干啥，你告我骚扰！这里我们就要回到手机QQ的交互了，上文已说明，不再赘述。既然怀疑是直接从主页push了左侧导航栏的视图，那么，两个界面之间必然有沟通。<br>二般来说，contentViewController的导航栈不变，点击左侧子栏目时，传信号给当前视图，根据传值不同确定跳转页面。传值有代理、Block和通知。两个界面本身解耦的，最终选择通知传值。在主页注册通知，观察左侧导航栏传值。<br><strong><em>Answer2</em></strong>  </p>
+<p>关于左(右)侧界面 与当前主页的布局关系，在RESideMenu.m中有一下两个接口来管理</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- (void)commonInit&#10;&#123;&#10;//-----------------------//&#10;    //_parallaxEnabled = YES;&#10;    _parallaxEnabled = NO;&#10;&#10;    _contentViewInLandscapeOffsetCenterX = 30.f;&#10;    _contentViewInPortraitOffsetCenterX  = 30.f;&#10;    _contentViewScaleValue = 0.7f;&#10;&#125;</span><br></pre></td></tr></table></figure>
 <p>30代表主页界面在当前侧面视图显示的宽度，0.7代表主页视图缩放的大小。 完全不缩放则scaleValue值为1。在原样大小下，要调整主页显示的宽度来使界面更好看，具体的数值可以慢慢探索。</p>
 <p>RESideMenu默认侧栏页面有重力感应效果，此处我们将_parallaxEnabled赋值为NO，实际可以根据爱好及需求进行调整。<br>至此两个问题的解决对RESideMenu的应用算是有了一定的了解。当然Demo也是有的，客官都看到这了顺手点赞支持一下可好。  </p>
