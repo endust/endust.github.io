@@ -219,6 +219,125 @@
             
               
                 
+                <a class="post-title-link" href="/2016/02/24/为什么我们需要Present这种模态推出视图的方式？/" itemprop="url">
+                  为什么我们需要Present这种模态推出视图的方式？
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-24T20:40:34+08:00" content="2016-02-24">
+              2016-02-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/02/24/为什么我们需要Present这种模态推出视图的方式？/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/24/为什么我们需要Present这种模态推出视图的方式？/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+          
+              
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>&emsp;&emsp;iOS开发者都知道，推出新页面有两种方式，一种是导航Push，另一种是视图本身Present另一个视图。一般的应用程序都是UITabBarController+4个UINavigationController，然后每个导航Push或者Pop就解决了问题。</p>
+<p>&emsp;&emsp;这次引发我思考的是佳缘经纪人项目中要添加银行卡的一个功能：这个功能有两个入口，第一个入口是从导航栈中的某个视图Push出的（非根视图），第二个入口是从导航的根视图Push出的。这个功能本身又需要分2个步骤，验证手机收到的验证码以及输入银行卡号，是两个页面。这样在成功添加银行卡号后要跳转到发起该请求的页面的时候可以这样：  </p>
+<ul>
+<li>如果是根视图：PopToRootViewController</li>
+<li>如果不是根视图：先找到导航栈中的那个控制器，然后PopToViewController  </li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/02/24/为什么我们需要Present这种模态推出视图的方式？/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/02/23/postName/" itemprop="url">
                   个人站点落成
                 </a>
@@ -341,7 +460,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
