@@ -1,69 +1,15 @@
-<!doctype html>
-
-
-
-  
-
-
-<html class="theme-next mist use-motion">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-  <meta name="google-site-verification" content="pt8L_4heaQs7girnAr6dXK08kn6IDC-C06ZdygebzzU" />
-
-
-
-
-
-
-
-
-
-
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
-
-
-
-
-  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-
-
-
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
-
-
-
-
-
-
-<meta name="description" content="概述通过Cordova框架来做H5和Native的混合应用。各方案优劣相信都有比较过。首先最主要的优势就是从App Store的审核周期中脱离出来了，我们可以打特定的补丁而不用加急审核了，在应用中可以实时展示页面，甚至访问本地数据、设备传感器等，同时也做到了一处编译跨平台运行的梦想。安装包精简这种附带的好处都是附赠的了。看完前面后面也得瞅瞅。既然是H5的网络就是一个障碍，与Native的界面相比流">
+  <meta charset="utf-8">
+  
+  <title>基于Cordova框架的Hybrid应用初解一 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="概述通过Cordova框架来做H5和Native的混合应用。各方案优劣相信都有比较过。首先最主要的优势就是从App Store的审核周期中脱离出来了，我们可以打特定的补丁而不用加急审核了，在应用中可以实时展示页面，甚至访问本地数据、设备传感器等，同时也做到了一处编译跨平台运行的梦想。安装包精简这种附带的好处都是附赠的了。看完前面后面也得瞅瞅。既然是H5的网络就是一个障碍，与Native的界面相比流">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于Cordova框架的Hybrid应用初解一">
 <meta property="og:url" content="http://yoursite.com/2016/04/27/基于Cordova框架的Hyrid应用初解一/index.html">
-<meta property="og:site_name" content="看可能">
+<meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="概述通过Cordova框架来做H5和Native的混合应用。各方案优劣相信都有比较过。首先最主要的优势就是从App Store的审核周期中脱离出来了，我们可以打特定的补丁而不用加急审核了，在应用中可以实时展示页面，甚至访问本地数据、设备传感器等，同时也做到了一处编译跨平台运行的梦想。安装包精简这种附带的好处都是附赠的了。看完前面后面也得瞅瞅。既然是H5的网络就是一个障碍，与Native的界面相比流">
 <meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/cordova01-www.png">
 <meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/cordova01-www2.png">
@@ -71,212 +17,76 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Cordova框架的Hybrid应用初解一">
 <meta name="twitter:description" content="概述通过Cordova框架来做H5和Native的混合应用。各方案优劣相信都有比较过。首先最主要的优势就是从App Store的审核周期中脱离出来了，我们可以打特定的补丁而不用加急审核了，在应用中可以实时展示页面，甚至访问本地数据、设备传感器等，同时也做到了一处编译跨平台运行的梦想。安装包精简这种附带的好处都是附赠的了。看完前面后面也得瞅瞅。既然是H5的网络就是一个障碍，与Native的界面相比流">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
 
-
-
-<script type="text/javascript" id="hexo.configuration">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"hide"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: 0,
-      author: '博主'
-    }
-  };
-</script>
-
-  <title> 基于Cordova框架的Hybrid应用初解一 | 看可能 </title>
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">看可能</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
   </div>
-  <p class="site-subtitle">iOS开发工程师</p>
-</div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu ">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-
-      
-      
-      
-    </ul>
-  
-
-  
-</nav>
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-基于Cordova框架的Hyrid应用初解一" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/04/27/基于Cordova框架的Hyrid应用初解一/" class="article-date">
+  <time datetime="2016-04-27T14:58:02.000Z" itemprop="datePublished">2016-04-27</time>
+</a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Objective-C/">Objective-C</a>
+  </div>
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
+  </div>
+  <div class="article-inner">
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                基于Cordova框架的Hybrid应用初解一
-              
-            
-          </h1>
-        
+  
+    <h1 class="article-title" itemprop="name">
+      基于Cordova框架的Hybrid应用初解一
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-27T22:58:02+08:00" content="2016-04-27">
-              2016-04-27
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/27/基于Cordova框架的Hyrid应用初解一/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/27/基于Cordova框架的Hyrid应用初解一/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-          
-              
-              <span>&nbsp; | &nbsp;
-              <span id="busuanzi_value_page_pv" ></span>次阅读
-              </span>    
-              
-
-          
-
-          
-          
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
+    <div class="article-entry" itemprop="articleBody">
       
         <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>通过Cordova框架来做H5和Native的混合应用。各方案优劣相信都有比较过。首先最主要的优势就是从App Store的审核周期中脱离出来了，我们可以打特定的补丁而不用加急审核了，在应用中可以实时展示页面，甚至访问本地数据、设备传感器等，同时也做到了一处编译跨平台运行的梦想。安装包精简这种附带的好处都是附赠的了。看完前面后面也得瞅瞅。既然是H5的网络就是一个障碍，与Native的界面相比流畅度有一定不足。<br><a id="more"></a></p>
 <h3 id="config-xml"><a href="#config-xml" class="headerlink" title="config.xml"></a>config.xml</h3><blockquote>
@@ -284,10 +94,10 @@
 <p>應用程式本身作為 web 頁上，預設情況下名為index.html，引用任何 CSS、 JavaScript、 圖像、 媒體檔案或其他資源的本地檔是必要的它的運行來實現。 這款應用程式作為web 視圖的本機應用程式中包裝，您分發給應用程式商店內執行。</p>
 </blockquote>
 <p>在config.xml文件中我们要进行一定的本地配置:  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//start &#10;&#60;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39;?&#62;&#10;&#10;//--widget&#65306;id&#22635;&#20889;app&#25152;&#26377;&#20154;&#30340;&#22495;&#21517;&#65292;version&#22635;&#20889;app&#30340;&#29256;&#26412;&#21495;--//&#10;&#60;widget id=&#34;com.carl.study&#34; version=&#34;1.1.0&#34;&#62;&#10;    &#10;    &#60;!--name:app&#21517;&#31216;--&#62;&#10;    &#60;name&#62;&#30475;&#21487;&#33021;&#60;/name&#62;&#10;    &#10;    &#60;!--description&#65306;app&#25551;&#36848;&#65292;&#20250;&#22312;app stroe&#37324;&#26174;&#31034;--&#62;&#10;    &#60;description&#62;&#10;        A sample Apache Cordova application that responds to the deviceready event.&#10;    &#60;/description&#62;&#10;    &#10;    &#60;!--author&#65306;app&#20316;&#32773;&#30456;&#20851;&#20449;&#24687;&#65292;&#20250;&#22312;app stroe&#37324;&#26174;&#31034;--&#62;&#10;    &#60;author email=&#34;dev@cordova.apache.org&#34; href=&#34;http://cordova.io&#34;&#62;&#10;        Apache Cordova Team&#10;    &#60;/author&#62;&#10;    &#10;    &#60;!--content&#65306;&#25351;&#23450;app&#24320;&#22987;&#25351;&#21521;&#39029;&#38754;--&#62;&#10;&#9;//--content src=&#34;app/index.html/#/index&#34; --//&#10;    &#60;content src=&#34;index.html&#34; /&#62;&#10;    &#10;    &#60;plugin name=&#34;cordova-plugin-whitelist&#34; version=&#34;1&#34; /&#62;&#10;    &#10;    &#60;!--access&#65306;&#25351;&#23450;app&#21487;&#36827;&#34892;&#36890;&#20449;&#30340;&#22495;&#21517;&#65292;*&#20026;&#25152;&#26377;--&#62;&#10;    &#60;access origin=&#34;*&#34; /&#62;&#10;    &#10;    &#10;    &#60;!--Pooh iOS&#35774;&#32622;--&#62;&#10;    &#60;!-- Preferences for iOS --&#62;&#10;    &#60;preference name=&#34;AllowInlineMediaPlayback&#34; value=&#34;false&#34; /&#62;&#10;    &#60;preference name=&#34;AutoHideSplashScreen&#34; value=&#34;true&#34; /&#62;&#10;    &#60;preference name=&#34;BackupWebStorage&#34; value=&#34;local&#34; /&#62;&#10;    &#60;preference name=&#34;DisallowOverscroll&#34; value=&#34;false&#34; /&#62;&#10;    &#60;preference name=&#34;EnableLocation&#34; value=&#34;false&#34; /&#62;&#10;    &#60;preference name=&#34;EnableViewportScale&#34; value=&#34;false&#34; /&#62;&#10;    &#60;preference name=&#34;FadeSplashScreen&#34; value=&#34;true&#34; /&#62;&#10;    &#60;preference name=&#34;FadeSplashScreenDuration&#34; value=&#34;.25&#34; /&#62;&#10;    &#60;preference name=&#34;HideKeyboardFormAccessoryBar&#34; value=&#34;false&#34; /&#62;&#10;    &#60;preference name=&#34;KeyboardDisplayRequiresUserAction&#34; value=&#34;true&#34; /&#62;&#10;    &#60;preference name=&#34;KeyboardShrinksView&#34; value=&#34;false&#34; /&#62;&#10;    &#60;preference name=&#34;MediaPlaybackRequiresUserAction&#34; value=&#34;false&#34; /&#62;&#10;    &#60;preference name=&#34;ShowSplashScreenSpinner&#34; value=&#34;true&#34; /&#62;&#10;    &#60;preference name=&#34;SuppressesIncrementalRendering&#34; value=&#34;false&#34; /&#62;&#10;    &#60;preference name=&#34;TopActivityIndicator&#34; value=&#34;gray&#34; /&#62;&#10;&#10;    &#10;    &#60;feature name=&#34;Device&#34;&#62;&#10;        &#60;param name=&#34;ios-package&#34; value=&#34;CDVDevice&#34;/&#62;&#10;    &#60;/feature&#62;&#10;    &#10;    &#60;feature name=&#34;Console&#34;&#62;&#10;        &#60;param name=&#34;ios-package&#34; value=&#34;CDVLogger&#34;/&#62;&#10;    &#60;/feature&#62;&#10;    // &#25554;&#20214;&#24456;&#37325;&#35201;&#10;    &#60;!--cordova &#25554;&#20214;--&#62;&#10;    &#60;feature name=&#34;CallActivityPlugin&#34;&#62;&#10;        &#60;param name=&#34;ios-package&#34; value=&#34;CallActivityPlugin&#34;/&#62;&#10;    &#60;/feature&#62;&#10;    &#10;    &#60;!--&#23448;&#26041;demo iOS&#35774;&#32622;--&#62;&#10;    &#60;allow-intent href=&#34;http://*/*&#34; /&#62;&#10;    &#60;allow-intent href=&#34;https://*/*&#34; /&#62;&#10;    &#60;allow-intent href=&#34;tel:*&#34; /&#62;&#10;    &#60;allow-intent href=&#34;sms:*&#34; /&#62;&#10;    &#60;allow-intent href=&#34;mailto:*&#34; /&#62;&#10;    &#60;allow-intent href=&#34;geo:*&#34; /&#62;&#10;    &#60;platform name=&#34;android&#34;&#62;&#10;        &#60;allow-intent href=&#34;market:*&#34; /&#62;&#10;    &#60;/platform&#62;&#10;    &#60;platform name=&#34;ios&#34;&#62;&#10;        &#60;allow-intent href=&#34;itms:*&#34; /&#62;&#10;        &#60;allow-intent href=&#34;itms-apps:*&#34; /&#62;&#10;    &#60;/platform&#62;&#10;&#60;/widget&#62;&#10;//--preference&#65306;&#20559;&#22909;&#35774;&#32622;&#65292;&#21487;&#38024;&#23545;&#19981;&#21516;&#24179;&#21488;&#36827;&#34892;&#20010;&#24615;&#21270;&#35774;&#32622;--//</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">//start </span><br><span class="line"><span class="pi">&lt;?xml version='1.0' encoding='utf-8'?&gt;</span></span><br><span class="line"></span><br><span class="line">//--widget：id填写app所有人的域名，version填写app的版本号--//</span><br><span class="line"><span class="tag">&lt;<span class="title">widget</span> <span class="attribute">id</span>=<span class="value">"com.carl.study"</span> <span class="attribute">version</span>=<span class="value">"1.1.0"</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!--name:app名称--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">name</span>&gt;</span>看可能<span class="tag">&lt;/<span class="title">name</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!--description：app描述，会在app stroe里显示--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">description</span>&gt;</span></span><br><span class="line">        A sample Apache Cordova application that responds to the deviceready event.</span><br><span class="line">    <span class="tag">&lt;/<span class="title">description</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!--author：app作者相关信息，会在app stroe里显示--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">author</span> <span class="attribute">email</span>=<span class="value">"dev@cordova.apache.org"</span> <span class="attribute">href</span>=<span class="value">"http://cordova.io"</span>&gt;</span></span><br><span class="line">        Apache Cordova Team</span><br><span class="line">    <span class="tag">&lt;/<span class="title">author</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!--content：指定app开始指向页面--&gt;</span></span><br><span class="line">	//--content src="app/index.html/#/index" --//</span><br><span class="line">    <span class="tag">&lt;<span class="title">content</span> <span class="attribute">src</span>=<span class="value">"index.html"</span> /&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="title">plugin</span> <span class="attribute">name</span>=<span class="value">"cordova-plugin-whitelist"</span> <span class="attribute">version</span>=<span class="value">"1"</span> /&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!--access：指定app可进行通信的域名，*为所有--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">access</span> <span class="attribute">origin</span>=<span class="value">"*"</span> /&gt;</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!--Pooh iOS设置--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Preferences for iOS --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">preference</span> <span class="attribute">name</span>=<span class="value">"AllowInlineMediaPlayback"</span> <span class="attribute">value</span>=<span class="value">"false"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">preference</span> <span class="attribute">name</span>=<span class="value">"AutoHideSplashScreen"</span> <span class="attribute">value</span>=<span class="value">"true"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">preference</span> <span class="attribute">name</span>=<span class="value">"BackupWebStorage"</span> <span class="attribute">value</span>=<span class="value">"local"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">preference</span> <span class="attribute">name</span>=<span class="value">"DisallowOverscroll"</span> <span class="attribute">value</span>=<span class="value">"false"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">preference</span> <span class="attribute">name</span>=<span class="value">"EnableLocation"</span> <span class="attribute">value</span>=<span class="value">"false"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">preference</span> <span class="attribute">name</span>=<span class="value">"EnableViewportScale"</span> <span class="attribute">value</span>=<span class="value">"false"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">preference</span> <span class="attribute">name</span>=<span class="value">"FadeSplashScreen"</span> <span class="attribute">value</span>=<span class="value">"true"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">preference</span> <span class="attribute">name</span>=<span class="value">"FadeSplashScreenDuration"</span> <span class="attribute">value</span>=<span class="value">".25"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">preference</span> <span class="attribute">name</span>=<span class="value">"HideKeyboardFormAccessoryBar"</span> <span class="attribute">value</span>=<span class="value">"false"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">preference</span> <span class="attribute">name</span>=<span class="value">"KeyboardDisplayRequiresUserAction"</span> <span class="attribute">value</span>=<span class="value">"true"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">preference</span> <span class="attribute">name</span>=<span class="value">"KeyboardShrinksView"</span> <span class="attribute">value</span>=<span class="value">"false"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">preference</span> <span class="attribute">name</span>=<span class="value">"MediaPlaybackRequiresUserAction"</span> <span class="attribute">value</span>=<span class="value">"false"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">preference</span> <span class="attribute">name</span>=<span class="value">"ShowSplashScreenSpinner"</span> <span class="attribute">value</span>=<span class="value">"true"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">preference</span> <span class="attribute">name</span>=<span class="value">"SuppressesIncrementalRendering"</span> <span class="attribute">value</span>=<span class="value">"false"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">preference</span> <span class="attribute">name</span>=<span class="value">"TopActivityIndicator"</span> <span class="attribute">value</span>=<span class="value">"gray"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="title">feature</span> <span class="attribute">name</span>=<span class="value">"Device"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ios-package"</span> <span class="attribute">value</span>=<span class="value">"CDVDevice"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">feature</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="title">feature</span> <span class="attribute">name</span>=<span class="value">"Console"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ios-package"</span> <span class="attribute">value</span>=<span class="value">"CDVLogger"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">feature</span>&gt;</span></span><br><span class="line">    // 插件很重要</span><br><span class="line">    <span class="comment">&lt;!--cordova 插件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">feature</span> <span class="attribute">name</span>=<span class="value">"CallActivityPlugin"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ios-package"</span> <span class="attribute">value</span>=<span class="value">"CallActivityPlugin"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">feature</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!--官方demo iOS设置--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">allow-intent</span> <span class="attribute">href</span>=<span class="value">"http://*/*"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">allow-intent</span> <span class="attribute">href</span>=<span class="value">"https://*/*"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">allow-intent</span> <span class="attribute">href</span>=<span class="value">"tel:*"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">allow-intent</span> <span class="attribute">href</span>=<span class="value">"sms:*"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">allow-intent</span> <span class="attribute">href</span>=<span class="value">"mailto:*"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">allow-intent</span> <span class="attribute">href</span>=<span class="value">"geo:*"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">platform</span> <span class="attribute">name</span>=<span class="value">"android"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">allow-intent</span> <span class="attribute">href</span>=<span class="value">"market:*"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">platform</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">platform</span> <span class="attribute">name</span>=<span class="value">"ios"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">allow-intent</span> <span class="attribute">href</span>=<span class="value">"itms:*"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">allow-intent</span> <span class="attribute">href</span>=<span class="value">"itms-apps:*"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">platform</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">widget</span>&gt;</span></span><br><span class="line">//--preference：偏好设置，可针对不同平台进行个性化设置--//</span><br></pre></td></tr></table></figure>
 <p>cordova 插件就是我们项目的中转站了，在这里我设置了CallActivityPlugin类的插件。插件的具体构成下面小节将会介绍。  </p>
 <h3 id="读取路径的安全性"><a href="#读取路径的安全性" class="headerlink" title="读取路径的安全性"></a>读取路径的安全性</h3><p>一般我们的www目录位于我们的资源包中是调用Cordova的页面直接调用如下这样  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@interface MainViewController : CDVViewController   &#10;@end&#160;  &#10;@implementation MainViewController  &#10;- (void)viewDidLoad &#123;    &#10;    self.wwwFolderName = @&#34;www/Pooh&#34;;  &#10;    self.startPage = @&#34;index.html#index&#34;;  &#10;    [super viewDidLoad];  &#10; &#125;  &#10; @end</span><br></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MainViewController</span> : <span class="title">CDVViewController</span>   </span></span><br><span class="line"><span class="keyword">@end</span>   </span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MainViewController</span>  </span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;    </span><br><span class="line">    <span class="keyword">self</span><span class="variable">.wwwFolderName</span> = <span class="string">@"www/Pooh"</span>;  </span><br><span class="line">    <span class="keyword">self</span><span class="variable">.startPage</span> = <span class="string">@"index.html#index"</span>;  </span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];  </span><br><span class="line"> &#125;  </span><br><span class="line"> <span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 <p>这种方式我们的www目录基本上类似于这样<br> <img src="http://7xrm0o.com1.z0.glb.clouddn.com/cordova01-www.png" alt="www目录结构"><br> 这样我们的www文件要求项目用的必备的H5资源包内容都要放到项目的资源文件包内，存在一个隐患就是我们的代码在拿到ipa安装包显示包内容很容易看到整体的结构，安全保护不足。更进一步，是否能将www资源放到沙盒内？<br> <strong>做到H5资源的共用，Android端和iOS端有一个文件是不同的，即cordova.js</strong><br> 这个文件可以按原先的方案，在App打包时只打包www文件下的cordova.js，其他从安装后从网络端获取。剔除H5文件后的目录结构像下面这样：<br> <img src="http://7xrm0o.com1.z0.glb.clouddn.com/cordova01-www2.png" alt="新www目录"><br>新的目录结构是位于沙盒目录下的Documents文件下的www目录下。需要两个步骤：  </p>
 <ol>
 <li>复制资源包内的cordova.js到Documents/www/ 文件夹下 </li>
@@ -309,433 +119,138 @@
 
       
     </div>
-
-    <footer class="post-footer">
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/04/09/关于运动、生活与工作/" rel="next" title="关于运动、音乐与读书">
-                <i class="fa fa-chevron-left"></i> 关于运动、音乐与读书
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/30/基于RESideMenu仿招商银行App个人中心/" rel="prev" title="基于RESideMenu快速实现类手机QQ侧划交互">
-                基于RESideMenu快速实现类手机QQ侧划交互 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/04/27/基于Cordova框架的Hyrid应用初解一/" data-id="cixndwwhg000bb1qwhxf587vm" class="article-share-link">Share</a>
       
       
     </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
   </div>
-
-
-          </div>
-          
-
-
-          
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/04/27/基于Cordova框架的Hyrid应用初解一/"
-           data-title="基于Cordova框架的Hybrid应用初解一" data-url="http://yoursite.com/2016/04/27/基于Cordova框架的Hyrid应用初解一/">
-      </div>
-    
-  </div>
-
-
-        </div>
-        
-          
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/30/基于RESideMenu仿招商银行App个人中心/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          基于RESideMenu快速实现类手机QQ侧划交互
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/09/关于运动、生活与工作/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">关于运动、音乐与读书</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Apple周边/">Apple周边</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/">Objective-C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">3</span></li></ul>
     </div>
   </div>
 
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/授之以渔/">授之以渔</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/授人以鱼/">授人以鱼</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
 
-      
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/授之以渔/" style="font-size: 10px;">授之以渔</a> <a href="/tags/授人以鱼/" style="font-size: 20px;">授人以鱼</a>
+    </div>
+  </div>
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/07/hello-world/">Hello World</a>
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
+        
+          <li>
+            <a href="/2016/08/19/Git常用命令小结/">Git常用命令小结</a>
           </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.JPG"
-               alt="看可能" />
-          <p class="site-author-name" itemprop="name">看可能</p>
-          <p class="site-description motion-element" itemprop="description">看可能之道听途说</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/">
-              <span class="site-state-item-count">11</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-          
-          
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
         
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
+          <li>
+            <a href="/2016/08/05/iOS越狱以及Reveal调试Apps/">iOS越狱以及Reveal调试Apps</a>
+          </li>
         
+          <li>
+            <a href="/2016/04/30/基于RESideMenu仿招商银行App个人中心/">基于RESideMenu快速实现类手机QQ侧划交互</a>
+          </li>
         
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-      </section>
-
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator">
-            <i class="fa fa-angle-double-up"></i>
-          </div>
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#config-xml"><span class="nav-number">2.</span> <span class="nav-text">config.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读取路径的安全性"><span class="nav-number">3.</span> <span class="nav-text">读取路径的安全性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预告"><span class="nav-number">4.</span> <span class="nav-text">预告</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展阅读"><span class="nav-number">5.</span> <span class="nav-text">扩展阅读</span></a></li></ol></div>
-            
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator">
-            <i class="fa fa-angle-double-down"></i>
-          </div>
-        </section>
-      
-
+          <li>
+            <a href="/2016/04/27/基于Cordova框架的Hyrid应用初解一/">基于Cordova框架的Hybrid应用初解一</a>
+          </li>
+        
+      </ul>
     </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2015 - 
-  <span itemprop="copyrightYear">2016</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">看可能</span>
-</div>
-
-<div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-本站总访问量 <span id="busuanzi_value_site_pv"></span> &nbsp&nbsp&nbsp
-您是第<span id="busuanzi_value_site_uv"></span>个来到的小伙伴
-
-
-
-      </div>
-    </footer>
-
-    <div class="back-to-top"></div>
   </div>
 
   
-
-
+</aside>
+        
+      </div>
+      <footer id="footer">
   
-
-
-
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-
-
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
   
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
-
-
-
+    <a href="/" class="mobile-nav-link">Home</a>
   
+    <a href="/archives" class="mobile-nav-link">Archives</a>
   
-
-  
-  
-<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
-
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
-
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 1 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    NexT.motion.middleWares.sidebar = function () {
-      var $tocContent = $('.post-toc-content');
-
-      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
-        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          NexT.utils.displaySidebar();
-        }
-      }
-    };
-  });
-</script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
-
-
-
-  
-
-  
+</nav>
     
-  
 
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"endust"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-  
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
 
 
+<script src="/js/script.js" type="text/javascript"></script>
 
-  
-  
-
-  
-  
-
-
+  </div>
 </body>
 </html>

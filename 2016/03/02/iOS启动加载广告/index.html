@@ -1,72 +1,18 @@
-<!doctype html>
-
-
-
-  
-
-
-<html class="theme-next mist use-motion">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-  <meta name="google-site-verification" content="pt8L_4heaQs7girnAr6dXK08kn6IDC-C06ZdygebzzU" />
-
-
-
-
-
-
-
-
-
-
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
-
-
-
-
-  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-
-
-
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="授人以鱼," />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
-
-
-
-
-
-
-<meta name="description" content="&amp;emsp;&amp;emsp;接到了一个需求，启动页加入广告。点击广告页面可以跳转我们推广的页面或者外联的WebView页面。虽然Apple不推荐这么做，但现在网易新闻、知乎日报都这么干。能挣钱这事还是从了。&amp;emsp;&amp;emsp;在实践中参考了网上的实现方案，有两个方案：
+  <meta charset="utf-8">
+  
+  <title>iOS启动页加载广告 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;emsp;&amp;emsp;接到了一个需求，启动页加入广告。点击广告页面可以跳转我们推广的页面或者外联的WebView页面。虽然Apple不推荐这么做，但现在网易新闻、知乎日报都这么干。能挣钱这事还是从了。&amp;emsp;&amp;emsp;在实践中参考了网上的实现方案，有两个方案：
 
 替换根视图控制器先展示广告页，再替换为原先的主页视图控制器为RootViewController。
 首页加一层Window/Vi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS启动页加载广告">
 <meta property="og:url" content="http://yoursite.com/2016/03/02/iOS启动加载广告/index.html">
-<meta property="og:site_name" content="看可能">
+<meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;接到了一个需求，启动页加入广告。点击广告页面可以跳转我们推广的页面或者外联的WebView页面。虽然Apple不推荐这么做，但现在网易新闻、知乎日报都这么干。能挣钱这事还是从了。&amp;emsp;&amp;emsp;在实践中参考了网上的实现方案，有两个方案：
 
 替换根视图控制器先展示广告页，再替换为原先的主页视图控制器为RootViewController。
@@ -78,212 +24,76 @@
 
 替换根视图控制器先展示广告页，再替换为原先的主页视图控制器为RootViewController。
 首页加一层Window/Vi">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
 
-
-
-<script type="text/javascript" id="hexo.configuration">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"hide"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: 0,
-      author: '博主'
-    }
-  };
-</script>
-
-  <title> iOS启动页加载广告 | 看可能 </title>
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">看可能</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
   </div>
-  <p class="site-subtitle">iOS开发工程师</p>
-</div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu ">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-
-      
-      
-      
-    </ul>
-  
-
-  
-</nav>
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-iOS启动加载广告" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/02/iOS启动加载广告/" class="article-date">
+  <time datetime="2016-03-02T05:51:51.000Z" itemprop="datePublished">2016-03-02</time>
+</a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Objective-C/">Objective-C</a>
+  </div>
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
+  </div>
+  <div class="article-inner">
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                iOS启动页加载广告
-              
-            
-          </h1>
-        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS启动页加载广告
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-02T13:51:51+08:00" content="2016-03-02">
-              2016-03-02
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/02/iOS启动加载广告/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/02/iOS启动加载广告/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-          
-              
-              <span>&nbsp; | &nbsp;
-              <span id="busuanzi_value_page_pv" ></span>次阅读
-              </span>    
-              
-
-          
-
-          
-          
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
+    <div class="article-entry" itemprop="articleBody">
       
         <p>&emsp;&emsp;接到了一个需求，启动页加入广告。点击广告页面可以跳转我们推广的页面或者外联的WebView页面。虽然Apple不推荐这么做，但现在网易新闻、知乎日报都这么干。能挣钱这事还是从了。<br>&emsp;&emsp;在实践中参考了网上的实现方案，有两个方案：</p>
 <ul>
@@ -300,456 +110,157 @@
 <h3 id="见招拆招"><a href="#见招拆招" class="headerlink" title="见招拆招"></a>见招拆招</h3><ul>
 <li>广告页实时展现，在启动时就需要保证广告页展示数据的获取是同步的。同步获取数据我们说会堵塞主线程以此达到启动后就展示广告的效果。我们利用AFNetworking自带的AFHTTPRequestOperation进行同步数据请求。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">+ (void)adInfoUrl:(NSString *)urlString params:(NSDictionary *)params success:(void (^)(NSDictionary *))success&#10;&#123;&#10;    NSMutableDictionary *newParams = [NSMutableDictionary dictionaryWithDictionary:params];&#10;    &#10;    AFJSONRequestSerializer *requestSerializer = [AFJSONRequestSerializer serializer];&#10;    NSMutableURLRequest *request = [requestSerializer requestWithMethod:@&#34;GET&#34; URLString:API_SCHEME parameters:newParams error:nil];&#10;    &#10;    /* &#26368;&#32456;&#32487;&#25215;&#33258; NSOperation&#65292;&#20063;&#23601;&#26159;&#21033;&#29992; NSOperation &#26469;&#20570;&#30340;&#21516;&#27493;&#35831;&#27714; */&#10;    AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];&#10;    AFHTTPResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializer];&#10;    &#10;    [requestOperation setResponseSerializer:responseSerializer];&#10;    &#10;    [requestOperation start];&#10;    &#10;    [requestOperation waitUntilFinished];&#10;    &#10;    /* &#35831;&#27714;&#32467;&#26524; */&#10;    NSDictionary *result = (NSDictionary *)[requestOperation responseObject];&#10;    &#10;    if (result != nil) &#123;&#10;        &#10;        success(result);&#10;    &#125;  &#10;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="type">void</span>)adInfoUrl:(<span class="type">NSString</span> *)urlString params:(<span class="type">NSDictionary</span> *)params success:(<span class="type">void</span> (^)(<span class="type">NSDictionary</span> *))success</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">NSMutableDictionary</span> *newParams = [<span class="type">NSMutableDictionary</span> dictionaryWithDictionary:params];</span><br><span class="line">    </span><br><span class="line">    <span class="type">AFJSONRequestSerializer</span> *requestSerializer = [<span class="type">AFJSONRequestSerializer</span> serializer];</span><br><span class="line">    <span class="type">NSMutableURLRequest</span> *request = [requestSerializer requestWithMethod:@<span class="string">"GET"</span> <span class="type">URLString</span>:<span class="type">API_SCHEME</span> parameters:newParams error:<span class="keyword">nil</span>];</span><br><span class="line">    </span><br><span class="line">    /* 最终继承自 <span class="type">NSOperation</span>，也就是利用 <span class="type">NSOperation</span> 来做的同步请求 */</span><br><span class="line">    <span class="type">AFHTTPRequestOperation</span> *requestOperation = [[<span class="type">AFHTTPRequestOperation</span> alloc] initWithRequest:request];</span><br><span class="line">    <span class="type">AFHTTPResponseSerializer</span> *responseSerializer = [<span class="type">AFJSONResponseSerializer</span> serializer];</span><br><span class="line">    </span><br><span class="line">    [requestOperation setResponseSerializer:responseSerializer];</span><br><span class="line">    </span><br><span class="line">    [requestOperation start];</span><br><span class="line">    </span><br><span class="line">    [requestOperation waitUntilFinished];</span><br><span class="line">    </span><br><span class="line">    /* 请求结果 */</span><br><span class="line">    <span class="type">NSDictionary</span> *<span class="literal">result</span> = (<span class="type">NSDictionary</span> *)[requestOperation responseObject];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (<span class="literal">result</span> != <span class="keyword">nil</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        success(<span class="literal">result</span>);</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;在Appdelegate的didFinishLaunchingWithOptions函数中调用获取实时展示广告数据，包括不限于图片下载路径、广告描述、跳转页面信息等。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions &#123;&#10;//-------//&#10;[RestClient adInfoUrl:AdsShow params:nil success:^(NSDictionary *responseObject) &#123;&#10;&#125;];&#10;return YES;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line"><span class="comment">//-------//</span></span><br><span class="line">[RestClient adInfoUrl:AdsShow params:<span class="literal">nil</span> success:^(<span class="built_in">NSDictionary</span> *responseObject) &#123;</span><br><span class="line">&#125;];</span><br><span class="line"><span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;App在启动时同步获取广告页数据，根据获取到的字典内容判断进行图片的下载、广告页的展示或者直接进入主页。</p>
 <ul>
 <li>广告图片获取一如既往使用异步获取就可。在App次安装后有一波引导图闪现，当用户看完欢迎引导图再来个广告 = =！要相信用户的耐心。那么处理成第二次启动App再展示广告页更好，我们可以避免第一次进入应用在广告页展示时图片加载不及时的问题，也解决了第一进入应用时间过久的问题.  </li>
 <li>广告也更改是刚性需求。在给的下载链接不变的情况下更新图片，一般约定好一个变量，比如随链接给一个哈希值。我们根据哈希值进行图片的下载替换。也可根据字典中的跳转字符判定图片是否更新。  </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">+ (void)getTheAdInformation&#10;&#123;&#10;    [RestClient adInfoUrl:AdsShow params:nil success:^(NSDictionary *responseObject) &#123;&#10;        NSDictionary *dic = responseObject;&#10;     &#10;        NSString *cataId = [dic objectForKey:@&#34;id&#34;];&#10;        NSString *mainTitle = [dic objectForKey:@&#34;name&#34;];&#10;        NSString *infoTitle = [dic objectForKey:@&#34;description&#34;];&#10;        NSString *imageUrl = [dic objectForKey:@&#34;url&#34;];&#10;        &#10;        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];&#10;        [ud setObject:cataId forKey:kUDEgyptAdCatagoryId];&#10;        [ud setObject:mainTitle forKey:kUDEgyptAdMainTitle];&#10;        [ud setObject:infoTitle forKey:kUDEgyptAdInfoTitle];&#10;        [ud setObject:imageUrl forKey:kUDEgyptAdImageUrl];&#10;        [ud synchronize];&#10;        &#10;       //ad &#20026;&#26159;&#21542;&#31532;&#20108;&#27425;&#21551;&#21160;&#24212;&#29992;&#10;        NSString *ad = [ud objectForKey:kUDEgyptAdPageShow];&#10;        if (ad.length &#62; 0) &#123;&#10;            //&#26174;&#31034;&#24191;&#21578;&#36825;&#37324;&#21152;&#20837;&#22270;&#29255;&#23384;&#22312;&#30340;&#21028;&#26029;&#65311;&#10;  &#9;&#9;&#9;//&#22914;&#26524;cataId&#20256;&#31354;&#65292;&#21017;&#24191;&#21578;&#19981;&#26174;&#31034;&#10;            if (cataId.length &#62; 3) &#123;&#10;                [ADViewController show];  //&#24191;&#21578;&#39029;&#38754;&#23637;&#31034;&#10;            &#125;&#10;        &#125;&#10;        // &#19979;&#36733;&#26032;&#24191;&#21578;&#22270;&#10;        [DownloadAdInformation downloadAdImageWhenPossible];&#10;    &#125;];&#10;&#125;&#10;//&#19979;&#36733;&#26032;&#24191;&#21578;&#39029;&#10;+ (void)downloadAdImageWhenPossible&#10;&#123;&#10;    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];&#10;    NSString *adDownloadId = [ud objectForKey:kUDEgyptAdDownload];&#10;    NSString *adCatagoryId = [ud objectForKey:kUDEgyptAdCatagoryId];&#10;    &#10;    if (&#65288;![adDownloadId isEqualToString:adCatagoryId]&#65289;&#38;&#38; adCatagoryId.length &#62; 0) &#123;&#10;        [ud setObject:adCatagoryId forKey:kUDEgyptAdDownload];&#10;        [ud synchronize];&#10;        NSString *urlString = [ud objectForKey:kUDEgyptAdImageUrl];&#10;        [RestClient getWithUrlString:urlString parameters:nil success:^(id response) &#123;&#10;            NSData *data = response;&#10;            //&#21024;&#38500;&#21407;&#22270;&#29255;&#10;            [self deleteCacheAdImageData];&#10;            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^&#123;&#10;                UIImage *image = [UIImage imageWithData:data]; &#10;                NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);&#10;                NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@&#34;loading.png&#34;]];   // &#20445;&#23384;&#25991;&#20214;&#30340;&#21517;&#31216;&#10;                //    BOOL result = [UIImagePNGRepresentation() writeToFile: filePath    atomically:YES]; // &#20445;&#23384;&#25104;&#21151;&#20250;&#36820;&#22238;YES&#10;                NSLog(@&#34;paths:%@    %@&#34;,paths,filePath);&#10;                [UIImagePNGRepresentation(image) writeToFile:filePath atomically:YES];&#10;                &#10;            &#125;);&#10;            &#10;        &#125; failure:^(NSError *error) &#123;&#10;            NSLog(@&#34;&#24191;&#21578;&#22270;&#29255;&#19979;&#36733;&#22833;&#36133;&#34;);&#10;        &#125;]; &#10;    &#125; else &#123;&#10;        NSLog(@&#34;&#19981;&#38656;&#35201;&#19979;&#36733;&#24191;&#21578;&#22270;&#29255;&#34;);&#10;    &#125;&#10;&#125;&#10;//&#21024;&#38500;&#26412;&#22320;&#24191;&#21578;&#39029;&#21407;&#25968;&#25454;&#10;+ (void)deleteCacheAdImageData&#10;&#123;&#10;    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);&#10;    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@&#34;loading.png&#34;]];&#10;    BOOL isDir = FALSE;&#10;    BOOL result = [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&#38;isDir];&#10;    if (result) &#123;&#10;        [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];&#10;    &#125;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>)getTheAdInformation</span><br><span class="line">&#123;</span><br><span class="line">    [RestClient adInfoUrl:AdsShow params:<span class="literal">nil</span> success:^(<span class="built_in">NSDictionary</span> *responseObject) &#123;</span><br><span class="line">        <span class="built_in">NSDictionary</span> *dic = responseObject;</span><br><span class="line">     </span><br><span class="line">        <span class="built_in">NSString</span> *cataId = [dic objectForKey:<span class="string">@"id"</span>];</span><br><span class="line">        <span class="built_in">NSString</span> *mainTitle = [dic objectForKey:<span class="string">@"name"</span>];</span><br><span class="line">        <span class="built_in">NSString</span> *infoTitle = [dic objectForKey:<span class="string">@"description"</span>];</span><br><span class="line">        <span class="built_in">NSString</span> *imageUrl = [dic objectForKey:<span class="string">@"url"</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSUserDefaults</span> *ud = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</span><br><span class="line">        [ud setObject:cataId forKey:kUDEgyptAdCatagoryId];</span><br><span class="line">        [ud setObject:mainTitle forKey:kUDEgyptAdMainTitle];</span><br><span class="line">        [ud setObject:infoTitle forKey:kUDEgyptAdInfoTitle];</span><br><span class="line">        [ud setObject:imageUrl forKey:kUDEgyptAdImageUrl];</span><br><span class="line">        [ud synchronize];</span><br><span class="line">        </span><br><span class="line">       <span class="comment">//ad 为是否第二次启动应用</span></span><br><span class="line">        <span class="built_in">NSString</span> *ad = [ud objectForKey:kUDEgyptAdPageShow];</span><br><span class="line">        <span class="keyword">if</span> (ad<span class="variable">.length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">//显示广告这里加入图片存在的判断？</span></span><br><span class="line">  			<span class="comment">//如果cataId传空，则广告不显示</span></span><br><span class="line">            <span class="keyword">if</span> (cataId<span class="variable">.length</span> &gt; <span class="number">3</span>) &#123;</span><br><span class="line">                [ADViewController show];  <span class="comment">//广告页面展示</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 下载新广告图</span></span><br><span class="line">        [DownloadAdInformation downloadAdImageWhenPossible];</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//下载新广告页</span></span><br><span class="line">+ (<span class="keyword">void</span>)downloadAdImageWhenPossible</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSUserDefaults</span> *ud = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</span><br><span class="line">    <span class="built_in">NSString</span> *adDownloadId = [ud objectForKey:kUDEgyptAdDownload];</span><br><span class="line">    <span class="built_in">NSString</span> *adCatagoryId = [ud objectForKey:kUDEgyptAdCatagoryId];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (（![adDownloadId isEqualToString:adCatagoryId]）&amp;&amp; adCatagoryId<span class="variable">.length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        [ud setObject:adCatagoryId forKey:kUDEgyptAdDownload];</span><br><span class="line">        [ud synchronize];</span><br><span class="line">        <span class="built_in">NSString</span> *urlString = [ud objectForKey:kUDEgyptAdImageUrl];</span><br><span class="line">        [RestClient getWithUrlString:urlString parameters:<span class="literal">nil</span> success:^(<span class="keyword">id</span> response) &#123;</span><br><span class="line">            <span class="built_in">NSData</span> *data = response;</span><br><span class="line">            <span class="comment">//删除原图片</span></span><br><span class="line">            [<span class="keyword">self</span> deleteCacheAdImageData];</span><br><span class="line">            <span class="built_in">dispatch_async</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^&#123;</span><br><span class="line">                <span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageWithData:data]; </span><br><span class="line">                <span class="built_in">NSArray</span> *paths = <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>,<span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>);</span><br><span class="line">                <span class="built_in">NSString</span> *filePath = [[paths objectAtIndex:<span class="number">0</span>] stringByAppendingPathComponent:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"loading.png"</span>]];   <span class="comment">// 保存文件的名称</span></span><br><span class="line">                <span class="comment">//    BOOL result = [UIImagePNGRepresentation() writeToFile: filePath    atomically:YES]; // 保存成功会返回YES</span></span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"paths:%@    %@"</span>,paths,filePath);</span><br><span class="line">                [<span class="built_in">UIImagePNGRepresentation</span>(image) writeToFile:filePath atomically:<span class="literal">YES</span>];</span><br><span class="line">                </span><br><span class="line">            &#125;);</span><br><span class="line">            </span><br><span class="line">        &#125; failure:^(<span class="built_in">NSError</span> *error) &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"广告图片下载失败"</span>);</span><br><span class="line">        &#125;]; </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"不需要下载广告图片"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//删除本地广告页原数据</span></span><br><span class="line">+ (<span class="keyword">void</span>)deleteCacheAdImageData</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSArray</span> *paths = <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>,<span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>);</span><br><span class="line">    <span class="built_in">NSString</span> *filePath = [[paths objectAtIndex:<span class="number">0</span>] stringByAppendingPathComponent:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"loading.png"</span>]];</span><br><span class="line">    <span class="built_in">BOOL</span> isDir = <span class="literal">FALSE</span>;</span><br><span class="line">    <span class="built_in">BOOL</span> result = [[<span class="built_in">NSFileManager</span> defaultManager] fileExistsAtPath:filePath isDirectory:&amp;isDir];</span><br><span class="line">    <span class="keyword">if</span> (result) &#123;</span><br><span class="line">        [[<span class="built_in">NSFileManager</span> defaultManager] removeItemAtPath:filePath error:<span class="literal">nil</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>广告页面点击如何获得点击事件，从而跳转到我们想要的页面，观察大部分应用。从广告页面返回都回到了主页，我们猜想广告页实质是从主页Push过去的。如此我们可以在在主页注册一个通知观察，广告页用户点击时发出通知广告页消失，同时主页捕获通知事件，跳转到广告详情页面。广告页的大概布局可以参考如下代码：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@implementation ADViewController&#10;&#10;- (void)didReceiveMemoryWarning &#123;&#10;    [super didReceiveMemoryWarning];&#10;    // Dispose of any resources that can be recreated.&#10;&#125;&#10;&#10;+ (void)show &#123;&#10;    ADViewController *ads = [[ADViewController alloc] init];&#10;    UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];&#10;    window.windowLevel = UIWindowLevelStatusBar;&#10;    window.backgroundColor = [UIColor clearColor];&#10;    window.rootViewController = ads;&#10;    ads.window = window;&#10;    [window makeKeyAndVisible];&#10;    &#10;&#125;&#10;&#10;#pragma mark - LifeCycle&#10;&#10;- (void)viewDidLoad &#123;&#10;    [super viewDidLoad];&#10;    [self initWithAdsView];&#10;    [self performSelector:@selector(goToHomePage) withObject:nil afterDelay:1.5];    &#10;&#125;&#10;&#10;- (void)initWithAdsView&#10;&#123;&#10;    &#10;    self.adsImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];&#10;    //&#26412;&#22320;&#35835;&#21462;&#10;    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);&#10;    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@&#34;loading.png&#34;]];&#10;    &#10;    NSFileManager *fileManager = [NSFileManager defaultManager];&#10;    BOOL isDir = FALSE;&#10;    BOOL isExit = [fileManager fileExistsAtPath:filePath isDirectory:&#38;isDir];&#10;    if (isExit) &#123;&#10;        NSLog(@&#34;the imagePath is ==========%@&#34;, filePath);&#10;        NSLog(@&#34;&#23384;&#22312;&#34;);&#10;        [self.adsImageView setImage:[UIImage imageWithContentsOfFile:filePath]];&#10;    &#125;&#10;    &#10;    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];&#10;    &#10;    self.adsImageView.userInteractionEnabled = YES;&#10;    [self.adsImageView addSubview:self.nextButton];&#10;    [self.adsImageView addSubview:self.ignoreButton];&#10;    &#10;    // ...&#24067;&#23616;&#10;      &#10;&#10;    &#125;&#10;&#125;&#10;&#10;#pragma mark - Event&#10;&#10;- (void)nextButtonClicked:(UIButton *)sender&#10;&#123;&#10;    NSLog(@&#34;&#24050;&#28857;&#20987;&#34;);&#10;    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(goToHomePage) object:nil];&#10;    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];&#10;    [ud setObject:@&#34;www.iqixue.com&#34; forKey:kUDEgyptAdDetailShow];&#10;    [ud synchronize];&#10;    [[NSNotificationCenter defaultCenter] postNotificationName:kUDEgyptAdResponse object:nil];&#10;    &#10;    [UIView animateWithDuration:1 animations:^&#123;&#10;        //&#10;        CGRect frame = CGRectZero;&#10;        self.view.frame = frame;&#10;        self.view.alpha = 0.0;&#10;    &#125; completion:^(BOOL finished) &#123;&#10;        &#10;        &#10;        //&#10;        self.window = nil;&#10;    &#125;];    &#10;&#125;&#10;// &#20027;&#39029;&#26174;&#31034; || &#36339;&#36807;&#24191;&#21578;&#10;- (void)goToHomePage&#10;&#123;&#10;    [UIView animateWithDuration:1 animations:^&#123;&#10;        CGRect frame = CGRectZero;&#10;        self.view.frame = frame;&#10;        self.view.alpha = 0.f;&#10;    &#125; completion:^(BOOL finished) &#123;&#10;        self.window = nil; &#10;    &#125;];    &#10;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ADViewController</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)didReceiveMemoryWarning &#123;</span><br><span class="line">    [<span class="keyword">super</span> didReceiveMemoryWarning];</span><br><span class="line">    <span class="comment">// Dispose of any resources that can be recreated.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">void</span>)show &#123;</span><br><span class="line">    ADViewController *ads = [[ADViewController alloc] init];</span><br><span class="line">    <span class="built_in">UIWindow</span> *window = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.bounds</span>];</span><br><span class="line">    window<span class="variable">.windowLevel</span> = <span class="built_in">UIWindowLevelStatusBar</span>;</span><br><span class="line">    window<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> clearColor];</span><br><span class="line">    window<span class="variable">.rootViewController</span> = ads;</span><br><span class="line">    ads<span class="variable">.window</span> = window;</span><br><span class="line">    [window makeKeyAndVisible];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - LifeCycle</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    [<span class="keyword">self</span> initWithAdsView];</span><br><span class="line">    [<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(goToHomePage) withObject:<span class="literal">nil</span> afterDelay:<span class="number">1.5</span>];    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)initWithAdsView</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span><span class="variable">.adsImageView</span> = [[<span class="built_in">UIImageView</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, SCREEN_WIDTH, SCREEN_HEIGHT)];</span><br><span class="line">    <span class="comment">//本地读取</span></span><br><span class="line">    <span class="built_in">NSArray</span> *paths = <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>,<span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>);</span><br><span class="line">    <span class="built_in">NSString</span> *filePath = [[paths objectAtIndex:<span class="number">0</span>] stringByAppendingPathComponent:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"loading.png"</span>]];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSFileManager</span> *fileManager = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line">    <span class="built_in">BOOL</span> isDir = <span class="literal">FALSE</span>;</span><br><span class="line">    <span class="built_in">BOOL</span> isExit = [fileManager fileExistsAtPath:filePath isDirectory:&amp;isDir];</span><br><span class="line">    <span class="keyword">if</span> (isExit) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"the imagePath is ==========%@"</span>, filePath);</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"存在"</span>);</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.adsImageView</span> setImage:[<span class="built_in">UIImage</span> imageWithContentsOfFile:filePath]];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSUserDefaults</span> *ud = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span><span class="variable">.adsImageView</span><span class="variable">.userInteractionEnabled</span> = <span class="literal">YES</span>;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.adsImageView</span> addSubview:<span class="keyword">self</span><span class="variable">.nextButton</span>];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.adsImageView</span> addSubview:<span class="keyword">self</span><span class="variable">.ignoreButton</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// ...布局</span></span><br><span class="line">      </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - Event</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)nextButtonClicked:(<span class="built_in">UIButton</span> *)sender</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"已点击"</span>);</span><br><span class="line">    [<span class="built_in">NSObject</span> cancelPreviousPerformRequestsWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(goToHomePage) object:<span class="literal">nil</span>];</span><br><span class="line">    <span class="built_in">NSUserDefaults</span> *ud = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</span><br><span class="line">    [ud setObject:<span class="string">@"www.iqixue.com"</span> forKey:kUDEgyptAdDetailShow];</span><br><span class="line">    [ud synchronize];</span><br><span class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] postNotificationName:kUDEgyptAdResponse object:<span class="literal">nil</span>];</span><br><span class="line">    </span><br><span class="line">    [<span class="built_in">UIView</span> animateWithDuration:<span class="number">1</span> animations:^&#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="built_in">CGRect</span> frame = <span class="built_in">CGRectZero</span>;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.frame</span> = frame;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.alpha</span> = <span class="number">0.0</span>;</span><br><span class="line">    &#125; completion:^(<span class="built_in">BOOL</span> finished) &#123;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="keyword">self</span><span class="variable">.window</span> = <span class="literal">nil</span>;</span><br><span class="line">    &#125;];    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 主页显示 || 跳过广告</span></span><br><span class="line">- (<span class="keyword">void</span>)goToHomePage</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="built_in">UIView</span> animateWithDuration:<span class="number">1</span> animations:^&#123;</span><br><span class="line">        <span class="built_in">CGRect</span> frame = <span class="built_in">CGRectZero</span>;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.frame</span> = frame;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.alpha</span> = <span class="number">0.</span>f;</span><br><span class="line">    &#125; completion:^(<span class="built_in">BOOL</span> finished) &#123;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.window</span> = <span class="literal">nil</span>; </span><br><span class="line">    &#125;];    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;此处我们通知传值只用了简单的NSUserDefaults, 也可以用通知传值达到传递跳转详情页信息的目的。至此，App启动页广告页展示的过程介绍的差不了。希望给你思路以参考。</p>
 
       
     </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/02/iOS启动加载广告/" data-id="cixndwwi0000sb1qw4u8dy4zg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/授人以鱼/">授人以鱼</a></li></ul>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/授人以鱼/" rel="tag">#授人以鱼</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/02/24/为什么我们需要Present这种模态推出视图的方式？/" rel="next" title="为什么我们需要Present这种模态推出视图的方式？">
-                <i class="fa fa-chevron-left"></i> 为什么我们需要Present这种模态推出视图的方式？
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/10/利用UIImagePickerControllerReferenceURL路径上传视频/" rel="prev" title="利用UIImagePickerControllerReferenceURL路径上传视频">
-                利用UIImagePickerControllerReferenceURL路径上传视频 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
     </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
   </div>
-
-
-          </div>
-          
-
-
-          
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/03/02/iOS启动加载广告/"
-           data-title="iOS启动页加载广告" data-url="http://yoursite.com/2016/03/02/iOS启动加载广告/">
-      </div>
-    
-  </div>
-
-
-        </div>
-        
-          
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/10/利用UIImagePickerControllerReferenceURL路径上传视频/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          利用UIImagePickerControllerReferenceURL路径上传视频
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/02/24/为什么我们需要Present这种模态推出视图的方式？/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">为什么我们需要Present这种模态推出视图的方式？</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Apple周边/">Apple周边</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/">Objective-C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">3</span></li></ul>
     </div>
   </div>
 
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/授之以渔/">授之以渔</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/授人以鱼/">授人以鱼</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
 
-      
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/授之以渔/" style="font-size: 10px;">授之以渔</a> <a href="/tags/授人以鱼/" style="font-size: 20px;">授人以鱼</a>
+    </div>
+  </div>
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/07/hello-world/">Hello World</a>
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
+        
+          <li>
+            <a href="/2016/08/19/Git常用命令小结/">Git常用命令小结</a>
           </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.JPG"
-               alt="看可能" />
-          <p class="site-author-name" itemprop="name">看可能</p>
-          <p class="site-description motion-element" itemprop="description">看可能之道听途说</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/">
-              <span class="site-state-item-count">11</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-          
-          
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
         
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
+          <li>
+            <a href="/2016/08/05/iOS越狱以及Reveal调试Apps/">iOS越狱以及Reveal调试Apps</a>
+          </li>
         
+          <li>
+            <a href="/2016/04/30/基于RESideMenu仿招商银行App个人中心/">基于RESideMenu快速实现类手机QQ侧划交互</a>
+          </li>
         
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-      </section>
-
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator">
-            <i class="fa fa-angle-double-up"></i>
-          </div>
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#遇到的问题"><span class="nav-number">1.</span> <span class="nav-text">遇到的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#见招拆招"><span class="nav-number">2.</span> <span class="nav-text">见招拆招</span></a></li></ol></div>
-            
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator">
-            <i class="fa fa-angle-double-down"></i>
-          </div>
-        </section>
-      
-
+          <li>
+            <a href="/2016/04/27/基于Cordova框架的Hyrid应用初解一/">基于Cordova框架的Hybrid应用初解一</a>
+          </li>
+        
+      </ul>
     </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2015 - 
-  <span itemprop="copyrightYear">2016</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">看可能</span>
-</div>
-
-<div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-本站总访问量 <span id="busuanzi_value_site_pv"></span> &nbsp&nbsp&nbsp
-您是第<span id="busuanzi_value_site_uv"></span>个来到的小伙伴
-
-
-
-      </div>
-    </footer>
-
-    <div class="back-to-top"></div>
   </div>
 
   
-
-
+</aside>
+        
+      </div>
+      <footer id="footer">
   
-
-
-
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-
-
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
   
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
-
-
-
+    <a href="/" class="mobile-nav-link">Home</a>
   
+    <a href="/archives" class="mobile-nav-link">Archives</a>
   
-
-  
-  
-<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
-
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
-
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 1 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    NexT.motion.middleWares.sidebar = function () {
-      var $tocContent = $('.post-toc-content');
-
-      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
-        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          NexT.utils.displaySidebar();
-        }
-      }
-    };
-  });
-</script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
-
-
-
-  
-
-  
+</nav>
     
-  
 
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"endust"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-  
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
 
 
+<script src="/js/script.js" type="text/javascript"></script>
 
-  
-  
-
-  
-  
-
-
+  </div>
 </body>
 </html>
