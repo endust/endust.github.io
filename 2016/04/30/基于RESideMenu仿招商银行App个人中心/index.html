@@ -5,27 +5,19 @@
   
   <title>基于RESideMenu快速实现类手机QQ侧划交互 | 看可能</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="框架选择
-汉堡菜单：你同意或者否定，它就在那里。
-
-&amp;emsp;&amp;emsp;当你基于这样一个兴趣或者需求，想要来一个像手Q一样的侧滑菜单界面，最快的莫过于采用第三方类库了。找星星最多的，RESideMenu映入了我们的眼睑。那还等什么，开工。&amp;emsp;&amp;emsp;我们来看QQ的交互效果是怎么样的。首页点击“头像”菜单弹出左侧导航页面， 我们以“我的文件”为例。 点击我的文件进入我的文件viewC">
+  <meta name="description" content="框架选择 汉堡菜单：你同意或者否定，它就在那里。  &amp;emsp;&amp;emsp;当你基于这样一个兴趣或者需求，想要来一个像手Q一样的侧滑菜单界面，最快的莫过于采用第三方类库了。找星星最多的，RESideMenu映入了我们的眼睑。那还等什么，开工。&amp;emsp;&amp;emsp;我们来看QQ的交互效果是怎么样的。首页点击“头像”菜单弹出左侧导航页面， 我们以“我的文件”为例。 点击我的文件进入我的文件view">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于RESideMenu快速实现类手机QQ侧划交互">
 <meta property="og:url" content="http://www.winnhe.com/2016/04/30/基于RESideMenu仿招商银行App个人中心/index.html">
 <meta property="og:site_name" content="看可能">
-<meta property="og:description" content="框架选择
-汉堡菜单：你同意或者否定，它就在那里。
-
-&amp;emsp;&amp;emsp;当你基于这样一个兴趣或者需求，想要来一个像手Q一样的侧滑菜单界面，最快的莫过于采用第三方类库了。找星星最多的，RESideMenu映入了我们的眼睑。那还等什么，开工。&amp;emsp;&amp;emsp;我们来看QQ的交互效果是怎么样的。首页点击“头像”菜单弹出左侧导航页面， 我们以“我的文件”为例。 点击我的文件进入我的文件viewC">
+<meta property="og:description" content="框架选择 汉堡菜单：你同意或者否定，它就在那里。  &amp;emsp;&amp;emsp;当你基于这样一个兴趣或者需求，想要来一个像手Q一样的侧滑菜单界面，最快的莫过于采用第三方类库了。找星星最多的，RESideMenu映入了我们的眼睑。那还等什么，开工。&amp;emsp;&amp;emsp;我们来看QQ的交互效果是怎么样的。首页点击“头像”菜单弹出左侧导航页面， 我们以“我的文件”为例。 点击我的文件进入我的文件view">
 <meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/residemenu-02.jpg">
 <meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/qqgift.gif">
 <meta property="og:updated_time" content="2016-05-05T09:39:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于RESideMenu快速实现类手机QQ侧划交互">
-<meta name="twitter:description" content="框架选择
-汉堡菜单：你同意或者否定，它就在那里。
-
-&amp;emsp;&amp;emsp;当你基于这样一个兴趣或者需求，想要来一个像手Q一样的侧滑菜单界面，最快的莫过于采用第三方类库了。找星星最多的，RESideMenu映入了我们的眼睑。那还等什么，开工。&amp;emsp;&amp;emsp;我们来看QQ的交互效果是怎么样的。首页点击“头像”菜单弹出左侧导航页面， 我们以“我的文件”为例。 点击我的文件进入我的文件viewC">
+<meta name="twitter:description" content="框架选择 汉堡菜单：你同意或者否定，它就在那里。  &amp;emsp;&amp;emsp;当你基于这样一个兴趣或者需求，想要来一个像手Q一样的侧滑菜单界面，最快的莫过于采用第三方类库了。找星星最多的，RESideMenu映入了我们的眼睑。那还等什么，开工。&amp;emsp;&amp;emsp;我们来看QQ的交互效果是怎么样的。首页点击“头像”菜单弹出左侧导航页面， 我们以“我的文件”为例。 点击我的文件进入我的文件view">
+<meta name="twitter:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/residemenu-02.jpg">
   
     <link rel="alternative" href="/atom.xml" title="看可能" type="application/atom+xml">
   
@@ -33,7 +25,7 @@
     <link rel="icon" href="/favicon.png">
   
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   
 
 </head>
@@ -69,7 +61,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.winnhe.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.winnhe.com"></form>
       </div>
     </div>
   </div>
@@ -106,7 +98,7 @@
 <p>汉堡菜单：你同意或者否定，它就在那里。</p>
 </blockquote>
 <p>&emsp;&emsp;当你基于这样一个兴趣或者需求，想要来一个像手Q一样的侧滑菜单界面，最快的莫过于采用第三方类库了。找星星最多的，RESideMenu映入了我们的眼睑。那还等什么，开工。<br>&emsp;&emsp;我们来看QQ的交互效果是怎么样的。首页点击“头像”菜单弹出左侧导航页面， 我们以“我的文件”为例。 点击我的文件进入我的文件viewController，此时从“我的文件”页面返回。What？居然直接回到了主页。如下图所示：<br><a id="more"></a><br><img src="http://7xrm0o.com1.z0.glb.clouddn.com/qqgift.gif" alt=""><br>&emsp;&emsp;从导航栈来说，那必定是从主页推出的左侧导航栏的子栏目页面，具体是怎样的呢？<br>&emsp;&emsp;观察市面上的App，招商银行、知乎日报的效果和手机QQ的大同小异。以RESideMenu为例，本身有当前视图、左侧视图、右侧视图三个视图设置</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">readwrite</span>, <span class="keyword">nonatomic</span>) <span class="built_in">UIViewController</span> *contentViewController;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">readwrite</span>, <span class="keyword">nonatomic</span>) <span class="built_in">UIViewController</span> *leftMenuViewController;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">readwrite</span>, <span class="keyword">nonatomic</span>) <span class="built_in">UIViewController</span> *rightMenuViewController;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">readwrite</span>, <span class="keyword">nonatomic</span>) <span class="built_in">UIViewController</span> *contentViewController;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">readwrite</span>, <span class="keyword">nonatomic</span>) <span class="built_in">UIViewController</span> *leftMenuViewController;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">readwrite</span>, <span class="keyword">nonatomic</span>) <span class="built_in">UIViewController</span> *rightMenuViewController;</div></pre></td></tr></table></figure>
 <p>&emsp;&emsp;一般我们只要两个，当前视图和其中一边的导航视图。到这里我们要解决两个问题：</p>
 <ul>
 <li>左侧导航栏点击子页面展示</li>
@@ -115,7 +107,7 @@
 <p><strong><em>Answer1</em></strong></p>
 <p>一般来说，contentViewController是展示当前页面的设置，我要显示一个页面，直接设置它为要展示的viewController即可。话是这么个话，你也能这样做。但是，这样做等于重置了NavigationController，对于基于WebView的页面甚至带来了“强刷新”的效果。好好的，都没干啥，你告我骚扰！这里我们就要回到手机QQ的交互了，上文已说明，不再赘述。既然怀疑是直接从主页push了左侧导航栏的视图，那么，两个界面之间必然有沟通。<br>二般来说，contentViewController的导航栈不变，点击左侧子栏目时，传信号给当前视图，根据传值不同确定跳转页面。传值有代理、Block和通知。两个界面本身解耦的，最终选择通知传值。在主页注册通知，观察左侧导航栏传值。<br><strong><em>Answer2</em></strong>  </p>
 <p>关于左(右)侧界面 与当前主页的布局关系，在RESideMenu.m中有一下两个接口来管理</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)commonInit</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//-----------------------//</span></span><br><span class="line">    <span class="comment">//_parallaxEnabled = YES;</span></span><br><span class="line">    _parallaxEnabled = NO;</span><br><span class="line"></span><br><span class="line">    _contentViewInLandscapeOffsetCenterX = <span class="number">30.f</span>;</span><br><span class="line">    _contentViewInPortraitOffsetCenterX  = <span class="number">30.f</span>;</span><br><span class="line">    _contentViewScaleValue = <span class="number">0.7f</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- (void)commonInit</div><div class="line">&#123;</div><div class="line"><span class="comment">//-----------------------//</span></div><div class="line">    <span class="comment">//_parallaxEnabled = YES;</span></div><div class="line">    _parallaxEnabled = NO;</div><div class="line"></div><div class="line">    _contentViewInLandscapeOffsetCenterX = <span class="number">30</span>.f;</div><div class="line">    _contentViewInPortraitOffsetCenterX  = <span class="number">30</span>.f;</div><div class="line">    _contentViewScaleValue = <span class="number">0.7</span>f;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>30代表主页界面在当前侧面视图显示的宽度，0.7代表主页视图缩放的大小。 完全不缩放则scaleValue值为1。在原样大小下，要调整主页显示的宽度来使界面更好看，具体的数值可以慢慢探索。</p>
 <p>RESideMenu默认侧栏页面有重力感应效果，此处我们将_parallaxEnabled赋值为NO，实际可以根据爱好及需求进行调整。<br>至此两个问题的解决对RESideMenu的应用算是有了一定的了解。当然Demo也是有的，客官都看到这了顺手点赞支持一下可好。  </p>
 <h5 id="大召唤术：传送门！"><a href="#大召唤术：传送门！" class="headerlink" title="大召唤术：传送门！"></a>大召唤术：传送门！</h5><p> <a href="https://github.com/endust/TestDemo" target="_blank" rel="external">Demo</a></p>
@@ -123,7 +115,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.winnhe.com/2016/04/30/基于RESideMenu仿招商银行App个人中心/" data-id="cj1g2sz7g000822pmp1bxdrb0" class="article-share-link">Share</a>
+      <a data-url="http://www.winnhe.com/2016/04/30/基于RESideMenu仿招商银行App个人中心/" data-id="cj2yplb7s000wlpqw2g283yp1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -160,7 +152,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Apple周边/">Apple周边</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/">Objective-C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Apple周边/">Apple周边</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/">Objective-C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -187,7 +179,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -197,6 +189,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/05/19/StartSwift第一课/">StartSwift第一课</a>
+          </li>
         
           <li>
             <a href="/2017/02/15/Mac系统设置锁屏/">Mac系统设置快捷锁屏</a>
@@ -212,10 +208,6 @@
         
           <li>
             <a href="/2016/08/05/iOS越狱以及Reveal调试Apps/">iOS越狱以及Reveal调试Apps</a>
-          </li>
-        
-          <li>
-            <a href="/2016/04/30/基于RESideMenu仿招商银行App个人中心/">基于RESideMenu快速实现类手机QQ侧划交互</a>
           </li>
         
       </ul>
@@ -248,11 +240,11 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

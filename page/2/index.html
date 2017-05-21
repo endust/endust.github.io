@@ -21,7 +21,7 @@
     <link rel="icon" href="/favicon.png">
   
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   
 
 </head>
@@ -57,13 +57,70 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.winnhe.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.winnhe.com"></form>
       </div>
     </div>
   </div>
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-iOS视频录制压缩" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/12/iOS视频录制压缩/" class="article-date">
+  <time datetime="2016-03-12T15:29:20.000Z" itemprop="datePublished">2016-03-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Objective-C/">Objective-C</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/12/iOS视频录制压缩/">iOS视频录制压缩</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&emsp;&emsp;所见所分享。记录眼前的美好事物并通过我们的App进行展示。作为开发者，满足用户多长时间的拍摄时间为宜，15秒还是像微博取消了140字限制一样给个1分钟的拍摄时间。理论上可以长久录制视频，但克制才是真爱，如何为1分钟的视频压缩优化？</p>
+<h3 id="项目应用AVFoundation"><a href="#项目应用AVFoundation" class="headerlink" title="项目应用AVFoundation"></a>项目应用AVFoundation</h3><p>捕获视频主要为AVCaptureSession：  </p>
+<ul>
+<li><a href="http://objccn.io/issue-23-1/" target="_blank" rel="external">objc-在iOS上捕获视频</a></li>
+<li><a href="https://github.com/AndyFightting/VideoRecord" target="_blank" rel="external">模仿快手应用的视频录制</a></li>
+</ul>
+<p>&emsp;&emsp;基本的视频录制通过以上博文和Demo即可做出，其中：</p>
+<pre><code>_captureSession=[[AVCaptureSession alloc]init];
+if ([_captureSession canSetSessionPreset:AVCaptureSessionPreset640x480]) {//设置分辨率
+    _captureSession.sessionPreset=AVCaptureSessionPreset640x480;
+}
+</code></pre><p>&emsp;&emsp;AVCaptureSessionPreset可以设置不同的采样分辨率，此处基于清晰度选择640*480。为什么不选择High?</p>
+<p>  &emsp;&emsp;动辄上百兆的空间占用，还给你报个Memory received warning！ 选640*480清晰度达到要求，视频采集数据只有不到30M的占用，世界清静了。<br>
+        
+          <p class="article-more-link">
+            <a href="/2016/03/12/iOS视频录制压缩/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.winnhe.com/2016/03/12/iOS视频录制压缩/" data-id="cj2yplb7g000glpqwnwo1t9qj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-利用UIImagePickerControllerReferenceURL路径上传视频" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -92,7 +149,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p>&emsp;&emsp;在选取手机相册的视频时，我们调用系统的UIImagePickerController时会拿到info 字典。打印发现有三个键值对。分别是</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *<span class="keyword">const</span> <span class="built_in">UIImagePickerControllerMediaType</span>; </span><br><span class="line"><span class="built_in">NSString</span> *<span class="keyword">const</span> <span class="built_in">UIImagePickerControllerMediaURL</span>;</span><br><span class="line"><span class="built_in">NSString</span> *<span class="keyword">const</span> <span class="built_in">UIImagePickerControllerReferenceURL</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSString</span> *<span class="keyword">const</span> <span class="built_in">UIImagePickerControllerMediaType</span>; </div><div class="line"><span class="built_in">NSString</span> *<span class="keyword">const</span> <span class="built_in">UIImagePickerControllerMediaURL</span>;</div><div class="line"><span class="built_in">NSString</span> *<span class="keyword">const</span> <span class="built_in">UIImagePickerControllerReferenceURL</span>;</div></pre></td></tr></table></figure>
 <p> 如下图所示<br><img src="http://7xrm0o.com1.z0.glb.clouddn.com/imagepickerReferenceURL.jpg" alt="info内容"><br>&emsp;&emsp;正常我们上传视频拿到MediaURL转换为NSData即可。但最近有个需求，从服务端下载的视频在手机进行分享时，需要上传我们分享的视频，当调用UIImagePickerController选定视频时发现拿不到MediaURL, 只能获取到ReferenceURL。我们通过ReferenceURL进行视频上传发现不起作用。        </p>
 <h3 id="如何拿到视频的绝对地址呢？"><a href="#如何拿到视频的绝对地址呢？" class="headerlink" title="如何拿到视频的绝对地址呢？"></a>如何拿到视频的绝对地址呢？</h3><blockquote>
 <p> 从前有座山，名曰百度山，村里老人说山的那边有水，我爬啊爬，爬到外婆桥。终于翻过百度山，衣服也被路上的荆棘撕破了，水坑都没见一个。幸好有个猎户指点我往前有个谷歌峰，那边水资源丰富。</p>
@@ -105,7 +162,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.winnhe.com/2016/03/10/利用UIImagePickerControllerReferenceURL路径上传视频/" data-id="cj1g2sz7l000e22pmb4y42fl3" class="article-share-link">Share</a>
+      <a data-url="http://www.winnhe.com/2016/03/10/利用UIImagePickerControllerReferenceURL路径上传视频/" data-id="cj2yplb7i000jlpqw9wq8x27w" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/授人以鱼/">授人以鱼</a></li></ul>
@@ -162,7 +219,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.winnhe.com/2016/03/02/iOS启动加载广告/" data-id="cj1g2sz80000v22pmsmbg2xmq" class="article-share-link">Share</a>
+      <a data-url="http://www.winnhe.com/2016/03/02/iOS启动加载广告/" data-id="cj2yplb790009lpqwgi2ln2cb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/授人以鱼/">授人以鱼</a></li></ul>
@@ -214,7 +271,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.winnhe.com/2016/02/24/为什么我们需要Present这种模态推出视图的方式？/" data-id="cj1g2sz7p000l22pm4zjan71f" class="article-share-link">Share</a>
+      <a data-url="http://www.winnhe.com/2016/02/24/为什么我们需要Present这种模态推出视图的方式？/" data-id="cj2yplb7l000plpqwm2bgr6ua" class="article-share-link">Share</a>
       
       
     </footer>
@@ -255,7 +312,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.winnhe.com/2016/02/23/postName/" data-id="cj1g2sz7t000q22pmtotygv72" class="article-share-link">Share</a>
+      <a data-url="http://www.winnhe.com/2016/02/23/postName/" data-id="cj2yplb7f000flpqw6ah4s9d8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -278,7 +335,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Apple周边/">Apple周边</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/">Objective-C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Apple周边/">Apple周边</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/">Objective-C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -305,7 +362,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -315,6 +372,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/05/19/StartSwift第一课/">StartSwift第一课</a>
+          </li>
         
           <li>
             <a href="/2017/02/15/Mac系统设置锁屏/">Mac系统设置快捷锁屏</a>
@@ -330,10 +391,6 @@
         
           <li>
             <a href="/2016/08/05/iOS越狱以及Reveal调试Apps/">iOS越狱以及Reveal调试Apps</a>
-          </li>
-        
-          <li>
-            <a href="/2016/04/30/基于RESideMenu仿招商银行App个人中心/">基于RESideMenu快速实现类手机QQ侧划交互</a>
           </li>
         
       </ul>
@@ -366,11 +423,11 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>
