@@ -12,7 +12,8 @@
 <meta property="og:site_name" content="看可能">
 <meta property="og:description" content="关于此篇上一篇介绍了一点Swift开发的基础姿势，感兴趣童鞋可以点击这里查看。在iOS中有代表性的基础页面就是列表页了，在OC中是tableView，Swift中也一样，这篇主要通过一个列表demo来看看Swift的基本开发姿势，与我们使用OC语言开发时具体有什么不一样呢，咱们往下走。">
 <meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/StartSwift02.jpg">
-<meta property="og:updated_time" content="2017-06-13T12:21:02.000Z">
+<meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/ss01.png">
+<meta property="og:updated_time" content="2017-06-13T12:43:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="StartSwift第二课">
 <meta name="twitter:description" content="关于此篇上一篇介绍了一点Swift开发的基础姿势，感兴趣童鞋可以点击这里查看。在iOS中有代表性的基础页面就是列表页了，在OC中是tableView，Swift中也一样，这篇主要通过一个列表demo来看看Swift的基本开发姿势，与我们使用OC语言开发时具体有什么不一样呢，咱们往下走。">
@@ -95,65 +96,27 @@
         <p><img src="http://7xrm0o.com1.z0.glb.clouddn.com/StartSwift02.jpg" alt=""> </p>
 <h3 id="关于此篇"><a href="#关于此篇" class="headerlink" title="关于此篇"></a>关于此篇</h3><p>上一篇介绍了一点Swift开发的基础姿势，感兴趣童鞋可以点击<a href="http://www.winnhe.com/2017/05/19/StartSwift%E7%AC%AC%E4%B8%80%E8%AF%BE/">这里</a>查看。在iOS中有代表性的基础页面就是列表页了，在OC中是tableView，Swift中也一样，这篇主要通过一个列表demo来看看Swift的基本开发姿势，与我们使用OC语言开发时具体有什么不一样呢，咱们往下走。   </p>
 <a id="more"></a> 
-<h3 id="TableView的使用姿势"><a href="#TableView的使用姿势" class="headerlink" title="TableView的使用姿势"></a>TableView的使用姿势</h3><h4 id="extension"><a href="#extension" class="headerlink" title="extension"></a>extension</h4><p>扩展是给已经存在的类（class），结构体（structure），枚举类型（enumeration）和协议（protocol）增加新的功能。其中一个用法如下代码所示  </p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">extension SomeType: SomeProtocol, AnotherProtocol&#123;</div><div class="line">   <span class="comment">//implementation of protocol requirements goes here</span></div><div class="line">&#125;</div><div class="line">```      </div><div class="line"></div><div class="line"></div><div class="line">示例代码如Animation03中的ViewController.swift line120行，将我们tabaleView的代理方法和数据源协议以扩展的形式单拎出来，其他函数还在<span class="keyword">class</span>中。代码可读性上分为了自有(private)和系统公开(public)两块，明了清晰。  </div><div class="line">代码如下：</div></pre></td></tr></table></figure>
-<p>extension ViewController: UITableViewDelegate, UITableViewDataSource {<br>    //MARK: LifeCycle<br>    override func viewDidLoad() {<br>            super.viewDidLoad()<br>            // Do any additional setup after loading the view, typically from a nib.<br>            self.tableView?.rowHeight = 54.0<br>        }</p>
-<pre><code>//MARK: TableViewMethods
-func numberOfSections(in tableView: UITableView) -&gt; Int {
-    return 1
-}
-
-func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {
-    return items.count
-}
-
-func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: &quot;Cell&quot;, for: indexPath) as UITableViewCell
-    cell.accessoryType = .none
-    cell.textLabel?.text = itemTitle[items[indexPath.row]]
-    cell.imageView?.image = UIImage(named: &quot;summericons_100px_0\(items[indexPath.row]).png&quot;)
-    return cell
-}
-
-func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    tableView.deselectRow(at: indexPath, animated: true)
-    showItem(items[indexPath.row])
-}
-
-
-
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-</code></pre><p>}<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">  </div><div class="line">#### 数据源和代理方法  </div><div class="line">先看下tableView展示效果。分析这个列表，需要图标和title两个数据源。</div><div class="line">![](http:<span class="comment">//7xrm0o.com1.z0.glb.clouddn.com/ss01.png)  </span></div><div class="line">有三行数据，以全部在一个section中为基础，我们猜想在numberOfRowsInSection中必然返回显示数据的array数目， 在line134行</div></pre></td></tr></table></figure></p>
-<pre><code>func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {
-    return items.count
-}
-</code></pre><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">看到数据来源于<span class="keyword">items</span>数组，接着看<span class="keyword">items</span>组成</div></pre></td></tr></table></figure>
-<pre><code>var items:[Int] = [5, 6, 7]
-</code></pre><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">viewController中定义了类型为Int的items数组，共<span class="number">3</span>个元素，分别为<span class="number">5</span>，<span class="number">6</span>和<span class="number">7</span>（代码<span class="number">23</span>行）。看到这，列表中展示<span class="number">3</span>行也就明了了。  </div><div class="line">tableView必须实现的方法， 除了行列的数目还有cell的创建。继续看<span class="number">138</span>行</div></pre></td></tr></table></figure>
-<pre><code>func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: &quot;Cell&quot;, for: indexPath) as UITableViewCell
-    cell.accessoryType = .none
-    cell.textLabel?.text = itemTitle[items[indexPath.row]]
-    cell.imageView?.image = UIImage(named: &quot;summericons_100px_0\(items[indexPath.row]).png&quot;)
-    return cell
-}
-</code></pre><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">这里解释下cell.textLabel?.<span class="built_in">text</span>中？的作用。在一个类型后面跟？一般代表可能有值的意思，同样出现！则表示肯定有值。这也是Swift的一个新特性。  </div><div class="line">这里则是说明textLabel的<span class="built_in">text</span>有可能有值，也有可能没值。具体就取决于我们itemTitle这个数组了。回到<span class="number">118</span>行，可以看到itemTitle有十几个<span class="keyword">String</span>组成的数组。可以认为，在这个列表中textLabel会有文字<span class="built_in">text</span>了。  </div><div class="line">接着看下一行</div></pre></td></tr></table></figure>
-<p>UIImage(named: “summericons_100px_0(items[indexPath.row]).png”)<br>```    </p>
+<h3 id="TableView的使用姿势"><a href="#TableView的使用姿势" class="headerlink" title="TableView的使用姿势"></a>TableView的使用姿势</h3><h4 id="extension"><a href="#extension" class="headerlink" title="extension"></a>extension</h4><p>扩展是给已经存在的类（class），结构体（structure），枚举类型（enumeration）和协议（protocol）增加新的功能。其中一个用法如下代码所示</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">SomeType</span>: <span class="title">SomeProtocol</span>, <span class="title">AnotherProtocol</span></span>&#123;</div><div class="line">   <span class="comment">//implementation of protocol requirements goes here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>示例代码如Animation03中的ViewController.swift line120行，将我们tabaleView的代理方法和数据源协议以扩展的形式单拎出来，其他函数还在class中。代码可读性上分为了自有(private)和系统公开(public)两块，明了清晰。<br>代码如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ViewController</span>: <span class="title">UITableViewDelegate</span>, <span class="title">UITableViewDataSource</span> </span>&#123;</div><div class="line">    <span class="comment">//MARK: LifeCycle</span></div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</div><div class="line">            <span class="keyword">super</span>.viewDidLoad()</div><div class="line">            <span class="comment">// Do any additional setup after loading the view, typically from a nib.</span></div><div class="line">            <span class="keyword">self</span>.tableView?.rowHeight = <span class="number">54.0</span></div><div class="line">        &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">    <span class="comment">//MARK: TableViewMethods</span></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">numberOfSections</span><span class="params">(<span class="keyword">in</span> tableView: UITableView)</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, numberOfRowsInSection section: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">return</span> items.<span class="built_in">count</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, cellForRowAt indexPath: IndexPath)</span></span> -&gt; <span class="type">UITableViewCell</span> &#123;</div><div class="line">        <span class="keyword">let</span> cell = tableView.dequeueReusableCell(withIdentifier: <span class="string">"Cell"</span>, <span class="keyword">for</span>: indexPath) <span class="keyword">as</span> <span class="type">UITableViewCell</span></div><div class="line">        cell.accessoryType = .<span class="keyword">none</span></div><div class="line">        cell.textLabel?.text = itemTitle[items[indexPath.row]]</div><div class="line">        cell.imageView?.image = <span class="type">UIImage</span>(named: <span class="string">"summericons_100px_0<span class="subst">\(items[indexPath.row])</span>.png"</span>)</div><div class="line">        <span class="keyword">return</span> cell</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, didSelectRowAt indexPath: IndexPath)</span></span> &#123;</div><div class="line">        tableView.deselectRow(at: indexPath, animated: <span class="literal">true</span>)</div><div class="line">        showItem(items[indexPath.row])</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">didReceiveMemoryWarning</span><span class="params">()</span></span> &#123;</div><div class="line">            <span class="keyword">super</span>.didReceiveMemoryWarning()</div><div class="line">            <span class="comment">// Dispose of any resources that can be recreated.</span></div><div class="line">        &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="数据源和代理方法"><a href="#数据源和代理方法" class="headerlink" title="数据源和代理方法"></a>数据源和代理方法</h4><p>先看下tableView展示效果。分析这个列表，需要图标和title两个数据源。<br><img src="http://7xrm0o.com1.z0.glb.clouddn.com/ss01.png" alt=""><br>有三行数据，以全部在一个section中为基础，我们猜想在numberOfRowsInSection中必然返回显示数据的array数目， 在line134行</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, numberOfRowsInSection section: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">    <span class="keyword">return</span> items.<span class="built_in">count</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>看到数据来源于items数组，接着看items组成</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var items:<span class="string">[Int]</span> = <span class="string">[5, 6, 7]</span></div></pre></td></tr></table></figure>
+<p>viewController中定义了类型为Int的items数组，共3个元素，分别为5，6和7（代码23行）。看到这，列表中展示3行也就明了了。<br>tableView必须实现的方法， 除了行列的数目还有cell的创建。继续看138行</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, cellForRowAt indexPath: IndexPath)</span></span> -&gt; <span class="type">UITableViewCell</span> &#123;</div><div class="line">    <span class="keyword">let</span> cell = tableView.dequeueReusableCell(withIdentifier: <span class="string">"Cell"</span>, <span class="keyword">for</span>: indexPath) <span class="keyword">as</span> <span class="type">UITableViewCell</span></div><div class="line">    cell.accessoryType = .<span class="keyword">none</span></div><div class="line">    cell.textLabel?.text = itemTitle[items[indexPath.row]]</div><div class="line">    cell.imageView?.image = <span class="type">UIImage</span>(named: <span class="string">"summericons_100px_0<span class="subst">\(items[indexPath.row])</span>.png"</span>)</div><div class="line">    <span class="keyword">return</span> cell</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里解释下cell.textLabel?.text中？的作用。在一个类型后面跟？一般代表可能有值的意思，同样出现！则表示肯定有值。这也是Swift的一个新特性。<br>这里则是说明textLabel的text有可能有值，也有可能没值。具体就取决于我们itemTitle这个数组了。回到118行，可以看到itemTitle有十几个String组成的数组。可以认为，在这个列表中textLabel会有文字text了。<br>接着看下一行</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">UIImage</span><span class="params">(named: <span class="string">"summericons_100px_0\(items[indexPath.row]).png"</span>)</span></span></div></pre></td></tr></table></figure>
 <p>这里面我们发现有个\， 它有什么作用呢？  </p>
 <ul>
-<li>Swift在字符串中插入变量名作为占位符，使用反斜杠()来提示Swift替换变量/常量名为其实际的值。    </li>
+<li>Swift在字符串中插入变量名作为占位符，使用反斜杠()来提示Swift替换变量/常量名为其实际的值。<br>套入上面的代码，我们可以取得的image的name分别为：summericons_100px_05.png, summericons_100px_06.png和summericons_100px_07.png<br>顺便给tableView设置个54的行高。至此，我们的列表页就完成的差不多了。可以把程序run起来看看效果了。  <h3 id="那些省略的"><a href="#那些省略的" class="headerlink" title="那些省略的"></a>那些省略的</h3>项目中viewController及tableView都已在Storyboard中初始化完毕，就初步认识Swift语言特性及开发来说不在本次讨论之列。同理，HorizontalItemList.swift中的实现代码也不在系列二中讨论，可预习，遇到不适离开就好。</li>
 </ul>
-<p>套入上面的代码，我们可以取得的image的name分别为：summericons_100px_05.png, summericons_100px_06.png和summericons_100px_07.png<br>顺便给tableView设置个54的行高。至此，我们的列表页就完成的差不多了。可以把程序run起来看看效果了。  </p>
-<h3 id="那些省略的"><a href="#那些省略的" class="headerlink" title="那些省略的"></a>那些省略的</h3><p>项目中viewController及tableView都已在Storyboard中初始化完毕，就初步认识Swift语言特性及开发来说不在本次讨论之列。同理，HorizontalItemList.swift中的实现代码也不在系列二中讨论，可预习，遇到不适离开就好。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.winnhe.com/2017/06/06/Swift探秘二/" data-id="cj3vjfjx1000fg9qwf62oxexu" class="article-share-link">Share</a>
+      <a data-url="http://www.winnhe.com/2017/06/06/Swift探秘二/" data-id="cj3vjm7yi0006h5qwwh0qf5f9" class="article-share-link">Share</a>
       
       
     </footer>
