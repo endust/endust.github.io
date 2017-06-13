@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>StartSwift第二课 | 看可能</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="关于此篇上一篇介绍了一点Swift开发的基础姿势，感兴趣童鞋可以点击这里查看。在iOS中有代表性的基础页面就是列表页了，在OC中是tableView，Swift中也一样，这篇主要通过一个列表demo来看看Swift的基本开发姿势，与我们使用OC语言开发时具体有什么不一样呢，咱们往下走。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="StartSwift第二课">
+<meta property="og:url" content="http://www.winnhe.com/2017/06/06/Swift探秘二/index.html">
+<meta property="og:site_name" content="看可能">
+<meta property="og:description" content="关于此篇上一篇介绍了一点Swift开发的基础姿势，感兴趣童鞋可以点击这里查看。在iOS中有代表性的基础页面就是列表页了，在OC中是tableView，Swift中也一样，这篇主要通过一个列表demo来看看Swift的基本开发姿势，与我们使用OC语言开发时具体有什么不一样呢，咱们往下走。">
+<meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/StartSwift02.jpg">
+<meta property="og:updated_time" content="2017-06-13T10:54:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="StartSwift第二课">
+<meta name="twitter:description" content="关于此篇上一篇介绍了一点Swift开发的基础姿势，感兴趣童鞋可以点击这里查看。在iOS中有代表性的基础页面就是列表页了，在OC中是tableView，Swift中也一样，这篇主要通过一个列表demo来看看Swift的基本开发姿势，与我们使用OC语言开发时具体有什么不一样呢，咱们往下走。">
+<meta name="twitter:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/StartSwift02.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="看可能" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">看可能</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">软件工程师</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.winnhe.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Swift探秘二" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/06/Swift探秘二/" class="article-date">
+  <time datetime="2017-06-06T08:37:17.000Z" itemprop="datePublished">2017-06-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Swift/">Swift</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      StartSwift第二课
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://7xrm0o.com1.z0.glb.clouddn.com/StartSwift02.jpg" alt=""> </p>
+<h3 id="关于此篇"><a href="#关于此篇" class="headerlink" title="关于此篇"></a>关于此篇</h3><p>上一篇介绍了一点Swift开发的基础姿势，感兴趣童鞋可以点击<a href="http://www.winnhe.com/2017/05/19/StartSwift%E7%AC%AC%E4%B8%80%E8%AF%BE/">这里</a>查看。在iOS中有代表性的基础页面就是列表页了，在OC中是tableView，Swift中也一样，这篇主要通过一个列表demo来看看Swift的基本开发姿势，与我们使用OC语言开发时具体有什么不一样呢，咱们往下走。   </p>
+<a id="more"></a> 
+<h3 id="TableView的使用姿势"><a href="#TableView的使用姿势" class="headerlink" title="TableView的使用姿势"></a>TableView的使用姿势</h3><h4 id="extension"><a href="#extension" class="headerlink" title="extension"></a>extension</h4><p>扩展是给已经存在的类（class），结构体（structure），枚举类型（enumeration）和协议（protocol）增加新的功能。其中一个用法如下代码所示  </p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">extension SomeType: SomeProtocol, AnotherProtocol&#123;</div><div class="line">   <span class="comment">//implementation of protocol requirements goes here</span></div><div class="line">&#125;</div><div class="line">```  </div><div class="line">示例代码如Animation03中的ViewController.swift line120行，将我们tabaleView的代理方法和数据源协议以扩展的形式单拎出来，其他函数还在<span class="keyword">class</span>中。代码可读性上分为了自有(private)和系统公开(public)两块，明了清晰。  </div><div class="line">代码如下：</div></pre></td></tr></table></figure>
+<p>extension ViewController: UITableViewDelegate, UITableViewDataSource {<br>    //MARK: LifeCycle<br>    override func viewDidLoad() {<br>            super.viewDidLoad()<br>            // Do any additional setup after loading the view, typically from a nib.<br>            self.tableView?.rowHeight = 54.0<br>        }</p>
+<pre><code>//MARK: TableViewMethods
+func numberOfSections(in tableView: UITableView) -&gt; Int {
+    return 1
+}
+
+func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {
+    return items.count
+}
+
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: &quot;Cell&quot;, for: indexPath) as UITableViewCell
+    cell.accessoryType = .none
+    cell.textLabel?.text = itemTitle[items[indexPath.row]]
+    cell.imageView?.image = UIImage(named: &quot;summericons_100px_0\(items[indexPath.row]).png&quot;)
+    return cell
+}
+
+func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    showItem(items[indexPath.row])
+}
+
+
+
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+</code></pre><p>}<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#### 数据源和代理方法  </div><div class="line">先看下tableView展示效果。分析这个列表，需要图标和title两个数据源。</div><div class="line">![](http:<span class="comment">//7xrm0o.com1.z0.glb.clouddn.com/ss01.png)  </span></div><div class="line">有三行数据，以全部在一个section中为基础，我们猜想在numberOfRowsInSection中必然返回显示数据的array数目， 在line134行</div></pre></td></tr></table></figure></p>
+<pre><code>func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {
+    return items.count
+}
+</code></pre><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">看到数据来源于<span class="keyword">items</span>数组，接着看<span class="keyword">items</span>组成</div></pre></td></tr></table></figure>
+<pre><code>var items:[Int] = [5, 6, 7]
+</code></pre><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">viewController中定义了类型为Int的items数组，共<span class="number">3</span>个元素，分别为<span class="number">5</span>，<span class="number">6</span>和<span class="number">7</span>（代码<span class="number">23</span>行）。看到这，列表中展示<span class="number">3</span>行也就明了了。  </div><div class="line">tableView必须实现的方法， 除了行列的数目还有cell的创建。继续看<span class="number">138</span>行</div></pre></td></tr></table></figure>
+<pre><code>func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: &quot;Cell&quot;, for: indexPath) as UITableViewCell
+    cell.accessoryType = .none
+    cell.textLabel?.text = itemTitle[items[indexPath.row]]
+    cell.imageView?.image = UIImage(named: &quot;summericons_100px_0\(items[indexPath.row]).png&quot;)
+    return cell
+}
+</code></pre><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">这里解释下cell.textLabel?.<span class="built_in">text</span>中？的作用。在一个类型后面跟？一般代表可能有值的意思，同样出现！则表示肯定有值。这也是Swift的一个新特性。  </div><div class="line">这里则是说明textLabel的<span class="built_in">text</span>有可能有值，也有可能没值。具体就取决于我们itemTitle这个数组了。回到<span class="number">118</span>行，可以看到itemTitle有十几个<span class="keyword">String</span>组成的数组。可以认为，在这个列表中textLabel会有文字<span class="built_in">text</span>了。  </div><div class="line">接着看下一行</div></pre></td></tr></table></figure>
+<p>UIImage(named: “summericons_100px_0(items[indexPath.row]).png”)<br>```<br>这里面我们发现有个\， 它有什么作用呢？  </p>
+<ul>
+<li>Swift在字符串中插入变量名作为占位符，使用反斜杠()来提示Swift替换变量/常量名为其实际的值。<br>套入上面的代码，我们可以取得的image的name分别为：summericons_100px_05.png, summericons_100px_06.png和summericons_100px_07.png<br>顺便给tableView设置个54的行高。至此，我们的列表页就完成的差不多了。可以把程序run起来看看效果了。  <h3 id="那些省略的"><a href="#那些省略的" class="headerlink" title="那些省略的"></a>那些省略的</h3>项目中viewController及tableView都已在Storyboard中初始化完毕，就初步认识Swift语言特性及开发来说不在本次讨论之列。同理，HorizontalItemList.swift中的实现代码也不在系列二中讨论，可预习，遇到不适离开就好。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.winnhe.com/2017/06/06/Swift探秘二/" data-id="cj3vj7gis0005elqwlz04lgwp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/05/19/StartSwift第一课/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">StartSwift第一课</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Apple周边/">Apple周边</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/">Objective-C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/授之以渔/">授之以渔</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/授人以鱼/">授人以鱼</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/授之以渔/" style="font-size: 10px;">授之以渔</a> <a href="/tags/授人以鱼/" style="font-size: 20px;">授人以鱼</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/06/Swift探秘二/">StartSwift第二课</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/19/StartSwift第一课/">StartSwift第一课</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/15/Mac系统设置锁屏/">Mac系统设置快捷锁屏</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/15/专家/">浅谈公共交通卡刷卡设备</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/19/Git常用命令小结/">Git常用命令小结</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Winn<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
