@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>StartSwift第三课 | 看可能</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="关于此篇前两篇介绍了Swift开发的基础姿势和列表页的创建，感兴趣童鞋可以点击这里查看。在iOS开发常见场景就是从一个页面跳转到另一个页面了，大部分这样的跳转还伴随着界面传值。本篇就着这一场景向大家介绍Swift语言中界面push、传值、网络请求及加载动画等使用姿势。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="StartSwift第三课">
+<meta property="og:url" content="http://www.winnhe.com/2017/12/13/StartSwift第三课/index.html">
+<meta property="og:site_name" content="看可能">
+<meta property="og:description" content="关于此篇前两篇介绍了Swift开发的基础姿势和列表页的创建，感兴趣童鞋可以点击这里查看。在iOS开发常见场景就是从一个页面跳转到另一个页面了，大部分这样的跳转还伴随着界面传值。本篇就着这一场景向大家介绍Swift语言中界面push、传值、网络请求及加载动画等使用姿势。">
+<meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/StartSwift03_preImage.jpg">
+<meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/startswift03_loading.png">
+<meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/startswift03_warning.png">
+<meta property="og:updated_time" content="2017-12-15T15:59:57.551Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="StartSwift第三课">
+<meta name="twitter:description" content="关于此篇前两篇介绍了Swift开发的基础姿势和列表页的创建，感兴趣童鞋可以点击这里查看。在iOS开发常见场景就是从一个页面跳转到另一个页面了，大部分这样的跳转还伴随着界面传值。本篇就着这一场景向大家介绍Swift语言中界面push、传值、网络请求及加载动画等使用姿势。">
+<meta name="twitter:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/StartSwift03_preImage.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="看可能" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">看可能</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">软件工程师</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.winnhe.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-StartSwift第三课" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/13/StartSwift第三课/" class="article-date">
+  <time datetime="2017-12-13T05:50:32.000Z" itemprop="datePublished">2017-12-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Swift/">Swift</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      StartSwift第三课
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://7xrm0o.com1.z0.glb.clouddn.com/StartSwift03_preImage.jpg" alt=""> </p>
+<h3 id="关于此篇"><a href="#关于此篇" class="headerlink" title="关于此篇"></a>关于此篇</h3><p>前两篇介绍了Swift开发的基础姿势和列表页的创建，感兴趣童鞋可以点击<a href="http://www.winnhe.com/2017/05/19/StartSwift%E7%AC%AC%E4%B8%80%E8%AF%BE/">这里</a>查看。在iOS开发常见场景就是从一个页面跳转到另一个页面了，大部分这样的跳转还伴随着界面传值。本篇就着这一场景向大家介绍Swift语言中界面push、传值、网络请求及加载动画等使用姿势。   </p>
+<a id="more"></a> 
+<h3 id="界面跳转Push"><a href="#界面跳转Push" class="headerlink" title="界面跳转Push"></a>界面跳转Push</h3><h4 id="Push及传值"><a href="#Push及传值" class="headerlink" title="Push及传值"></a>Push及传值</h4><p>从一个Controller跳转到另一个Controller时，一般利用UINavigationController，调用pushViewController进行跳转，使用方式比较简便，实例化后交给navigationController即可。</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> <span class="attr">detail</span> = SportDetailViewController()</div><div class="line">detail.<span class="attr">detailModel</span> = dataArray[indexPath.row] as! SportDetailModel</div><div class="line">self.navigationController?.pushViewController(detail, animated: <span class="literal">true</span>)</div></pre></td></tr></table></figure>
+<p>我们发现SportDetailViewController有个detailModel的属性，从代码可推断是一个数据model，让我们来看看它的定义：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//  SportDetailModel.swift</span></div><div class="line"><span class="comment">//  Animation03</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//  Created by Winn on 2017/12/13.</span></div><div class="line"><span class="comment">//  Copyright © 2017年 Winn. All rights reserved.</span></div><div class="line"><span class="comment">//</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> UIKit</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SportDetailModel</span>: <span class="title">NSObject</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> sportDetailTitle: <span class="built_in">String</span> = <span class="string">""</span></div><div class="line">    <span class="keyword">var</span> sportDetailURL: <span class="built_in">String</span> = <span class="string">""</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>从类型定义上，SportDetailViewController会获取一个title的属性和url的链接进行处理，具体用它们来做什么呢，让我们开启push传送门</p>
+<h4 id="SportDetailViewController"><a href="#SportDetailViewController" class="headerlink" title="SportDetailViewController"></a>SportDetailViewController</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> UIKit</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SportDetailViewController</span>: <span class="title">UIViewController</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">var</span> detailWebView = <span class="type">UIWebView</span>()</div><div class="line">    <span class="keyword">var</span> detailModel = <span class="type">SportDetailModel</span>()</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">SportDetailViewController</span>:<span class="title">UIWebViewDelegate</span> </span>&#123;</div><div class="line">    <span class="comment">//MARK: LifeCycle</span></div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="keyword">super</span>.viewDidLoad()</div><div class="line">        title = detailModel.sportDetailTitle</div><div class="line">        view.backgroundColor = <span class="type">UIColor</span>.white</div><div class="line">        </div><div class="line">        detailWebView = <span class="type">UIWebView</span>.<span class="keyword">init</span>(frame: <span class="keyword">self</span>.view.bounds)</div><div class="line">        detailWebView.delegate = <span class="keyword">self</span></div><div class="line">        view.addSubview(detailWebView)</div><div class="line">        detailWebView.loadRequest(<span class="type">URLRequest</span>.<span class="keyword">init</span>(url: <span class="type">URL</span>.<span class="keyword">init</span>(string:detailModel.sportDetailURL)!))</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>天星降世，时有人于降落SportDetailViewController中发现两属性，一曰webView, 一曰SportDetailModel。研习之，发现controller拿detailModel中的title当了自己的门牌号，webView拿detailModel中的url当了自己的升云梯。</p>
+<h4 id="Loading"><a href="#Loading" class="headerlink" title="Loading"></a>Loading</h4><p>WebView是一个内嵌浏览器控件，加载网址URL时或多或少有等待时间，遇上网上特别慢时能急到便秘，有个加载动画抚慰下焦躁的心情是个不错的选择。前人栽树，后人纳凉，引入轻量加载动画框架如下<br> <img src="http://7xrm0o.com1.z0.glb.clouddn.com/startswift03_loading.png" alt=""><br> 使用姿势如下代码所示：  </p>
+<pre><code>
+extension SportDetailViewController:UIWebViewDelegate {
+    //MARK: webViewDelegate
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        view.hud.showLoading(&quot;加载中&quot;)
+    }
+
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        view.hud.dismiss()
+    }
+
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        view.hud.dismiss()
+        //
+    }  
+}
+</code></pre><p>至此，一套功守道是打完了，该喝咖啡了。  </p>
+<h3 id="可能遇到的困惑"><a href="#可能遇到的困惑" class="headerlink" title="可能遇到的困惑"></a>可能遇到的困惑</h3><h4 id="引入WebView代理方法报错"><a href="#引入WebView代理方法报错" class="headerlink" title="引入WebView代理方法报错"></a>引入WebView代理方法报错</h4><p><img src="http://7xrm0o.com1.z0.glb.clouddn.com/startswift03_warning.png" alt=""><br>顺手使用WebView代理方法时，会发现如上图的警告。审视这段代码，怎么看函数调用怎么正确。此时若没有编译器代码补全功能，遇到编译器提示的这几个引导解决方法就抓瞎了。不要着急，有警告问谷歌，一番求证发现少了前置“<em>”下划线。<br>Swift中对于系统框架代理方法的使用，若忽略 </em> 我们发现编译器立马跑出来跟我们打招呼，举个黄牌牌，跟机场接机一样醒目。不禁有傻根式的疑惑：“这是啥！”？胡厂长现身说法：此处添加下滑线有什么作用呢，且往下看  </p>
+<ul>
+<li>下划线在swift中有任意匹配的特性，此处代理方法添加下划线就是匹配了webView  </li>
+</ul>
+<h3 id="项目Demo"><a href="#项目Demo" class="headerlink" title="项目Demo"></a>项目Demo</h3><p>点击<a href="http://www.winnhe.com/2017/05/19/StartSwift%E7%AC%AC%E4%B8%80%E8%AF%BE/">这里</a>查看</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.winnhe.com/2017/12/13/StartSwift第三课/" data-id="cjb83nwvs00010lqw0rmo7w8a" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/10/科技与人文路口/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">非同凡响</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Apple周边/">Apple周边</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/">Objective-C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/授之以渔/">授之以渔</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/授人以鱼/">授人以鱼</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/授之以渔/" style="font-size: 10px;">授之以渔</a> <a href="/tags/授人以鱼/" style="font-size: 20px;">授人以鱼</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/12/13/StartSwift第三课/">StartSwift第三课</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/10/科技与人文路口/">非同凡响</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/06/Swift探秘二/">StartSwift第二课</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/19/StartSwift第一课/">StartSwift第一课</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/15/Mac系统设置锁屏/">Mac系统设置快捷锁屏</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Winn<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
