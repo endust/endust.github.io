@@ -14,7 +14,7 @@
 <meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/StartSwift03_preImage.jpg">
 <meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/startswift03_loading.png">
 <meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/startswift03_warning.png">
-<meta property="og:updated_time" content="2017-12-15T15:59:57.551Z">
+<meta property="og:updated_time" content="2017-12-15T16:11:38.904Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="StartSwift第三课">
 <meta name="twitter:description" content="关于此篇前两篇介绍了Swift开发的基础姿势和列表页的创建，感兴趣童鞋可以点击这里查看。在iOS开发常见场景就是从一个页面跳转到另一个页面了，大部分这样的跳转还伴随着界面传值。本篇就着这一场景向大家介绍Swift语言中界面push、传值、网络请求及加载动画等使用姿势。">
@@ -95,7 +95,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="http://7xrm0o.com1.z0.glb.clouddn.com/StartSwift03_preImage.jpg" alt=""> </p>
-<h3 id="关于此篇"><a href="#关于此篇" class="headerlink" title="关于此篇"></a>关于此篇</h3><p>前两篇介绍了Swift开发的基础姿势和列表页的创建，感兴趣童鞋可以点击<a href="http://www.winnhe.com/2017/05/19/StartSwift%E7%AC%AC%E4%B8%80%E8%AF%BE/">这里</a>查看。在iOS开发常见场景就是从一个页面跳转到另一个页面了，大部分这样的跳转还伴随着界面传值。本篇就着这一场景向大家介绍Swift语言中界面push、传值、网络请求及加载动画等使用姿势。   </p>
+<h3 id="关于此篇"><a href="#关于此篇" class="headerlink" title="关于此篇"></a>关于此篇</h3><p>前两篇介绍了Swift开发的基础姿势和列表页的创建，感兴趣童鞋可以点击<a href="http://www.winnhe.com/2017/06/06/Swift%E6%8E%A2%E7%A7%98%E4%BA%8C/#more">这里</a>查看。在iOS开发常见场景就是从一个页面跳转到另一个页面了，大部分这样的跳转还伴随着界面传值。本篇就着这一场景向大家介绍Swift语言中界面push、传值、网络请求及加载动画等使用姿势。   </p>
 <a id="more"></a> 
 <h3 id="界面跳转Push"><a href="#界面跳转Push" class="headerlink" title="界面跳转Push"></a>界面跳转Push</h3><h4 id="Push及传值"><a href="#Push及传值" class="headerlink" title="Push及传值"></a>Push及传值</h4><p>从一个Controller跳转到另一个Controller时，一般利用UINavigationController，调用pushViewController进行跳转，使用方式比较简便，实例化后交给navigationController即可。</p>
 <figure class="highlight nix"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> <span class="attr">detail</span> = SportDetailViewController()</div><div class="line">detail.<span class="attr">detailModel</span> = dataArray[indexPath.row] as! SportDetailModel</div><div class="line">self.navigationController?.pushViewController(detail, animated: <span class="literal">true</span>)</div></pre></td></tr></table></figure>
@@ -126,12 +126,12 @@ extension SportDetailViewController:UIWebViewDelegate {
 <ul>
 <li>下划线在swift中有任意匹配的特性，此处代理方法添加下划线就是匹配了webView  </li>
 </ul>
-<h3 id="项目Demo"><a href="#项目Demo" class="headerlink" title="项目Demo"></a>项目Demo</h3><p>点击<a href="http://www.winnhe.com/2017/05/19/StartSwift%E7%AC%AC%E4%B8%80%E8%AF%BE/">这里</a>查看</p>
+<h3 id="项目Demo"><a href="#项目Demo" class="headerlink" title="项目Demo"></a>项目Demo</h3><p>点击<a href="https://github.com/endust/StartSwift/tree/master/SS_demo03" target="_blank" rel="external">这里</a>查看</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.winnhe.com/2017/12/13/StartSwift第三课/" data-id="cjb83nwvs00010lqw0rmo7w8a" class="article-share-link">Share</a>
+      <a data-url="http://www.winnhe.com/2017/12/13/StartSwift第三课/" data-id="cjb842xw40005cyqwhkc8iww3" class="article-share-link">Share</a>
       
       
     </footer>
