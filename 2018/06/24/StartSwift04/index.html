@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>StartSwift第四课 | 看可能</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="关于此篇前三篇介绍了Swift开发的基础姿势和列表页的创建、页面跳转等常见开发姿势，感兴趣童鞋可以点击这里查看。我们在实际开发中一个常见场景就是从服务端获取数据并展示，本篇就着这一场景向大家介绍Swift中自定义view，数据请求并处理展示。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="StartSwift第四课">
+<meta property="og:url" content="http://www.winnhe.com/2018/06/24/StartSwift04/index.html">
+<meta property="og:site_name" content="看可能">
+<meta property="og:description" content="关于此篇前三篇介绍了Swift开发的基础姿势和列表页的创建、页面跳转等常见开发姿势，感兴趣童鞋可以点击这里查看。我们在实际开发中一个常见场景就是从服务端获取数据并展示，本篇就着这一场景向大家介绍Swift中自定义view，数据请求并处理展示。">
+<meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/startswift04.jpg">
+<meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/startswift0402.png">
+<meta property="og:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/startswift0403.png">
+<meta property="og:updated_time" content="2018-06-24T11:13:19.546Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="StartSwift第四课">
+<meta name="twitter:description" content="关于此篇前三篇介绍了Swift开发的基础姿势和列表页的创建、页面跳转等常见开发姿势，感兴趣童鞋可以点击这里查看。我们在实际开发中一个常见场景就是从服务端获取数据并展示，本篇就着这一场景向大家介绍Swift中自定义view，数据请求并处理展示。">
+<meta name="twitter:image" content="http://7xrm0o.com1.z0.glb.clouddn.com/startswift04.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="看可能" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">看可能</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">软件工程师</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.winnhe.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-StartSwift04" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/24/StartSwift04/" class="article-date">
+  <time datetime="2018-06-24T11:50:32.000Z" itemprop="datePublished">2018-06-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Swift/">Swift</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      StartSwift第四课
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://7xrm0o.com1.z0.glb.clouddn.com/startswift04.jpg" alt=""> </p>
+<h3 id="关于此篇"><a href="#关于此篇" class="headerlink" title="关于此篇"></a>关于此篇</h3><p>前三篇介绍了Swift开发的基础姿势和列表页的创建、页面跳转等常见开发姿势，感兴趣童鞋可以点击<a href="http://www.winnhe.com/categories/Swift/">这里</a>查看。我们在实际开发中一个常见场景就是从服务端获取数据并展示，本篇就着这一场景向大家介绍Swift中自定义view，数据请求并处理展示。   </p>
+<a id="more"></a> 
+<h3 id="网络数据请求"><a href="#网络数据请求" class="headerlink" title="网络数据请求"></a>网络数据请求</h3><h4 id="Alamofire"><a href="#Alamofire" class="headerlink" title="Alamofire"></a>Alamofire</h4><p>OC时代在AF加持下网络请求变的如虎添翼，Alamofire亦如此，三方库我们依然采用pod来进行管理。</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"># Uncomment the next line <span class="keyword">to</span> define a <span class="keyword">global</span> <span class="keyword">platform</span> <span class="keyword">for</span> your project</div><div class="line"># <span class="keyword">platform</span> :ios, <span class="string">'9.0'</span></div><div class="line"></div><div class="line">target <span class="string">'StartSwift04'</span> <span class="keyword">do</span></div><div class="line">  # Comment the next line <span class="keyword">if</span> you<span class="string">'re not using Swift and don'</span>t want <span class="keyword">to</span> use <span class="keyword">dynamic</span> frameworks</div><div class="line">  use_frameworks!</div><div class="line"></div><div class="line">  # Pods <span class="keyword">for</span> StartSwift04</div><div class="line">    pod <span class="string">'Alamofire'</span>, <span class="string">'~&gt; 4.5'</span></div><div class="line">    pod <span class="string">'SnapKit'</span>, <span class="string">'~&gt; 4.0.0'</span></div><div class="line">    pod <span class="string">'SDWebImage'</span>, <span class="string">'~&gt; 4.0'</span></div><div class="line">    pod <span class="string">'HandyJSON'</span>, <span class="string">'~&gt; 4.1.1'</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>这里引入了网络数据请求框架Alamofire, 自动布局框架SnapKit, 图片加载框架SDWebImage.目标页面有图片、有布局设置，以及网络请求，这三个框架刚好够，接下来看应用。let`s go：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="type">Alamofire</span>.request(<span class="string">"https://meizi.leanapp.cn/category/QingXin/page/1"</span>).responseJSON &#123; response <span class="keyword">in</span></div><div class="line">    </div><div class="line">    <span class="keyword">self</span>.view.hud.dismiss()</div><div class="line">    <span class="keyword">switch</span> response.result.isSuccess &#123;</div><div class="line">        </div><div class="line">    <span class="keyword">case</span> <span class="literal">true</span>:</div><div class="line">        </div><div class="line">        <span class="comment">//把得到的JSON数据转为数组</span></div><div class="line">        </div><div class="line">        <span class="keyword">if</span> <span class="keyword">let</span> dic = response.result.value <span class="keyword">as</span>? [<span class="type">String</span>: <span class="type">AnyObject</span>],</div><div class="line">            </div><div class="line">            <span class="comment">//遍历数组得到每一个字典模型</span></div><div class="line">            <span class="keyword">let</span> items = dic[<span class="string">"results"</span>] <span class="keyword">as</span>? [[<span class="type">String</span>: <span class="type">AnyObject</span>]] &#123;</div><div class="line">            <span class="keyword">for</span> dict <span class="keyword">in</span> items &#123;</div><div class="line">                <span class="keyword">let</span> model = <span class="keyword">try</span>? <span class="type">SSDecoder</span>.decode(<span class="type">MovieDetailModel</span>.<span class="keyword">self</span>, param:dict)</div><div class="line">                <span class="built_in">print</span>(<span class="string">"dict --is %@"</span>,dict)</div><div class="line">                <span class="keyword">self</span>.dataArray.add(model)</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">self</span>.detailTableView.reloadData()</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">    <span class="keyword">case</span> <span class="literal">false</span>:</div><div class="line">        </div><div class="line">        <span class="built_in">print</span>(response.result.error)</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Alamofire详细说明略过不提，看可能在学习时卡在了数据解析上，接口返回的是一个字典，我们展示需要字典中某个key对应的数组。Swift4开始Codable协议的引入，方便了我们对数据的解析。但是，不熟悉，在解析时遇到这么一个问题<br><img src="http://7xrm0o.com1.z0.glb.clouddn.com/startswift0402.png" alt=""><br>看数据处理，对json数据解析就没说要转data, 百思不得姐，最后找到了解决方案<br>不忘兄的这篇博文解决了我的疑惑<a href="https://www.jianshu.com/p/b058369efd09" target="_blank" rel="external">swift4 字典-&gt;模型-转换</a><br>关于数据解析推荐以下文章<br><a href="http://www.rockerhx.com/2017/09/25/2017-09-25-Swift4-Codable-Basic/" target="_blank" rel="external">Swift4 终极解析方案：基础篇</a><br><a href="https://www.jianshu.com/p/d7ba741e6009" target="_blank" rel="external">Swift 4.0 | JSON数据的解析和编码</a></p>
+<h4 id="model"><a href="#model" class="headerlink" title="model"></a>model</h4><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">struct MovieDetailModel: Decodable &#123;</div><div class="line">    <span class="keyword">var</span> category : <span class="built_in">String</span></div><div class="line">    <span class="keyword">var</span> group_url : <span class="built_in">String</span></div><div class="line">    <span class="keyword">var</span> image_url : <span class="built_in">String</span></div><div class="line">    <span class="keyword">var</span> objectId : <span class="built_in">String</span></div><div class="line">    <span class="keyword">var</span> thumb_url : <span class="built_in">String</span></div><div class="line">    <span class="keyword">var</span> title: <span class="built_in">String</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>目前看来使用struct后不需要单独创建NSObject了。</p>
+<h4 id="自定义cell"><a href="#自定义cell" class="headerlink" title="自定义cell"></a>自定义cell</h4><p>代码如下：  </p>
+<pre><code>
+//
+//  MoviePreviewCell.swift
+//  StartSwift04
+//
+//  Created by Winn on 2017/12/20.
+//  Copyright © 2017年 Winn. All rights reserved.
+//
+
+import UIKit
+import SnapKit
+import SDWebImage
+
+extension MoviePreviewCell {
+
+    func uploadUI() {
+        guard let model = album else {
+            return
+        }
+
+        iconImageView.sd_setImage(with: URL(string: model.image_url), placeholderImage: UIImage(named: &quot;placeholder.png&quot;))
+
+        nameLabel.text = model.title
+    }
+}
+
+
+class MoviePreviewCell: UITableViewCell {
+
+    let iconImageView: UIImageView = UIImageView()
+    let nameLabel: UILabel = UILabel()
+
+
+    var album: MovieDetailModel? {
+        didSet {
+            uploadUI()
+        }
+    }
+
+
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        if !self.isEqual(nil) {
+            contentView.addSubview(iconImageView)
+            contentView.addSubview(nameLabel)
+            makeConstraints() 
+        }
+    }
+
+    func makeConstraints() {
+        iconImageView.snp.makeConstraints { (maker) in
+            maker.top.equalToSuperview().offset(30)
+            maker.right.equalToSuperview()
+            maker.left.equalToSuperview()
+            maker.height.equalTo(contentView.snp.width)
+        }
+
+        nameLabel.snp.makeConstraints { (maker) in
+            maker.top.equalToSuperview().offset(5)
+            maker.right.equalToSuperview().offset(-10)
+            maker.left.equalToSuperview().offset(10)
+            maker.height.equalTo(18)
+        }
+
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError(&quot;init(coder:) has not been implemented&quot;)
+    }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+   }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+   }
+}
+</code></pre><p>至此，让我们看下最终呈现效果：<br><img src="http://7xrm0o.com1.z0.glb.clouddn.com/startswift0403.png" alt="">  </p>
+<p>咖啡时间!  </p>
+<h3 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h3><p>一个项目，基本的有自定义view， 数据的处理，页面的渲染展示。这篇我们从网络数据的展示开始，缕了缕这一过程。相信下一步完整项目的起飞准备工作已经做好了。就让我们相遇在看可能下一个没加班的时段吧：）  </p>
+<h3 id="项目Demo"><a href="#项目Demo" class="headerlink" title="项目Demo"></a>项目Demo</h3><p>点击<a href="https://github.com/endust/StartSwift/tree/master/StartSwift04" target="_blank" rel="external">这里</a>查看</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.winnhe.com/2018/06/24/StartSwift04/" data-id="cjisqj9dq0000nfncdzw62i0p" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/31/前端切入小结/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">前端切入小结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Apple周边/">Apple周边</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/">Objective-C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/24/StartSwift04/">StartSwift第四课</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/31/前端切入小结/">前端切入小结</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/13/StartSwift第三课/">StartSwift第三课</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/10/科技与人文路口/">非同凡响</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/06/Swift探秘二/">StartSwift第二课</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Winn<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
